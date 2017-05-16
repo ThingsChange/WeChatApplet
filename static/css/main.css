@@ -141,6 +141,8 @@ header{
     background: #313b43;
     float: left;
     margin-top: -5.5vw;
+    z-index: 100;
+    position: relative;
 }
 #rightSide{
     float: right;
@@ -169,7 +171,81 @@ header{
     float: right;
     background-size: 5000%;
     margin-top: .6vw;
+    cursor: pointer;
+}
+
+.section .header .sectionTab{
+    float: right;
+    margin-top: .2vw;
+}
+
+.section:after{
+    overflow: hidden;
+    content:'';
+    height:0;
+    display: block;
+    clear: both;
 }
 
 
 /*左右侧 end*/
+
+/*公共组件*/
+/*图表中的tab start*/
+.sectionTab{
+    display: inline-block;
+}
+.sectionTab span{
+    -webkit-border-radius: 0 .2vw .2vw 0;
+    -moz-border-radius: 0 .2vw .2vw 0;
+    border-radius: 0 .3vw .3vw 0;
+    display: inline-block;
+    background: #51595c;
+    border: 1px solid #111213;
+    font-size: 1vw;
+    padding: .2vw;
+    cursor: pointer;
+    color: #fff;
+    margin-left: -6px;
+}
+
+.sectionTab span:first-child{
+    border-radius: .3vw 0 0 .3vw;
+    margin-left:0;
+}
+
+.sectionTab span.active{
+    background: #212425;
+}
+/*图表中的tab end*/
+
+/*进度条 start*/
+/*长度、颜色各处不同 分别控制；*/
+.progressBar{
+    width: auto;
+    display: inline-block;
+    position: relative;
+}
+.progressBar .progressBarbg{
+    background: #37424b;
+    height: .7vw;
+    width: 4.5vw;
+    border-radius: 3vw;
+    border: 1px solid #444;
+    border-bottom-color: #555;
+}
+.progressBar .progressBarbar{
+    height: .7vw;
+    width: 2vw;
+    background: #eee;
+    position: absolute;
+    top: 1px;
+    border-radius: 3vw;
+}
+
+/*蓝色*/
+.progressBar.pg_blue .progressBarbar{
+    background: -webkit-linear-gradient(top,#1ba9f9,#0d6bc2);
+
+}
+/*进度条 end*/

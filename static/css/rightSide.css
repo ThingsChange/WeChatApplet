@@ -1,0 +1,47 @@
+#duty .content ul{
+    color: #fff;
+    font-size: 1vw;
+    margin: 1vw 0 1vw 1vw;
+    width: 11vw;
+    float:left
+}
+#duty .content ul li{
+    line-height: 1.8vw;
+}
+#duty .content ul li span{
+    width: 8vw;
+    display: inline-block;
+}
+
+#duty .content div{
+    float: right;
+    font-size: 1.1vw;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5vw;
+    margin-top: 2.3vw;
+}
+
+#cause .content{
+    padding:.1vw;
+}
+
+#cause .content>div{
+    height: 4.7vw;
+    width: 5.3vw;
+    border: 1px solid #333;
+    float: left;
+    background: -webkit-linear-gradient(top,#5d6772,#354250);
+    text-align: center;
+    font-size: 1vw;
+    line-height: 1.5vw;
+    padding-top: .5vw;
+}
+#cause .content>div.long{
+    width: 10.7vw;
+}
+
+#cause .content>div .percent{
+    font-size: 1vw;
+    color: #26fffe;
+}
