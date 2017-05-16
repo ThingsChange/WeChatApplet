@@ -18,6 +18,7 @@ time, mark, audio, video {
     font-family:'Microsoft YaHei';
     vertical-align:baseline;
     background:transparent;
+    color:#fff
 }
 
 body {
@@ -33,7 +34,7 @@ footer,header,menu,nav,section,summary {
     display:block;
 }
 
-nav ul {
+ul {
     list-style:none;
 }
 
