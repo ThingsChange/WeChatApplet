@@ -2,7 +2,7 @@
 
 /*头部 start*/
 header{
-    background: url(../images/moqiSprite.png) 0 -149px no-repeat;
+    background: url(../images/moqiSprite.png) 0 -13.5vw no-repeat;
     -webkit-background-size: 100%;
     background-size: 100%;
     height: 10.5vw;
@@ -147,7 +147,7 @@ header{
 }
 
 .section .header{
-    background: -webkit-linear-gradient(top,#636e7b,#2e3640);
+    background: -webkit-linear-gradient(top,#6c7783,#2e3640);
     border-bottom: 1px solid #263139;
 }
 
@@ -162,7 +162,13 @@ header{
 }
 
 .section .header .goToDetail{
-    background: url(../images/moqiSprite.png) -38.5vw -7.3vw no-repeat;
+    background: url(../images/moqiSprite.png) 0 0 no-repeat;
+    height: 2vw;
+    width: 2vw;
+    display: inline-block;
+    float: right;
+    background-size: 5000%;
+    margin-top: .6vw;
 }
 
 
