@@ -2,6 +2,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
+    z-index: 101;
     /*background: #999;*/
 }
 .bottom-head {
@@ -36,7 +37,7 @@
     margin-right: 0.8vw;
     float: left;
     background:-webkit-gradient(linear, 0 0, 0 bottom, from(#333f4c), to(rgba(93, 104, 116, 0.8)));
-    background: -webkit-linear-gradient(top, #7c8896, #343d48);
+    background: -webkit-linear-gradient(top, #66707b, #343d48);
     font-size: 1.55vw;
     text-align: center;
     line-height: 1.8vw;
