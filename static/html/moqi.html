@@ -9,7 +9,14 @@
 <body>
 <!--header start-->
 <header>
-<h2 class="mainTitle">莫旗脱贫攻坚指挥调度平台</h2>
+    <h2 class="mainTitle">莫旗脱贫攻坚指挥调度平台</h2>
+    <div id="changeAreaInHeader">
+        <label for="areaSelectInHeader">区域：</label>
+        <select name="" id="areaSelectInHeader">
+            <option value="1">莫力达瓦达翰尔族自治旗</option>
+        </select>
+        <div class="logout">退出</div>
+    </div>
     <div id="tab">
         <div class="homepage active">首页</div>
         <div class="fivePeople">五人小组</div>
@@ -18,12 +25,37 @@
         <div class="sixExactness">六个精准</div>
 
     </div>
+    <div id="countDownDiv">
+        <div class="countDownTitle">2017年脱贫攻坚计划倒计时</div>
+        <span>距离任务完成还有</span>
+        <div id="countDown">
+            <span class="day">365</span>
+            <span class="hour">23</span>
+            <span class="minute">59</span>
+            <span class="second">59</span>
+        </div>
+
+    </div>
+
 </header>
 <!--header end-->
-
 <!--right start-->
+<div id="rightSide">
+    <div class="section">
+        <div class="header">
+            <h2>责任主体</h2>
+            <span class="goToDetail"></span>
+        </div>
+    </div>
+
+</div>
 
 <!--right end-->
+<!--left start-->
+<div id="leftSide">
+
+</div>
+<!--left end-->
 
 </body>
 </html>
