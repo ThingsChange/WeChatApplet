@@ -1,0 +1,46 @@
+.section-first-body {
+    padding: 0 1vw;
+}
+.section-first-body>ul>li {
+    overflow: hidden;
+    padding: 1.2vw 0;
+    border-bottom: 1px solid #5b6671;
+}
+#leftSide .f-left-top {
+    width: 5.8vw;
+    height: 1.3vw;
+    background: #092544;
+    border-radius: 0.6vw;
+    font-size: 0.8vw;
+    text-align: center;
+    line-height: 1.3vw;
+}
+.f-left ul li {
+    height: 2vw;
+    line-height: 2vw;
+    font-size: 1vw;
+}
+.f-left ul {
+    padding-left: 1vw;
+    margin-top: 0.5vw;
+}
+.f-left {
+    float: left;
+    width: 58%;
+}
+.f-right {
+    float: right;
+    width: 36%;
+    height: 6.6vw;
+    margin-top: 0.6vw;
+    background: black;
+}
+.left-btn {
+    width: 2.24vw;
+    height: 7vw;
+    float: right;
+    background: url("../images/left_slide_btn.png") no-repeat;
+    background-size: 100%;
+    margin-top: 15vw;
+    margin-right: -2.24vw;
+}

@@ -5,6 +5,7 @@
     <title>莫旗大屏</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/leftSide.css">
     <link rel="stylesheet" href="../css/rightSide.css">
     <link rel="stylesheet" href="../css/screenBottom.css">
 </head>
@@ -152,6 +153,7 @@
 
 <!--right end-->
 <div id="leftSide">
+    <div class="left-btn"></div>
     <div class="section">
         <div class="header">
             <!--<span class="goToDetail"></span>-->
@@ -161,7 +163,7 @@
             <ul>
                 <li>
                     <div class="f-left">
-                        <div>贫困户</div>
+                        <div class="f-left-top">贫困户</div>
                         <ul>
                             <li>计划脱贫（户）：<span>1900</span></li>
                             <li>实际脱贫（户）：<span>100</span></li>
@@ -170,8 +172,27 @@
                     </div>
                     <div class="f-right"></div>
                 </li>
-                <li></li>
-                <li></li>
+                <li>
+                    <div class="f-left">
+                        <div class="f-left-top">贫困人口</div>
+                        <ul>
+                            <li>计划脱贫（户）：<span>1900</span></li>
+                            <li>实际脱贫（户）：<span>100</span></li>
+                            <li>还未脱贫（户）：<span>1200</span></li>
+                        </ul>
+                    </div>
+                    <div class="f-right"></div>
+                </li>
+                <li>
+                    <div class="f-left">
+                        <div class="f-left-top">贫困发生率</div>
+                        <ul>
+                            <li>贫困人口（人）：<span>1900</span></li>
+                            <li>农村户籍人口（人）：<br><span>2400</span></li>
+                        </ul>
+                    </div>
+                    <div class="f-right"></div>
+                </li>
             </ul>
         </div>
     </div>
@@ -181,7 +202,16 @@
             <h2>2017年度扶贫任务</h2>
         </div>
         <div class="section-second-body">
-
+            <ul>
+                <li>
+                    <div class="s-left-header"></div>
+                    <div class="s-left-bar"></div>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -311,6 +341,7 @@
         var outerBox = $("#"+id);
         var innerBoxArr = outerBox.children().children();
         var leng = innerBoxArr.length;
+        outerBox.children().animate({left:0},"fast")
         if(leng<3)return;
         var i=1;
         var setLeft = function(arr){
@@ -324,10 +355,9 @@
             outerBox.children().animate({left: distance},"slow");
             i++;
         }
-        var timeOut = setInterval(setLeft.bind(null, innerBoxArr), 3800);
+        window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 3800);
     }
     $(function(){
-        slide("slideBox");
         $(".bottom-header ul").on("click","li", function(){
             var activeBool = $(this).hasClass("click-active");
             if(!activeBool){
@@ -336,7 +366,16 @@
             }
         });
         $(".bottom-head").on("click",function(){
-            $(this).siblings(".bottom-content").slideToggle();
+            var $this = $(this).siblings(".bottom-content");
+            $this.slideToggle(function(){
+                var showBool = $this.is(":visible");
+                if(!showBool){
+                    clearTimeout(timeOut);
+                }else{
+                    slide("slideBox");
+                }
+            });
+
         })
     })
 </script>
