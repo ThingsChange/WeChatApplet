@@ -1,5 +1,13 @@
 /*整体框架及公共css*/
 
+/*滚动条 start*/
+::-webkit-scrollbar {width: 5px;height:6px;}
+::-webkit-scrollbar-track-piece{background-color: #333;margin: -2px;}
+::-webkit-scrollbar-thumb{background: #fff;min-height: 150px;min-width: 150px;border-radius: 10px;}
+::-webkit-scrollbar-thumb:vertical:hover{background: #fff}
+::-webkit-scrollbar-thumb:horizontal:hover{background: #fff}
+/*滚动条 end*/
+
 /*头部 start*/
 header{
     background: url(../images/moqiSprite.png) 0 -13.5vw no-repeat;
@@ -136,13 +144,15 @@ header{
 
 /*左右侧 start*/
 #leftSide,#rightSide{
-    width: 22vw;
-    min-height: 50vw;/*待改*/
+    width: 23vw;
+    height: auto;/*待改*/
     background: #313b43;
     float: left;
-    margin-top: -5.5vw;
+    margin-top: -5.3vw;
     z-index: 100;
     position: relative;
+    overflow-y:auto;
+    /*overflow-x: hidden;*/
 }
 #rightSide{
     float: right;
