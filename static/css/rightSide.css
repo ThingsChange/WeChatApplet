@@ -1,3 +1,19 @@
+#rightSide{
+    position: relative;
+}
+/*首页 start*/
+.leftOperation{
+    position: absolute;
+    background: url(../images/moqiSprite.png) -9.5vw 0vw no-repeat;
+    right: 23vw;
+    top: 16vw;
+    height: 8.5vw;
+    width: 2.8vw;
+    background-size: 3400%;
+}
+.leftOperation.closed{
+    background: url(../images/moqiSprite.png) -9.5vw 0vw no-repeat;
+}
 #duty .content ul{
     color: #fff;
     font-size: 1vw;
@@ -28,7 +44,7 @@
 
 #cause .content>div{
     height: 4.7vw;
-    width: 5.3vw;
+    width: 5.4vw;
     border: 1px solid #333;
     float: left;
     background: -webkit-linear-gradient(top,#5d6772,#354250);
@@ -38,7 +54,7 @@
     padding-top: .5vw;
 }
 #cause .content>div.long{
-    width: 10.7vw;
+    width: 10.9vw;
 }
 #cause .long .progressBar{
     width: 8vw;
@@ -51,7 +67,10 @@
 
 #cause #chartForCause{
     clear: both;
-    height: 2vw;
-    width:2vw;
+    height: 18vw;
+    width: 22vw;
     background: transparent;
+    border: none;
 }
+
+/*首页 end*/

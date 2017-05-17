@@ -40,6 +40,7 @@
 </header>
 <!--header end-->
 <!--right start-->
+<div class="leftOperation "></div>
 <div id="rightSide">
     <!--首页 start-->
     <div class="section" id="duty">
@@ -153,6 +154,11 @@
         </div>
     </div>
     <!--首页 end-->
+
+    <!--贫困家庭 start-->
+
+
+    <!--贫困家庭 end-->
 
     <!--<div class="section">-->
         <!--<div class="header">-->
@@ -391,7 +397,9 @@
                 <div class="bottom-body"></div>
             </div>
         </div>
-        <script src="../lib/jquery-2.2.1.min.js"></script>
+<script src="../lib/jquery-2.2.1.min.js"></script>
+<script src="../lib/echarts.min.js"></script>
+<script src="../js/charts.js"></script>
         <script>
         //轮播
         function slide(id){
@@ -437,6 +445,12 @@
 
 
         $(".progressBarBar").css({"width":"40%"});//测试进度条动画
+
+        var height = $("header").height();
+        var clientHeight = $(window).height();
+        var margin = +$("#rightSide").css("margin-top").slice(0,-2);
+        var sideHeight= clientHeight-height-margin;
+        $("#rightSide,#leftSide").height(sideHeight-2);
     })
 </script>
 </body>
