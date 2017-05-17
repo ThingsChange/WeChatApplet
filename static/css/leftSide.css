@@ -40,6 +40,13 @@
     height: 6.6vw;
     margin-top: 0.6vw;
 }
+.center-rate {
+    font-size:0.8vw;
+    position: relative;
+    top: -50%;left: 50%;
+    text-align:center;
+    transform: translate(-50%, -50%);
+}
 .left-btn {
     width: 2.8vw;
     height: 8.5vw;
