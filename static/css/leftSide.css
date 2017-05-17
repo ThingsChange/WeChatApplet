@@ -1,10 +1,16 @@
-.section-first-body {
+#leftSide {
+    font-size: 1vw;
+}
+.section-body {
     padding: 0 1vw;
 }
-.section-first-body>ul>li {
+.section-body>ul>li {
     overflow: hidden;
-    padding: 1.2vw 0;
+    margin: 1.2vw 0;
     border-bottom: 1px solid #5b6671;
+}
+.second-sec>ul>li {
+    border: none;
 }
 #leftSide .f-left-top {
     width: 5.8vw;
@@ -22,7 +28,7 @@
 }
 .f-left ul {
     padding-left: 1vw;
-    margin-top: 0.5vw;
+    margin: 0.5vw 0;
 }
 .f-left {
     float: left;
@@ -43,4 +49,26 @@
     background-size: 100%;
     margin-top: 15vw;
     margin-right: -2.24vw;
+}
+.s-left-header {
+    padding: 0.8vw 0;
+}
+.second-sec .progressBar{
+    width: 14vw;
+}
+.second-sec .progressBar .progressBarbar {
+    width: 5vw;
+    height: .86vw;
+}
+.second-sec .progressBar .progressBarbg {
+    width: 14vw;
+    height: .86vw;
+}
+.progressRate {
+    float: right;
+    font-size: 0.5vw;
+    color: #26fffe;
+}
+.progressRate span {
+    color: #26fffe;
 }

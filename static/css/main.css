@@ -253,8 +253,26 @@ header{
 
 
 /*蓝色*/
-.progressBar.pg_blue .progressBarBar{
-    background: -webkit-linear-gradient(top,#1ba9f9,#0c67bf);
+.progressBar.pg_blue .progressBarbar{
+    background: -webkit-linear-gradient(top,#1ba9f9,#0d6bc2);
+
+}
+/*红色*/
+.progressBar.pg_red .progressBarbar{
+    background: -webkit-linear-gradient(top,#cf5353,#a21a1c);
+}
+/*橙色*/
+.progressBar.pg_orange .progressBarbar{
+    background: -webkit-linear-gradient(top,#e68769,#b73815);
+}
+/*绿色*/
+.progressBar.pg_green .progressBarbar{
+    background: -webkit-linear-gradient(top,#b0d25a,#77a51f);
+
+}
+/*青色*/
+.progressBar.pg_light_blue .progressBarbar{
+    background: -webkit-linear-gradient(top,#1bf9cd,#14ae8c);
 
 }
 /*进度条 end*/
