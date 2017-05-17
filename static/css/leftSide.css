@@ -39,7 +39,6 @@
     width: 36%;
     height: 6.6vw;
     margin-top: 0.6vw;
-    background: black;
 }
 .left-btn {
     width: 2.24vw;
@@ -53,16 +52,28 @@
 .s-left-header {
     padding: 0.8vw 0;
 }
+.second-sec .progressBar .progressBarBar{
+    -webkit-transition: width 2s;
+    -moz-transition: width 2s;
+    -o-transition: width 2s;
+    transition: width 2s;
+}
 .second-sec .progressBar{
     width: 14vw;
+    display: inline-block;
+    position: relative;
 }
-.second-sec .progressBar .progressBarbar {
-    width: 5vw;
+.second-sec .progressBar .progressBarBar {
+    width: 0;
     height: .86vw;
 }
 .second-sec .progressBar .progressBarbg {
     width: 14vw;
     height: .86vw;
+    background: #37424b;
+    border-radius: 3vw;
+    border: 1px solid #444;
+    border-bottom-color: #555;
 }
 .progressRate {
     float: right;

@@ -263,25 +263,25 @@ header{
 
 
 /*蓝色*/
-.progressBar.pg_blue .progressBarbar{
+.progressBar.pg_blue .progressBarBar{
     background: -webkit-linear-gradient(top,#1ba9f9,#0d6bc2);
 
 }
 /*红色*/
-.progressBar.pg_red .progressBarbar{
+.progressBar.pg_red .progressBarBar{
     background: -webkit-linear-gradient(top,#cf5353,#a21a1c);
 }
 /*橙色*/
-.progressBar.pg_orange .progressBarbar{
+.progressBar.pg_orange .progressBarBar{
     background: -webkit-linear-gradient(top,#e68769,#b73815);
 }
 /*绿色*/
-.progressBar.pg_green .progressBarbar{
+.progressBar.pg_green .progressBarBar{
     background: -webkit-linear-gradient(top,#b0d25a,#77a51f);
 
 }
 /*青色*/
-.progressBar.pg_light_blue .progressBarbar{
+.progressBar.pg_light_blue .progressBarBar{
     background: -webkit-linear-gradient(top,#1bf9cd,#14ae8c);
 
 }
