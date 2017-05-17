@@ -48,3 +48,10 @@
     font-size: 1vw;
     color: #26fffe;
 }
+
+#cause #chartForCause{
+    clear: both;
+    height: 2vw;
+    width:2vw;
+    background: transparent;
+}
