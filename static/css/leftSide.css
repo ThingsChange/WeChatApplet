@@ -41,13 +41,16 @@
     margin-top: 0.6vw;
 }
 .left-btn {
-    width: 2.24vw;
-    height: 7vw;
-    float: right;
-    background: url("../images/left_slide_btn.png") no-repeat;
-    background-size: 100%;
-    margin-top: 15vw;
-    margin-right: -2.24vw;
+    width: 2.8vw;
+    height: 8.5vw;
+    /* float: right; */
+    background: url(../images/left_slide_btn.png) no-repeat;
+    background-size: 96%;
+    margin-top: 5.6vw;
+    margin-left: 22.6vw;
+    position: absolute;
+    z-index: 101;
+    cursor: pointer;
 }
 .s-left-header {
     padding: 0.8vw 0;

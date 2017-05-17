@@ -173,8 +173,8 @@
 </div>
 
         <!--right end-->
+        <div class="left-btn"></div>
         <div id="leftSide">
-            <div class="left-btn"></div>
             <div class="section">
                 <div class="header">
                     <!--<span class="goToDetail"></span>-->
@@ -191,7 +191,7 @@
                                     <li>还未脱贫（户）：<span>1200</span></li>
                                 </ul>
                             </div>
-                            <div class="f-right"></div>
+                            <div class="f-right" id = "poorFamily"></div>
                         </li>
                         <li>
                             <div class="f-left">
@@ -202,7 +202,7 @@
                                     <li>还未脱贫（户）：<span>1200</span></li>
                                 </ul>
                             </div>
-                            <div class="f-right"></div>
+                            <div class="f-right" id = "poorPeople"></div>
                         </li>
                         <li style="border: none;">
                             <div class="f-left">
@@ -212,7 +212,7 @@
                                     <li>农村人口（人）：<span>2400</span></li>
                                 </ul>
                             </div>
-                            <div class="f-right"></div>
+                            <div class="f-right" id = "poorRate"></div>
                         </li>
                     </ul>
                 </div>
@@ -399,7 +399,7 @@
         </div>
 <script src="../lib/jquery-2.2.1.min.js"></script>
 <script src="../lib/echarts.min.js"></script>
-<script src="../js/leftFharts.js"></script>
+<script src="../js/leftChart.js"></script>
 <script src="../js/charts.js"></script>
         <script>
         //轮播
@@ -446,7 +446,10 @@
 
 
         $(".progressBarBar").css({"width":"40%"});//测试进度条动画
-
+        //added by zrq
+        pieChart("poorFamily","#8ed02b","#1b9aea");
+        pieChart("poorPeople","#8ed02b","#1b9aea");
+        pieChart("poorRate","#8ed02b","#1b9aea");
         var height = $("header").height();
         var clientHeight = $(window).height();
         var margin = +$("#rightSide").css("margin-top").slice(0,-2);
