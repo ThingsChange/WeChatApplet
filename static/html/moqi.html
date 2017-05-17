@@ -72,68 +72,82 @@
                 <p>因病</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>因学</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>因灾</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>缺土地</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>缺水</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>缺技术</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>缺劳力</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
             <div>
                 <p>缺资金</p>
                 <p class="percent">40.52%</p>
                 <div class="progressBar pg_blue">
-                    <div class="progressBarbg"></div>
-                    <div class="progressBarbar"></div>
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
                 </div>
             </div>
-            <div class="long"></div>
-            <div class="long"></div>
+            <div class="long">
+                <p>交通条件落后</p>
+                <p class="percent">40.52%</p>
+                <div class="progressBar pg_blue">
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
+                </div>
+            </div>
+            <div class="long">
+                <p>自身动力不足</p>
+                <p class="percent">40.52%</p>
+                <div class="progressBar pg_blue">
+                    <div class="progressBarBg"></div>
+                    <div class="progressBarBar"></div>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -335,6 +349,7 @@
     </div>
 </div>
 <script src="../js/jquery-2.2.1.min.js"></script>
+<script src="../js/echarts.min.js"></script>
 <script>
     //轮播
     function slide(id){
@@ -377,6 +392,9 @@
             });
 
         })
+
+
+        $(".progressBarBar").css({"width":"40%"});//测试进度条动画
     })
 </script>
 </body>

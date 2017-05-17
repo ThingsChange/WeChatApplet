@@ -40,6 +40,9 @@
 #cause .content>div.long{
     width: 10.7vw;
 }
+#cause .long .progressBar{
+    width: 8vw;
+}
 
 #cause .content>div .percent{
     font-size: 1vw;

@@ -220,32 +220,41 @@ header{
 /*图表中的tab end*/
 
 /*进度条 start*/
-/*长度、颜色各处不同 分别控制；*/
+
 .progressBar{
-    width: auto;
     display: inline-block;
     position: relative;
+    width: 4.5vw;
 }
-.progressBar .progressBarbg{
+.progressBar .progressBarBg{
     background: #37424b;
     height: .7vw;
-    width: 4.5vw;
+    width: 100%;
     border-radius: 3vw;
     border: 1px solid #444;
     border-bottom-color: #555;
 }
-.progressBar .progressBarbar{
+.progressBar .progressBarBar{
     height: .7vw;
-    width: 2vw;
+    width: 0;
     background: #eee;
     position: absolute;
     top: 1px;
     border-radius: 3vw;
 }
 
+
+.progressBar .progressBarBar{
+    -webkit-transition: width 2s;
+    -moz-transition: width 2s;
+    -o-transition: width 2s;
+    transition: width 2s;
+}
+
+
 /*蓝色*/
-.progressBar.pg_blue .progressBarbar{
-    background: -webkit-linear-gradient(top,#1ba9f9,#0d6bc2);
+.progressBar.pg_blue .progressBarBar{
+    background: -webkit-linear-gradient(top,#1ba9f9,#0c67bf);
 
 }
 /*进度条 end*/
