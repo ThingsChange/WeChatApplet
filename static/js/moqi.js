@@ -5,12 +5,13 @@ require.config({
     baseUrl: "",
     paths: {
         "jquery": "../lib/jquery-2.2.1.min",
+        "template": "../lib/template",
         "chart": "../js/leftChart",
         "charts": "../js/charts"
     }
 });
 
-require(['jquery', 'chart', 'charts'], function ($, chart, charts){
+require(['jquery','template','chart','charts'], function ($,template,chart,charts){
     // some code here
     function slide(id){
         var outerBox = $("#"+id);
@@ -45,6 +46,13 @@ require(['jquery', 'chart', 'charts'], function ($, chart, charts){
             if(!activeBool){
                 $(this).addClass("active");
                 $(this).siblings("div").removeClass("active")
+            }
+            if($(this).hasClass("homepage")){//点击首页按钮
+                $("#leftTabs").addClass("hide");
+                $("#leftOperation").removeClass("hide");
+            }else if($(this).hasClass("poverty")){//点击贫困家庭按钮
+                $("#leftTabs").removeClass("hide");
+                $("#leftOperation").addClass("hide");
             }
         });
         //左侧 人/户 切换点击事件

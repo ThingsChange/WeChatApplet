@@ -40,7 +40,7 @@
 </header>
 <!--header end-->
 <!--right start-->
-<div id="leftTabs hide">
+<div id="leftTabs" class="hide">
     <span class="disease active"></span>
     <span class="education"></span>
     <span class="sex"></span>
@@ -386,36 +386,38 @@
     <!--学历结构 end-->
     <!--性别结构 start-->
 
-    <div class="section" id="populationStructure">
-        <div class="header">
-            <h2>人口结构</h2>
-        </div>
-        <div class="content">
-            <div>
-                <div id="maleChart"></div>
-                <p>男（所占比例）</p>
-            </div>
-            <div>
-                <div id="femaleChart"></div>
-                <p>女（所占比例）</p>
-            </div>
-        </div>
-    </div>
+    <!--<div class="section" id="populationStructure">-->
+        <!--<div class="header">-->
+            <!--<h2>人口结构</h2>-->
+        <!--</div>-->
+        <!--<div class="content">-->
+            <!--<div>-->
+                <!--<div id="maleChart"></div>-->
+                <!--<p>男（所占比例）</p>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<div id="femaleChart"></div>-->
+                <!--<p>女（所占比例）</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
-    <div class="section" id="sexStructure">
-        <div class="header">
-            <h2>性别分类</h2>
-        </div>
-        <div class="content">
-            <p>男（所占人数）</p>
-            <p class="sexCount">222222222</p>
-            <p>女（所占人数）</p>
-            <p class="sexCount">222222222</p>
-        </div>
-    </div>
+    <!--<div class="section" id="sexStructure">-->
+        <!--<div class="header">-->
+            <!--<h2>性别分类</h2>-->
+        <!--</div>-->
+        <!--<div class="content">-->
+            <!--<p>男（所占人数）</p>-->
+            <!--<p class="sexCount">222222222</p>-->
+            <!--<p>女（所占人数）</p>-->
+            <!--<p class="sexCount">222222222</p>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <!--性别结构 end-->
     <!--贫困家庭 end-->
+    <!--五人小组 start-->
+    <!---->
 
 </div>
 
@@ -524,7 +526,7 @@
                 </tbody>
             </table>
         </div>
-        &lt;!&ndash;<div class="section-body">
+        <!--<div class="section-body">
             <ul>
                 <li>
                     <div class="f-left">
@@ -823,5 +825,123 @@
     </div>
 </div>
 <script src="../lib/require.js" data-main="../js/moqi"></script>
+
+
+<!-- 右侧-模板 start-->
+<!--首页 start-->
+<script id="homepageRightSideTemp" type="text/html">
+    <div class="section" id="duty">
+        <div class="header">
+            <span class="goToDetail"></span>
+            <h2>责任主体</h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li><span>五人小组（个）：</span>888</li>
+                <li><span>村支书（人）：</span>888</li>
+                <li><span>帮扶干部（人）：</span>888</li>
+                <li><span>家医团队（个）：</span>888</li>
+                <li><span>专科医生（个）：</span>888</li>
+            </ul>
+            <div>
+                <p>覆盖乡镇（办事处）</p>
+                <p>17个</p>
+                <p>覆盖行政村</p>
+                <p>220个</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="cause">
+        <div class="header">
+            <h2>致贫原因情况</h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li class="progressLi">
+                    <p>因病</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>因学</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>因灾</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>缺土地</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>缺水</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>缺技术</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>缺劳力</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi">
+                    <p>缺资金</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi long">
+                    <p>交通条件落后</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+                <li class="progressLi long">
+                    <p>自身动力不足</p>
+                    <p class="percent">40.52%</p>
+                    <div class="progressBar pg_blue">
+                        <div class="progressBarBg"></div>
+                        <div class="progressBarBar"></div>
+                    </div>
+                </li>
+            </ul>
+            <div id="chartForCause"><!--饼图--></div>
+        </div>
+    </div>
+
+</script>
 </body>
 </html>
