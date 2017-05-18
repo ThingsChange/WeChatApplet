@@ -62,7 +62,7 @@ require(['jquery', 'chart', 'charts'], function ($, chart, charts){
 
         })
 
-        charts.charts();
+        //charts.charts();
         $(".progressBarBar").css({"width":"40%"});//测试进度条动画
 //added by zrq  暂时这么判断
         var bool =$("#poorFamily").length;
