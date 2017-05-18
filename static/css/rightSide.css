@@ -10,6 +10,7 @@
     height: 8.5vw;
     width: 2.8vw;
     background-size: 3400%;
+    cursor: pointer;
 }
 #leftOperation.closed{
     background: url(../images/moqiSprite.png) -9.5vw 0vw no-repeat;

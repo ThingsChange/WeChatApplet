@@ -47,6 +47,23 @@ require(['jquery', 'chart', 'charts'], function ($, chart, charts){
                 $(this).siblings("div").removeClass("active")
             }
         });
+        //左侧 人/户 切换点击事件
+        $(".switch-head").on("click","span", function(){
+            var activeBool = $(this).hasClass("span-active");
+            if(!activeBool){
+                $(this).addClass("span-active");
+                $(this).siblings("span").removeClass("span-active")
+                var text = $(this).text();
+                if(text == "户"){
+                    $(".section-body table thead tr").children().eq(1).text("目标户数");
+                    $(".section-body table thead tr").children().eq(2).text("完成户数");
+                }else{
+                    $(".section-body table thead tr").children().eq(1).text("目标人数");
+                    $(".section-body table thead tr").children().eq(2).text("完成人数");
+                }
+            }
+
+        });
         $(".bottom-head").on("click",function(){
             var $this = $(this).siblings(".bottom-content");
             $this.slideToggle(function(){
