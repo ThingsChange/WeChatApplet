@@ -1,6 +1,18 @@
 #leftSide {
     font-size: 1vw;
 }
+#leftSide .header h2 {
+    display: inline-block;
+}
+.switch-head {
+    display: inline-block;
+}
+.switch-head span {
+    display: inline-block;
+    width: 1vw;
+    height: 1vw;
+    background: #fff;
+}
 .section-body {
     padding: 0 1vw;
 }
@@ -54,7 +66,7 @@
     background: url(../images/left_slide_btn.png) no-repeat;
     background-size: 96%;
     margin-top: 5.6vw;
-    margin-left: 22.6vw;
+    margin-left: 23vw;
     position: absolute;
     z-index: 101;
     cursor: pointer;
@@ -92,4 +104,22 @@
 }
 .progressRate span {
     color: #26fffe;
+}
+
+/*贫困家庭*/
+.section-body table {
+    width: 100%;
+    margin: 1vw 0;
+}
+.section-body thead {
+    line-height: 2vw;
+
+}
+.section-body tbody td {
+    text-align: center;
+    line-height: 2vw;
+    font-size: .9vw;
+}
+.section-body tbody tr {
+    margin: 1vw 0;
 }
