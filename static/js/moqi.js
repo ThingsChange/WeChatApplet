@@ -5,14 +5,25 @@ require.config({
     baseUrl: "",
     paths: {
         "jquery": "../lib/jquery-2.2.1.min",
+        "migrate": "../lib/jquery-migrate-1.2.1",
+        "jbox": "../lib/jquery-jbox/2.3/jquery.jBox-2.3.min",
         "template": "../lib/template",
         "chart": "../js/leftChart",
         "charts": "../js/charts"
+    },
+    shim:{
+        'jbox':{
+            deps:['jquery']
+        },
+        'migrate':{
+            deps:['jquery']
+        }
     }
 });
 
-require(['jquery','template','chart','charts'], function ($,template,chart,charts){
+require(['jquery','migrate','template','chart','charts','jbox'], function ($,migrate,template,chart,charts,jBox){
     // some code here
+    //底部轮播图
     function slide(id){
         var outerBox = $("#"+id);
         var innerBoxArr = outerBox.children().children();
@@ -62,12 +73,13 @@ require(['jquery','template','chart','charts'], function ($,template,chart,chart
                 $(this).addClass("span-active");
                 $(this).siblings("span").removeClass("span-active")
                 var text = $(this).text();
+                var obj = $(".section-body table thead tr").children();
                 if(text == "户"){
-                    $(".section-body table thead tr").children().eq(1).text("目标户数");
-                    $(".section-body table thead tr").children().eq(2).text("完成户数");
+                    obj.eq(1).text("目标户数");
+                    obj.eq(2).text("完成户数");
                 }else{
-                    $(".section-body table thead tr").children().eq(1).text("目标人数");
-                    $(".section-body table thead tr").children().eq(2).text("完成人数");
+                    obj.eq(1).text("目标人数");
+                    obj.eq(2).text("完成人数");
                 }
             }
 
@@ -101,5 +113,18 @@ require(['jquery','template','chart','charts'], function ($,template,chart,chart
         var margin = +$("#rightSide").css("margin-top").slice(0,-2);
         var sideHeight= clientHeight-height-margin;
         $("#rightSide,#leftSide").height(sideHeight-2);
+    })
+
+
+    //弹窗部分代码
+    $(".per-info").on("click",function(){
+        $.jBox('id:per-content',{title:"李茜茜",buttons:{},border:0,opacity:0.2});
+        var box=document.getElementById("jbox");
+        box.style.top = "2.6vw";
+    })
+    $(".tuopin").on("click",function(){
+        $.jBox('id:tuopin',{title:"脱贫情况",buttons:{},border:0,opacity:0.2});
+        /*            var box=document.getElementById("jbox");
+         box.style.top = "3vw";*/
     })
 });

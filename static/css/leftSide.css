@@ -121,7 +121,7 @@ span.span-active {
 }
 .progressRate {
     float: right;
-    font-size: 0.5vw;
+    font-size: .9vw;
     color: #26fffe;
 }
 .progressRate span {
@@ -137,11 +137,30 @@ span.span-active {
     line-height: 2vw;
 
 }
-.section-body tbody td {
+.section-body table td {
     text-align: center;
     line-height: 2vw;
     font-size: .9vw;
+    border: none;
+    padding: 0;
+}
+table tr:nth-child(odd) td {
+    background: none;
+}
+table tr:nth-child(even) td {
+    background: none;
+}
+table tr:hover td {
+    background: none;
 }
 .section-body tbody tr {
     margin: 1vw 0;
+}
+.section-body table th {
+    padding: 0;
+    /* height: 1vw; */
+    border: none;
+    padding: 0;
+    background: none;
+
 }
