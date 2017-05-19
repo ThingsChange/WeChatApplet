@@ -120,13 +120,36 @@ require(['jquery','migrate','template','chart','charts','jbox'], function ($,mig
 
         //弹窗部分代码
         $(".per-info").on("click", function () {
-            $.jBox('id:per-content', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2});
+            $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2});
+            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+            //设置弹窗top值
             var box = document.getElementById("jbox");
+            var title = document.getElementsByClassName("jbox-title")[0];
             box.style.top = "2.6vw";
+            title.style.textAlign ="left";
+            var html = template('personalTemp',{});
+            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
         })
+        //脱贫情况
         $(".tuopin").on("click", function () {
-            $.jBox('id:tuopin', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.2});
+            $.jBox('', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.2});
+            var title = document.getElementsByClassName("jbox-title")[0];
+            title.style.width ="96%";
+            var html = template('tuopinTemp',{});
+            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
             chart.poorChart("poorChart");
+            /*var box=document.getElementById("jbox");
+             box.style.top = "3vw";*/
+        })
+        //建档情况
+        $(".docCreate").on("click", function () {
+            $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.2});
+            //改变title宽度
+            var title = document.getElementsByClassName("jbox-title")[0];
+            title.style.width ="96%";
+            var html = template('docCreateTemp',{});
+            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+            // chart.poorChart("poorChart");
             /*var box=document.getElementById("jbox");
              box.style.top = "3vw";*/
         })
