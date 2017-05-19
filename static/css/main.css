@@ -70,7 +70,7 @@ header{
     font-size: 1vw;
     vertical-align: bottom;
 }
-#changeAreaInHeader select{
+#changeAreaInHeader select {
     color: #fff;
     width: 16vw;
     font-size: 1.2vw;
@@ -338,4 +338,25 @@ div.jbox .jbox-container {
 }
 #jbox #jbox-states {
     background: #37424b;
+}
+/*弹窗select组件*/
+#jbox-content select {
+    color: #fff;
+    font-size: 1vw;
+    text-shadow: 1px 1px 4px #000;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.down-angle {
+    background: url(../images/select.png) no-repeat;
+    display: inline-block;
+    width: 1.2vw;
+    height: 0.6vw;
+    background-size: 65%;
+    position: absolute;
+    margin-top: 0.6vw;
+    margin-left: 0.4vw;
+    cursor: pointer;
 }
