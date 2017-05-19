@@ -6,13 +6,17 @@ require.config({
 define(['echarts'],function(echarts){
 /**
  * 首页-致贫原因情况-饼图
+ * 有legend 没有label
+ * param id 容器id
+ * param chartData
  */
-    var chartForCause = function(){
-        echarts.init(document.getElementById('chartForCause')).setOption(
+    var pieChart = function(id,label,chartData){
+        var pie = echarts.init(document.getElementById(id));
+        pie.setOption(
             {
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{b}: {c} ({d}%)"
+                    formatter: "{b}<br/>{c}<br/>{d}%"
                 },
                 legend: {
                     orient: 'horizontal',
@@ -24,83 +28,18 @@ define(['echarts'],function(echarts){
                     textStyle:{
                         color:'#fff'
                     },
-                    data:['因病致贫','因学致贫','因灾致贫','缺土地','缺水','缺劳力','缺资金','交通条件落后','自身动力不足']
+                    data:chartData.legend
                 },
                 series: [
                     {
                         type:'pie',
-                        radius: ['30%', '50%'],
+                        radius: chartData.radius||['30%', '50%'],
                         avoidLabelOverlap: false,
                         label: {
                             normal: {
-                                show: false,
-                                position: 'center'
-                            },
-                            emphasis: {
-                                show: false,
-                                textStyle: {
-                                    fontSize: '15',
-                                    fontWeight: 'normal'
-                                }
-                            }
-                        },
-                        labelLine: {
-                            normal: {
-                                show: false
-                            }
-                        },
-                        center:["30%","50%"],
-                        color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
-                        data:[
-                            {value:335, name:'因病致贫'},
-                            {value:310, name:'因学致贫'},
-                            {value:234, name:'因灾致贫'},
-                            {value:135, name:'缺土地'},
-                            {value:1548, name:'缺水'},
-                            {value:123, name:'缺劳力'},
-                            {value:234, name:'缺资金'},
-                            {value:1243, name:'交通条件落后'},
-                            {value:222, name:'自身动力不足'}
-                        ]
-                    }
-                ]
-            }
-        );
-    };
-
-    /**
-     * 贫困家庭-大病结构-饼图
-     */
-
-    var diseaseStructureChart = function() {
-        echarts.init(document.getElementById('diseaseStructureChart')).setOption(
-            {
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{b}: {c} ({d}%)"
-                },
-                legend: {
-                    orient: 'horizontal',
-                    bottom: '20',
-                    right: '0',
-                    itemHeight: '5',
-                    itemWidth: 5,
-                    width: 10,
-                    textStyle: {
-                        color: '#fff'
-                    },
-                    data: ['心脏a病', '类风湿性关节炎', '心脏c病', '心脏d病', '心脏e病', '心脏f病', '心脏g病', '心脏h病', '心脏i病', '心脏j病', '心脏k病', '心脏l病']
-                },
-                series: [
-                    {
-                        type: 'pie',
-                        radius: ['30%', '50%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            normal: {
-                                show: true,
+                                show: label,
                                 position: 'center',
-                                formatter: "5000",//总数
+                                formatter: chartData.total,
                                 textStyle: {
                                     fontSize: '20',
                                     fontWeight: 'lighter',
@@ -116,79 +55,14 @@ define(['echarts'],function(echarts){
                                 show: false
                             }
                         },
-                        center: ["28%", "50%"],
-                        color: ['#abfb06', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef', '#fde101'],
-                        data: [
-                            {value: 335, name: '心脏a病'},
-                            {value: 310, name: '类风湿性关节炎'},
-                            {value: 234, name: '心脏c病'},
-                            {value: 135, name: '心脏d病'},
-                            {value: 1548, name: '心脏e病'},
-                            {value: 123, name: '心脏f病'},
-                            {value: 234, name: '心脏h病'},
-                            {value: 1243, name: '心脏i病'},
-                            {value: 1243, name: '心脏j病'},
-                            {value: 1243, name: '心脏k病'},
-                            {value: 1243, name: '心脏l病'},
-                            {value: 222, name: '心脏m病'}
-                        ]
+                        center:chartData.center||["30%","50%"],
+                        color:chartData.color,
+                        data:chartData.data
                     }
                 ]
             }
         );
-    };
-
-    /**
-     * 贫困家庭-大病发生率-饼图
-     */
-
-    var diseaseIncidenceChart = function(){
-        echarts.init(document.getElementById('diseaseIncidenceChart')).setOption(
-            {
-                series: [
-                    {
-                        type:'pie',
-                        radius: ['50%', '70%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            normal: {
-                                show: false,
-                            },
-                            emphasis: {
-                                show:false
-                            }
-                        },
-                        labelLine: {
-                            normal: {
-                                show: false
-                            }
-                        },
-                        center:["50%","50%"],
-                        color:['#ff5232','#1996e6'],
-                        data:[
-                            {
-                                value:335,
-                                name:'发生',
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'center',
-                                        formatter:"{d}%",
-                                        textStyle: {
-                                            fontSize: '11',
-                                            fontWeight:'lighter',
-                                            color:'#fff'
-                                        }
-                                    }
-                                }
-                            },
-                            {value:310, name:'未发生'},
-
-                        ]
-                    }
-                ]
-            }
-        );
+    resize_window(pie)
     };
 
     /**
@@ -252,11 +126,12 @@ define(['echarts'],function(echarts){
     };
 
     /**
-     * 贫困家庭-学历结构-饼图
+     * 实心饼图
+     *
      */
 
-    var educationStructureChart = function() {
-        echarts.init(document.getElementById('educationStructureChart')).setOption(
+    var fullPieChart = function(id,chartData) {
+        var fullPie = echarts.init(document.getElementById(id)).setOption(
             {
                 tooltip: {
                     trigger: 'item',
@@ -272,7 +147,7 @@ define(['echarts'],function(echarts){
                     textStyle: {
                         color: '#fff'
                     },
-                    data: ['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲']
+                    data: chartData.legend
                 },
                 series: [
                     {
@@ -280,7 +155,7 @@ define(['echarts'],function(echarts){
                         type: 'pie',
                         radius: '70%',
                         center: ['40%', '50%'],
-                        color: ['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
+                        color: chartData.color,
                         label: {
                             normal: {
                                 show: false,
@@ -299,15 +174,7 @@ define(['echarts'],function(echarts){
                                 show: false
                             }
                         },
-                        data: [
-                            {value: 335, name: '学龄前儿童'},
-                            {value: 310, name: '小学'},
-                            {value: 234, name: '初中'},
-                            {value: 135, name: '高中'},
-                            {value: 1548, name: '大专及以上'},
-                            {value: 123, name: '文盲及半文盲'}
-
-                        ],
+                        data: chartData.data,
                         itemStyle: {
                             emphasis: {
                                 shadowBlur: 10,
@@ -319,124 +186,131 @@ define(['echarts'],function(echarts){
                 ]
             }
         );
+        resize_window(fullPie);
     };
 
     /**
-     * 贫困家庭-人口结构-饼图
+     * 类似仪表盘
+     * param id : string 图表容器
+     * param barData : object value:占比，color:颜色
      */
+    var gauge = function(id,barData) {
+        var gaugeChart = echarts.init(document.getElementById(id))
+        gaugeChart.setOption(
+            {
+                series: [{
+                    name: '',
+                    type: 'gauge',
+                    center: ['50%', '60%'], // 默认全局居中
+                    radius: '65%',
+                    axisLine: {
+                        show: false,
+                        lineStyle: { // 属性lineStyle控制线条样式
+                            color: [
+                                [barData.value, barData.color],//第一个参数：控制进度条位置 第二个参数：进度条颜色
+                                [1, '#384149']//背景颜色
+                            ],
+                            width: 10
+                        }
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    pointer: {
+                        show: false,
+                        length: '0',
+                        width: '0'
+                    },
+                    detail: {
+                        formatter: '{value}%',
+                        offsetCenter: [0, '0%'],
+                        textStyle:{fontSize:'20',color:'#fff'},
 
-    var maleChart = function() {
-        echarts.init(document.getElementById('maleChart')).setOption(
+                    },
+                    data: [{
+                        value: 50,
+                        label: {
+                            textStyle: {
+                                fontSize: 12
+                            }
+                        }
+                    }]
+                }]
+            }
+        );
+        resize_window(gaugeChart);
+    };
+
+    /**
+     * 显示label和labelline且位置居中的饼图
+     * param id : string 图表容器
+     * param pieData : object
+     * color : 颜色(可以为array)
+     * data  : 数据
+     */
+    var labelPie = function(id,pieData) {
+        var labelPieChart = echarts.init(document.getElementById(id))
+        labelPieChart.setOption(
             {
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{b}<br/>{c}<br/>{d}%"
+                    formatter: "{b}<br/>{c}人<br/>{d}%"
                 },
+                color: pieData.color,
                 series: [
                     {
-                        type: 'pie',
-                        radius: ['50%', '70%'],
+                        type:'pie',
+                        radius: ['45%', '70%'],
                         avoidLabelOverlap: false,
                         label: {
                             normal: {
-                                show: false,
+                                show: true,
+                                position: 'outside',
+                                textStyle: {
+                                    color:'#fff'
+                                }
                             },
                             emphasis: {
-                                show: false
+                                show: true
                             }
                         },
                         labelLine: {
                             normal: {
-                                show: false
+                                show: true,
+                                lineStyle: {
+                                    color:'#fff'
+                                }
                             }
                         },
-                        center: ["50%", "50%"],
-                        color: ['#c2ff42', '#1996e6'],
-                        data: [
-                            {
-                                value: 335,
-                                name: '男性',
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'center',
-                                        formatter: "{d}%",
-                                        textStyle: {
-                                            fontSize: '11',
-                                            fontWeight: 'lighter',
-                                            color: '#fff'
-                                        }
-                                    }
-                                }
-                            },
-                            {value: 221, name: '女性'},
-
-                        ]
+                        data:pieData.data
                     }
                 ]
             }
         );
-    }
+        resize_window(labelPieChart);
+    };
 
-    var femaleChart = function() {
-        echarts.init(document.getElementById('femaleChart')).setOption(
-            {
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{b}<br/>{c}<br/>{d}%"
-                },
-                series: [
-                    {
-                        type: 'pie',
-                        radius: ['50%', '70%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            normal: {
-                                show: false,
-                            },
-                            emphasis: {
-                                show: false
-                            }
-                        },
-                        labelLine: {
-                            normal: {
-                                show: false
-                            }
-                        },
-                        center: ["50%", "50%"],
-                        color: ['#fe5b3c', '#1996e6'],
-                        data: [
-                            {
-                                value: 221,
-                                name: '女性',
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: 'center',
-                                        formatter: "{d}%",
-                                        textStyle: {
-                                            fontSize: '11',
-                                            fontWeight: 'lighter',
-                                            color: '#fff'
-                                        }
-                                    }
-                                }
-                            },
-                            {value: 335, name: '男性'},
 
-                        ]
-                    }
-                ]
-            }
-        );
-    }
+    /**
+     * 重置浏览器窗口图表随之变化
+     * @param Chart 图表
+     */
+    function resize_window(Chart) {
+        $(window).resize(function () {
+            Chart.resize();
+        });
+    };
+
     return {
-        'chartForCause':chartForCause,
-        'diseaseStructureChart':diseaseStructureChart,
-        'diseaseIncidenceChart':diseaseIncidenceChart,
-        'povertyStructureChart':povertyStructureChart,
-        'educationStructureChart':educationStructureChart,
-        'maleChart':maleChart,
-        'femaleChart':femaleChart
+        'pieChart':pieChart,
+        'gauge':gauge,
+        'labelPie':labelPie,
+        'fullPieChart':fullPieChart
     }
 })
