@@ -32,18 +32,21 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
         outerBox.children().animate({left:0},"fast")
         if(leng<3)return;
         var i=1;
+        var leftFlag = 0;
         var setLeft = function(arr){
             var perWidth = innerBoxArr[0].offsetWidth;
-            var distance;
-            if(i>=leng-1) {
-                i=0;
-                outerBox.children().animate({left: "0px"},"fast");
+            var distance = perWidth/90;
+            if(leftFlag > perWidth*(leng-1)) {
+                leftFlag = 0;
+                outerBox.children().animate({left: "0px"});
             };
-            distance= "-"+perWidth*i + "px";
-            outerBox.children().animate({left: distance},"slow");
-            i++;
+            leftFlag += distance;
+            leftFlagPx = "-" + leftFlag + "px";
+            outerBox.children().animate({left: leftFlagPx},"fast");
+            /*i++;
+            console.log(i)*/
         }
-        window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 3800);
+        window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 2);
     }
     //由于贫困家庭与首页共用签约，提取公共部分
     function bottomBind() {
@@ -258,6 +261,76 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                     });
                 });
                 //底部--------------------end
+                //弹窗部分代码
+                //建档情况
+                $("#openDoc").on("click", function () {
+                    $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    //改变title宽度
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    var html = template('docCreateTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    var diseaseStructure = {
+                        legend:["心脏病","脑中风","良性脑肿瘤","类风湿性关节炎","活动性肺结核","肺癌","缺资金","白血病","自身动力不足","贫血","关节炎","感冒"],
+                        color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
+                        data:[
+                            {value:335, name:'心脏病'},
+                            {value:300, name:'良性脑肿瘤'},
+                            {value:211, name:'类风湿性关节炎'},
+                            {value:30, name:'活动性肺结核'},
+                            {value:320, name:'肺癌'},
+                            {value:100, name:'白血病'},
+                            {value:340, name:'自身动力不足'},
+                            {value:50, name:'贫血'},
+                            {value:20, name:'关节炎'},
+                            {value:232,name:"缺资金"}
+                        ],
+                        total:"2030"
+                    }
+                    var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]}
+                    charts.pieChart('docChart',true,docData)
+                    // chart.poorChart("poorChart");
+                    /*var box=document.getElementById("jbox");
+                     box.style.top = "3vw";*/
+                })
+                //脱贫情况
+                $("#openTuopin").on("click", function () {
+                    $.jBox('', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    var html = template('tuopinTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    chart.poorChart("poorChart");
+                    /*var box=document.getElementById("jbox");
+                     box.style.top = "3vw";*/
+                })
+                //劳动力情况
+                $("#laborCondition").on("click", function () {
+                    $.jBox('', {title: "劳动力情况", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    var html = template('laborTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    chart.Chart("poorChart");
+                    /*var box=document.getElementById("jbox");
+                     box.style.top = "3vw";*/
+                })
+                //个人中心
+                $("#openPerinfo").on("click", function () {
+                    $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                    //设置弹窗top值
+                    var box = document.getElementById("jbox");
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    box.style.top = "2.6vw";
+                    title.style.textAlign ="left";
+                    var html = template('personalTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                })
             }
         });
         $("#leftTabs").on("click","span",function(){
@@ -438,42 +511,5 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
         $("#rightSide,#leftSide").height(sideHeight-2);
         //刷新时触发首页点击事件
         $(".homepage").trigger("click");
-    })
-
-
-    //弹窗部分代码
-    $(".per-info").on("click", function () {
-        $.jBox('id:per-content', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2});
-        // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-        //设置弹窗top值
-        var box = document.getElementById("jbox");
-        var title = document.getElementsByClassName("jbox-title")[0];
-        box.style.top = "2.6vw";
-        title.style.textAlign ="left";
-        var html = template('personalTemp',{});
-        document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-    })
-    //脱贫情况
-    $(".tuopin").on("click", function () {
-        $.jBox('id:tuopin', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.2});
-        var title = document.getElementsByClassName("jbox-title")[0];
-        title.style.width ="96%";
-        var html = template('tuopinTemp',{});
-        document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-        chart.poorChart("poorChart");
-        /*var box=document.getElementById("jbox");
-         box.style.top = "3vw";*/
-    })
-    //建档情况
-    $(".docCreate").on("click", function () {
-        $.jBox('id:docCreate', {title: "建档情况", buttons: {}, border: 0, opacity: 0.2});
-        //改变title宽度
-        var title = document.getElementsByClassName("jbox-title")[0];
-        title.style.width ="96%";
-        var html = template('docCreateTemp',{});
-        document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-        // chart.poorChart("poorChart");
-        /*var box=document.getElementById("jbox");
-         box.style.top = "3vw";*/
     })
 });

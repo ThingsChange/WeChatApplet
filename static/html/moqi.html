@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>莫旗大屏</title>
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../lib/jquery-jbox/2.3/Skins/Bootstrap/jbox.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/leftSide.css">
     <link rel="stylesheet" href="../css/rightSide.css">
@@ -189,12 +190,12 @@
         </div>
         <div class="content">
             <div class="step">
-                <div class="stepTitle"><span></span>一、建档情况</div>
+                <div class="stepTitle" id="openDoc"><span></span>一、建档情况</div>
                 <div id="putOnRecordChart"></div>
                 <p>健康档案数：{{1200}}人</p>
             </div>
             <div class="step">
-                <div class="stepTitle"><span></span>二、诊断情况</div>
+                <div class="stepTitle" id="openPerinfo"><span></span>二、诊断情况</div>
                 <div id="diagnosisChart"></div>
                 <p>因病致贫数：{{1200}}人</p>
             </div>
@@ -203,7 +204,7 @@
                 <div id="healthChart"></div>
             </div>
             <div class="step long">
-                <div class="stepTitle"><span></span>四、劳动力情况</div>
+                <div class="stepTitle" id="laborCondition"><span></span>四、劳动力情况</div>
                 <div id="laborChart"></div>
             </div>
             <div class="step">
@@ -212,7 +213,7 @@
                 <p>签约居民数：{{1200}}人</p>
             </div>
             <div class="step">
-                <div class="stepTitle"><span></span>六、脱贫情况</div>
+                <div class="stepTitle" id="openTuopin"><span></span>六、脱贫情况</div>
                 <div id="overcomePovertyChart"></div>
                 <p>脱贫人数：{{1200}}人</p>
             </div>
@@ -1033,11 +1034,186 @@
                     <td>15465689657</td>
                     <td>普通劳动能力</td>
                 </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
                 </tbody>
             </table>
+            <ul>
+                <li><</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>...</li>
+                <li>111</li>
+                <li>></li>
+            </ul>
         </div>
     </div>
-    <div class="tuopin-right doc-right" id="docChart"></div>
+    <div class="tuopin-right doc-right">
+        <h5>贫困人口数：<span>25337</span>人</h5>
+        <div id="docChart"></div>
+        <p>建档立卡总数：<span>25337</span>人</p>
+    </div>
+</script>
+<!--劳动力情况模板-->
+<script id = "laborTemp" type="text/html">
+    <div class="select-switch">
+        <select name="">
+            <option value="1">张家口镇</option>
+            <option value="2">革镇堡</option>
+        </select>
+        <em class="down-angle"></em>
+    </div>
+    <div class="tuopin-left doc-left">
+        <div class="family-list">
+            <table>
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>与户主关系</th>
+                    <th>联系电话</th>
+                    <th>劳动能力</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                <tr>
+                    <td>李天娇</td>
+                    <td>女</td>
+                    <td>父女关系</td>
+                    <td>15465689657</td>
+                    <td>普通劳动能力</td>
+                </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li><</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>...</li>
+                <li>111</li>
+                <li>></li>
+            </ul>
+        </div>
+    </div>
+    <div class="tuopin-right doc-right">
+        <h5>贫困人口数：<span>25337</span>人</h5>
+        <div id="laborWindowChart"></div>
+    </div>
 </script>
 <!--弹窗模板 end-->
 </body>
