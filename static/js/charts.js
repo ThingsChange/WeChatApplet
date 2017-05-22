@@ -9,7 +9,7 @@ define(['echarts'],function(echarts){
  * 有legend 没有label
  * @param id 容器id
  * @param chartData 数据
- * @label 是否显示中间固定的label
+ * @param label 是否显示中间固定的label
  */
     var pieChart = function(id,label,chartData){
         var pie = echarts.init(document.getElementById(id));
