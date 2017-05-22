@@ -274,7 +274,7 @@ span.span-active {
     width: 100%;
     margin: 1vw auto;
 }
-.family-list table th,.family-list table td{
+.thin th,.thin td,.family-list table th,.family-list table td{
     height:1.6vw;
     line-height: 1.6vw;
     padding:.2vw;
@@ -283,7 +283,7 @@ span.span-active {
     font-size: .8vw;
     border: none;
 }
-.family-list table th {
+.thin th,.family-list table th {
     background: #2a3239;
 }
 .per-btm p,.per-mid p,.per-right p {
