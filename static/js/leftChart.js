@@ -24,26 +24,26 @@ define(['echarts'],function(echarts){
                     radius: ['65%', '100%'],
                     avoidLabelOverlap: false,
                     hoverAnimation:false,
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'center',
+                            formatter:'88.65%',
+                            textStyle: {
+                                fontSize: '12',
+                                fontWeight: 'normal',
+                                color:'#fff'
+                            }
+                        },
+                        emphasis: {
+                            show:false
+                        }
+                    },
                     data: [
                         {value:200, name:'未完成'},
                         {
                             value:1548,
                             name:'已完成',
-                            label: {
-                                normal: {
-                                    show: true,
-                                    position: 'center',
-                                    formatter:'{d}%\n已完成',
-                                    textStyle: {
-                                        fontSize: '12',
-                                        fontWeight: 'normal',
-                                        color:'#fff'
-                                    }
-                                },
-                                emphasis: {
-                                    show:false
-                                }
-                            },
                         }
                     ],
 
