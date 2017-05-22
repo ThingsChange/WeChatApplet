@@ -10,7 +10,8 @@ require.config({
         "template": "../lib/template",
         "chart": "../js/leftChart",
         "charts": "../js/charts",
-        "progressBar":"../js/progressBar"
+        "progressBar":"../js/progressBar",
+        "countDown" : "../js/countDown"
     },
     shim:{
         'jbox':{
@@ -22,8 +23,7 @@ require.config({
     }
 });
 
-require(['jquery','migrate','template','chart','charts','jbox','progressBar'], function ($,migrate,template,chart,charts,jbox,progressBar){
-    // some code here
+require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
     //底部轮播图
     function slide(id){
         var outerBox = $("#"+id);
@@ -64,6 +64,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
         });
     }
     $(function(){
+        countDown.countDown("2017/05/25")
+
         $("#tab").on("click","div", function(){
             var activeBool = $(this).hasClass("active");
             if(!activeBool){
