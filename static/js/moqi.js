@@ -69,6 +69,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     $(function(){
         countDown.countDown("2017/05/25")
 
+        $("#rightSide").on("click",".goToDetail",function(){
+            var membersTemp = template('members',{});
+            $.jBox('membersTemp', {title: "督导组成员", buttons: {}, border: 0, opacity: 0.2});
+            var title = document.getElementsByClassName("jbox-title")[0]
+            title.style.width ="96%";
+        })
+
         $("#tab").on("click","div", function(){
             var activeBool = $(this).hasClass("active");
             if(!activeBool){
