@@ -1217,235 +1217,195 @@
 </script>
 <!--村贫困家庭弹窗模板-->
 <script id = "villageTemp" type="text/html">
-    <div class="per-left">
-        <div class="per-top">
-            <div class="per-lefttop">
-                <div class="per-img"><img
-                        src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&fm=58" alt="">
-                </div>
-                <p>李茜茜</p>
-            </div>
-            <div class="per-leftmid">
-                <ul>
-                    <li>性别：<span>女</span></li>
-                    <li>电话：<span>23545854586</span></li>
-                    <li>所属村：<span>瓦岗村</span></li>
-                    <li>民族：<span>汉</span></li>
-                    <li>健康情况：<span>大病</span></li>
-                    <li>劳动能力：<span>普通劳动力</span></li>
-                </ul>
-            </div>
-            <div class="per-leftbtm">
-                <ul>
-                    <li>身份证号：<span>145252566326547895</span></li>
-                    <li>银行卡号：<span>6333252542152356458</span></li>
-                    <li>贫困属性：<span>一般贫困户</span></li>
-                    <li>
-                        <p>年收入（元）</p>
-                        <p class="annual-money">25336.00</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="per-mid">
-            <p>家庭成员</p>
-            <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
-            <div class="family-list">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>姓名</th>
-                        <th>性别</th>
-                        <th>与户主关系</th>
-                        <th>联系电话</th>
-                        <th>劳动能力</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="per-btm">
-            <p>帮扶记录</p>
-            <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
-            <article>
-                <h6>第一次帮扶</h6>
-                <p><span>姚向渠</span>&nbsp;&nbsp;&nbsp;&nbsp;<em>精准扶贫户主会</em></p>
-                <p>
-                    2017年5月10日，天气晴朗，我们开始了第一次精准扶贫的救援工作，工作进展的很顺利，我们一进村就看见姚向渠家的几件破旧不堪的衣服，他洋洋洒洒的躺在院子的破椅子上晒着太阳，看见我们就立马起了身，欢迎我们的到来。姚向渠，患有先天性残疾，右脚比左脚小了特别多。走起路来特别不方便。看见她的屋子，让我想起来一句话叫做“家徒四壁”，这句话放在她的身上，丝毫都没有夸张……</p>
-                <div class="artical-img">
-                    <div><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&amp;fm=58"
-                              alt=""></div>
-                    <div><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&amp;fm=58"
-                              alt=""></div>
-                    <div><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&amp;fm=58"
-                              alt=""></div>
-                    <div><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&amp;fm=58"
-                              alt=""></div>
-                </div>
-            </article>
+    <div class="select-switch">
+        <select name="">
+            <option value="1">张家口镇</option>
+            <option value="2">革镇堡</option>
+        </select>
+        <em class="down-angle"></em>
+    </div>
+    <div class="tuopin-left doc-left village">
+        <div class="family-list">
+            <table>
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>户主姓名</th>
+                    <th>身份证号</th>
+                    <th>联系电话</th>
+                    <th>贫困原因</th>
+                    <th>贫困属性</th>
+                    <th>家庭成员</th>
+                    <th>家庭医生</th>
+                    <th>帮扶干部</th>
+                    <th>帮扶次数</th>
+                    <th>村支书</th>
+                    <th>脱贫进度</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>李天娇</td>
+                    <td>245236548545845659</td>
+                    <td>23254658546</td>
+                    <td>自身劳动力不足</td>
+                    <td>一般贫困户</td>
+                    <td>4</td>
+                    <td>李丽丽</td>
+                    <td>李丽丽</td>
+                    <td>4</td>
+                    <td>李狗蛋</td>
+                    <td>80%</td>
+                </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li><</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>...</li>
+                <li>111</li>
+                <li>></li>
+            </ul>
         </div>
     </div>
-    <div class="per-right">
-        <p>五人小组</p>
-        <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
-        <section>
-            <div class="per-top">
-                <span class="per-top-head">贫困户</span>
-                <div class="per-lefttop">
-                    <div class="per-img"><img
-                            src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&fm=58"
-                            alt=""></div>
-                </div>
-                <div class="per-leftmid">
-                    <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
-                    </ul>
-                </div>
-                <div class="per-leftbtm">
-                    <ul>
-                        <li>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="per-top">
-                <span class="per-top-head">贫困户</span>
-                <div class="per-lefttop">
-                    <div class="per-img"><img
-                            src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&fm=58"
-                            alt=""></div>
-                </div>
-                <div class="per-leftmid">
-                    <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
-                    </ul>
-                </div>
-                <div class="per-leftbtm">
-                    <ul>
-                        <li>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="per-top">
-                <span class="per-top-head">贫困户</span>
-                <div class="per-lefttop">
-                    <div class="per-img"><img
-                            src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&fm=58"
-                            alt=""></div>
-                </div>
-                <div class="per-leftmid">
-                    <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
-                    </ul>
-                </div>
-                <div class="per-leftbtm">
-                    <ul>
-                        <li>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="per-top">
-                <span class="per-top-head">贫困户</span>
-                <div class="per-lefttop">
-                    <div class="per-img"><img
-                            src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&fm=58"
-                            alt=""></div>
-                </div>
-                <div class="per-leftmid">
-                    <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
-                    </ul>
-                </div>
-                <div class="per-leftbtm">
-                    <ul>
-                        <li>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="per-top">
-                <span class="per-top-head">贫困户</span>
-                <div class="per-lefttop">
-                    <div class="per-img"><img
-                            src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=112420569,3726894120&fm=58"
-                            alt=""></div>
-                </div>
-                <div class="per-leftmid">
-                    <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
-                    </ul>
-                </div>
-                <div class="per-leftbtm">
-                    <ul>
-                        <li>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </div>
+</script>
+<!--村贫困家庭弹窗模板-->
+<script id = "organizationTemp" type="text/html">
+    <div class="organization"><img src="../images/organization.png" alt=""></div>
 </script>
 <!--督导组成员弹窗模板 start-->
 <script id="members"type="text/html">
@@ -1495,22 +1455,5 @@
 <!--jbox标题里的select模板 end-->
 <!--弹窗模板 end-->
 <!--弹窗模板 end-->
-
-<script id="members"type="text/html">
-<table>
-    <thead>
-    <th>督导组职务</th>
-    <th>姓名</th>
-    <th>性别</th>
-    <th>民族</th>
-    <th>政治面貌</th>
-    <th>工作单位及职务</th>
-    <th>联系方式</th>
-    <th>备注</th>
-    </thead>
-    <tbody></tbody>
-</table>
-
-</script>
 </body>
 </html>

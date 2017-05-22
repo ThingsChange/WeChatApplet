@@ -426,4 +426,14 @@ table tr:nth-child(even) td{
     display: inline-block;
     margin: 0 .3vw;
     cursor: pointer;
+    font-size: 1vw;
+}
+
+.village {
+    width: 97%;
+}
+
+.organization img {
+    width: 72vw;
+    padding-left: 2.4vw;
 }

@@ -76,6 +76,15 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     $(function(){
         //加载倒计时
         countDown.countDown("2017/05/25")
+        //村贫困家庭表单
+        $(".logout").on("click", function () {
+            $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
+            document.getElementsByTagName('body')[0].style.padding="0";
+            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+            //设置弹窗top值
+            var html = template('villageTemp',{});
+            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+        })
         //切换头部标签
         $("#tab").on("click","div", function(){
             var activeBool = $(this).hasClass("active");
@@ -117,7 +126,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 };
                 charts.pieChart("chartForCause",false,causePieChartData);
                 //右侧--------------------end
-
+                //责任主体绑定点击事件
+                $(".goToDetail").on("click", function () {
+                    $.jBox('', {title: "组织架构", buttons: {}, border: 0, opacity: 0.4});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                    //设置弹窗top值
+                    var box = document.getElementById("jbox");
+                    // var title = document.getElementsByClassName("jbox-title")[0];
+                    box.style.top = "2.6vw";
+                    // title.style.textAlign ="cen";
+                    var html = template('organizationTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                })
                 //左侧--------------------start
                 $('#leftSide').html(template('homepageLeftSideTemp', data));
                 chart.pieChart("poorFamily","#8ed02b","#1b9aea");
@@ -274,7 +295,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 //弹窗部分代码
                 //建档情况
                 $("#openDoc").on("click", function () {
-                    $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     //改变title宽度
                     var title = document.getElementsByClassName("jbox-title")[0];
@@ -289,7 +310,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //脱贫情况
                 $("#openTuopin").on("click", function () {
-                    $.jBox('', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     var title = document.getElementsByClassName("jbox-title")[0];
                     title.style.width ="96%";
@@ -301,7 +322,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //劳动力情况
                 $("#laborCondition").on("click", function () {
-                    $.jBox('', {title: "劳动力情况", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "劳动力情况", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     var title = document.getElementsByClassName("jbox-title")[0];
                     title.style.width ="96%";
@@ -314,7 +335,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //诊断情况 与建档情况公用一个模板
                 $("#diagnoseCondition").on("click", function () {
-                    $.jBox('', {title: "诊断情况", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "诊断情况", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     var title = document.getElementsByClassName("jbox-title")[0];
                     title.style.width ="96%";
@@ -327,7 +348,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //身体健康状况 与劳动力情况公用一个模板
                 $("#healthCondition").on("click", function () {
-                    $.jBox('', {title: "身体健康情况", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "身体健康情况", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     var title = document.getElementsByClassName("jbox-title")[0];
                     title.style.width ="96%";
@@ -340,7 +361,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //签约情况 与建档情况公用一个模板     --------------暂时这么写，后续提取公共部分--------------
                 $("#signCondition").on("click", function () {
-                    $.jBox('', {title: "签约情况", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "签约情况", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     var title = document.getElementsByClassName("jbox-title")[0];
                     title.style.width ="96%";
@@ -353,7 +374,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //个人中心
                 $("#openPerinfo").on("click", function () {
-                    $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
                     //设置弹窗top值
@@ -366,7 +387,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 })
                 //村贫困家庭表单
                 $("#openPoorInfo").on("click", function () {
-                    $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.2});
+                    $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
                     //设置弹窗top值
@@ -549,7 +570,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         $("#rightSide").on("click",".goToDetail",function(){
             var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
             membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
-            var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.2});
+            var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});
+            document.getElementsByTagName('body')[0].style.padding="0";
             var title = document.getElementsByClassName("jbox-title")[0];
             title.style.width ="96%";
             $(".select-switch").on("change",'select',function(){
