@@ -129,16 +129,21 @@ header{
 #countDown span{
     position: absolute;
     top: .4vw;
-    left: 2.9vw;
+    left: 1vw;
+    width: 6vw;
+    text-align: center;
 }
 #countDown .hour{
-    left: 7.9vw;
+    left: 7.3vw;
+    width: 2.5vw;
 }
 #countDown .minute{
-    left: 10.7vw;
+    left: 10.2vw;
+    width: 2.5vw;
 }
 #countDown .second{
-    left: 13.6vw;
+    left: 13vw;
+    width: 2.5vw;
 }
 /*头部 end*/
 
