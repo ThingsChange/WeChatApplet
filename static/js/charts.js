@@ -7,8 +7,9 @@ define(['echarts'],function(echarts){
 /**
  * 首页-致贫原因情况-饼图
  * 有legend 没有label
- * param id 容器id
- * param chartData
+ * @param id 容器id
+ * @param chartData 数据
+ * @label 是否显示中间固定的label
  */
     var pieChart = function(id,label,chartData){
         var pie = echarts.init(document.getElementById(id));

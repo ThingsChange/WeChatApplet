@@ -71,7 +71,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 $(this).addClass("active");
                 $(this).siblings("div").removeClass("active")
             }
-            if($(this).hasClass("homepage")){//------------------------点击首页按钮-------------------
+            if($(this).hasClass("homepage")){//点击首页按钮
                 $("#leftTabs").addClass("hide");
                 $("#leftOperation").removeClass("hide");
                 $("#sevenStepsTab").addClass("hide");
@@ -80,23 +80,12 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 var data={};
                 //ajax
                 $('#rightSide').html(template('homepageRightSideTemp', data));
-                $('#leftSide').html(template('homepageLeftSideTemp', data));
-                $('.bottom').html(template('doctorSignTemp', data));
-                bottomBind();
                 //进度条生成
-
-                    //右侧
-                    $("#cause").find(".progressBar").each(function(){
+                $("#cause").find(".progressBar").each(function(){
                     var value = $(this).prev().text();
                     progressBar.generate(this,value);
                 });
-                    //左侧
-                    $(".section-body.second-sec").find(".progressBar").each(function () {
-                    var value = $(this).next("div").children("span").text();
-                    progressBar.generate(this,value);
-                    })
-
-
+                //致贫原因饼图
                 var causePieChartData = {
                     color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
                     legend:['因病致贫','因学致贫','因灾致贫','缺土地','缺水','缺劳力','缺资金','交通条件落后','自身动力不足'],
@@ -114,21 +103,31 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                     ]
                 };
                 charts.pieChart("chartForCause",false,causePieChartData);
-                //左侧饼图
+                //右侧--------------------end
+
+                //左侧--------------------start
+                $('#leftSide').html(template('homepageLeftSideTemp', data));
                 chart.pieChart("poorFamily","#8ed02b","#1b9aea");
                 chart.pieChart("poorPeople","#8ed02b","#1b9aea");
                 chart.pieChart("poorRate","#8ed02b","#1b9aea");
-                //底部家医签约
+                $(".section-body.second-sec").find(".progressBar").each(function () {
+                    var value = $(this).next("div").children("span").text();
+                    progressBar.generate(this,value);
+                })
+                //左侧--------------------end
 
-                //右侧--------------------end
-            }else if($(this).hasClass("poverty")){//-----------------------点击贫困家庭按钮-----------
+                //底部--------------------start
+                $('.bottom').html(template('doctorSignTemp', data));
+                bottomBind();
+                //底部--------------------end
+
+            }else if($(this).hasClass("poverty")){//点击贫困家庭按钮
                 $("#leftTabs").removeClass("hide");
                 $("#leftOperation").addClass("hide");
                 $("#sevenStepsTab").addClass("hide");
                 $("#leftTabs").find("span.disease").addClass("active").siblings().removeClass("active")
 
                 //右侧--------------------start
-                //ajax
                 var data={
                     disease:[
                         {name:"心脏病",percent:"30%"},
@@ -147,31 +146,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
 
                 };
                 $('#rightSide').html(template('povertyRightSideTemp_disease', data));
-                $('#leftSide').html(template('povertyLeftSideTemp', data));
-                $('.bottom').html(template('doctorSignTemp', data));
-                bottomBind();
-                //绑定左侧 人/户 切换点击事件
-                $(".switch-head").on("click","span", function(){
-                    var activeBool = $(this).hasClass("span-active");
-                    if(!activeBool){
-                        $(this).addClass("span-active");
-                        $(this).siblings("span").removeClass("span-active")
-                        var text = $(this).text();
-                        var obj = $(".section-body table thead tr").children();
-                        if(text == "户"){
-                            obj.eq(1).text("目标户数");
-                            obj.eq(2).text("完成户数");
-                        }else{
-                            obj.eq(1).text("目标人数");
-                            obj.eq(2).text("完成人数");
-                        }
-                    }
-
-                });
-                $(".progressLi").each(function(){
-                    var percent = $(this).find(".percent").text();
-                    progressBar.generate($(this),percent);
-                })
                 var diseaseStructure = {
                     legend:["心脏病","脑中风","良性脑肿瘤","类风湿性关节炎","活动性肺结核","肺癌","缺资金","白血病","自身动力不足","贫血","关节炎","感冒"],
                     color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
@@ -211,42 +185,46 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                     center:["50%","50%"]
                 };
                 charts.pieChart("diseaseIncidenceChart",false,diseaseIncidence)
-
-
-
                 //右侧--------------------end
+
+                //左侧--------------------start
+                $('#leftSide').html(template('povertyLeftSideTemp', data));
+                //绑定左侧 人/户 切换点击事件
+                $(".switch-head").on("click","span", function(){
+                    var activeBool = $(this).hasClass("span-active");
+                    if(!activeBool){
+                        $(this).addClass("span-active");
+                        $(this).siblings("span").removeClass("span-active")
+                        var text = $(this).text();
+                        var obj = $(".section-body table thead tr").children();
+                        if(text == "户"){
+                            obj.eq(1).text("目标户数");
+                            obj.eq(2).text("完成户数");
+                        }else{
+                            obj.eq(1).text("目标人数");
+                            obj.eq(2).text("完成人数");
+                        }
+                    }
+
+                });
+                $(".progressLi").each(function(){
+                    var percent = $(this).find(".percent").text();
+                    progressBar.generate($(this),percent);
+                })
+                //左侧--------------------end
+
+                //底部--------------------start
+                $('.bottom').html(template('doctorSignTemp', data));
+                bottomBind();
+                //底部--------------------end
 
             }else if($(this).hasClass("fivePeople")){//---------------点击五人小组按钮----------------
                 $("#leftTabs").addClass("hide");
                 $("#leftOperation").addClass("hide");
                 $("#sevenStepsTab").removeClass("hide");
                 //右侧--------------------start
-                //ajax
                 var data={};
                 $('#rightSide').html(template('sevenStepsRightSideTemp', data));
-                $('#leftSide').html(template('fiveLeftSideTemp', data));
-                $('.bottom').html(template('helpDynamicTemp', data));
-                //进度条生成
-                setTimeout(function(){
-                    //左侧
-                    $(".section-body.second-sec").find(".progressBar").each(function () {
-                        var value = $(this).next("div").children("span").text();
-                        progressBar.generate(this,value);
-                    })
-                },200)
-                //家医签约按钮点击事件
-                $(".bottom-head").on("click",function(){
-                     var $this = $(this).siblings(".bottom-content");
-                     $this.slideToggle(function(){
-                     var showBool = $this.is(":visible");
-                     if(!showBool){
-                            clearTimeout(timeOut);
-                         }else{
-                             slide("slideBox");
-                             // chart.barChart("doctorSign");
-                         }
-                     });
-                 });
                 charts.gauge("putOnRecordChart",{value:'.5',color:'#83ea43'});
                 charts.gauge("diagnosisChart",{value:'.6',color:'#fd8320'});
                 charts.labelPie("healthChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"健康人数"},{value:"222",name:"大病人数"},{value:"333",name:"残疾人数"},{value:"221",name:"长期慢病"}]});
@@ -254,6 +232,32 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 charts.gauge("signChart",{value:'.4',color:'#3ad3e1'});
                 charts.gauge("overcomePovertyChart",{value:'.8',color:'#e14e35'});
                 //右侧--------------------end
+
+                //左侧--------------------start
+                $('#leftSide').html(template('fiveLeftSideTemp', data));
+                //进度条生成
+                $(".section-body.second-sec").find(".progressBar").each(function () {
+                    var value = $(this).next("div").children("span").text();
+                    progressBar.generate(this,value);
+                })
+                //左侧--------------------end
+
+                //底部--------------------start
+                $('.bottom').html(template('helpDynamicTemp', data));
+                //家医签约按钮点击事件
+                $(".bottom-head").on("click",function(){
+                    var $this = $(this).siblings(".bottom-content");
+                    $this.slideToggle(function(){
+                        var showBool = $this.is(":visible");
+                        if(!showBool){
+                            clearTimeout(timeOut);
+                        }else{
+                            slide("slideBox");
+                            // chart.barChart("doctorSign");
+                        }
+                    });
+                });
+                //底部--------------------end
             }
         });
         $("#leftTabs").on("click","span",function(){
@@ -333,8 +337,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
 
 
             }else if($(this).hasClass("education")){//学历结构
-                //ajax
-                var data={};
                 $('#rightSide').html(template('povertyRightSideTemp_education', data));
                 var eduData = {
                     legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
@@ -352,9 +354,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 charts.fullPieChart("educationStructureChart",eduData)
 
             }else if($(this).hasClass("sex")){//性别结构
-                //ajax
-                var data={};
-                $('#rightSide').html(template('povertyRightSideTemp_population', data));
+                $('#rightSide').html(template('povertyRightSideTemp_population',{}));
                 maleChartData={
                     color: ['#c2ff42', '#1996e6'],
                     data:[
@@ -409,9 +409,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 charts.pieChart("femaleChart",false,femaleChartData)
 
             }else if($(this).hasClass("poverty")){//贫困结构
-                //ajax
-                var data={};
-                $('#rightSide').html(template('povertyRightSideTemp_poverty', data));
+                $('#rightSide').html(template('povertyRightSideTemp_poverty', {}));
                 charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]});
                 $(".sectionTab").on("click","span",function(){
                     if(!$(this).hasClass("active")&&$(this).text()=="人"){
@@ -421,7 +419,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                     }else if(!$(this).hasClass("active")&&$(this).text()=="户"){
                         $(this).addClass("active").siblings().removeClass("active");
                         $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
-                        //ajax
                     }
                 });
 
