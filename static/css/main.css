@@ -365,3 +365,7 @@ div.jbox .jbox-container {
     margin-left: 0.4vw;
     cursor: pointer;
 }
+
+.select-switch option{
+    color: #000;
+}

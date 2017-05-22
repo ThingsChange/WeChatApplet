@@ -67,15 +67,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         });
     }
     $(function(){
+        //加载倒计时
         countDown.countDown("2017/05/25")
-
-        $("#rightSide").on("click",".goToDetail",function(){
-            var membersTemp = template('members',{});
-            $.jBox('membersTemp', {title: "督导组成员", buttons: {}, border: 0, opacity: 0.2});
-            var title = document.getElementsByClassName("jbox-title")[0]
-            title.style.width ="96%";
-        })
-
+        //切换头部标签
         $("#tab").on("click","div", function(){
             var activeBool = $(this).hasClass("active");
             if(!activeBool){
@@ -507,7 +501,23 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             }
         });
 
-        // $(".progressBarBar").css({"width":"40%"});//测试进度条动画
+        //督导组成员弹窗
+
+        $("#rightSide").on("click",".goToDetail",function(){
+            var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
+            membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
+            var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.2});
+            var title = document.getElementsByClassName("jbox-title")[0];
+            title.style.width ="96%";
+            $(".select-switch").on("change",'select',function(){
+                var selected=$(this).children('option:selected').val();
+                var membersTemp = template('members',{data:[{'duty':'组长','name':'李骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
+                $("#jbox-content").find("table").remove();
+                $("#jbox-content").append(membersTemp)
+            })
+
+        })
+
         //added by zrq  暂时这么判断
         var bool = $("#poorFamily").length;
         if(bool){

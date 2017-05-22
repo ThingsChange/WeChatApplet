@@ -1215,23 +1215,52 @@
         <div id="laborWindowChart"></div>
     </div>
 </script>
-<!--弹窗模板 end-->
-
+<!--督导组成员弹窗模板 start-->
 <script id="members"type="text/html">
-<table>
-    <thead>
-    <th>督导组职务</th>
-    <th>姓名</th>
-    <th>性别</th>
-    <th>民族</th>
-    <th>政治面貌</th>
-    <th>工作单位及职务</th>
-    <th>联系方式</th>
-    <th>备注</th>
-    </thead>
-    <tbody></tbody>
-</table>
+    <table class="thin">
+        <thead>
+        <tr>
+            <th>督导组职务</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>民族</th>
+            <th>政治面貌</th>
+            <th>工作单位及职务</th>
+            <th>联系方式</th>
+            <th>备注</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{each data as data}}
+        <tr>
+            <td>{{data.duty}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.sex}}</td>
+            <td>{{data.nation}}</td>
+            <td>{{data.politic}}</td>
+            <td>{{data.office}}</td>
+            <td>{{data.contect}}</td>
+            <td>{{data.remarks}}</td>
+
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
 
 </script>
+<!--督导组成员弹窗模板 end-->
+<!--jbox标题里的select模板 start-->
+<script id="selectTown" type="text/html">
+    <div class="select-switch">
+        <select name="">
+            {{each town as town}}
+            <option value="{{town.id}}">{{town.name}}</option>
+            {{/each}}
+        </select>
+        <em class="down-angle"></em>
+    </div>
+</script>
+<!--jbox标题里的select模板 end-->
+<!--弹窗模板 end-->
 </body>
 </html>
