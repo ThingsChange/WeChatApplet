@@ -249,10 +249,10 @@ define(['echarts'],function(echarts){
 
     /**
      * 显示label和labelline且位置居中的饼图
-     * param id : string 图表容器
-     * param pieData : object
-     * color : 颜色(可以为array)
-     * data  : 数据
+     * @param id : string 图表容器
+     * @param pieData : object
+     * @pieData.color : 颜色(可以为array)
+     * @pieData.data  : 数据
      */
     var labelPie = function(id,pieData) {
         var labelPieChart = echarts.init(document.getElementById(id))
@@ -266,7 +266,8 @@ define(['echarts'],function(echarts){
                 series: [
                     {
                         type:'pie',
-                        radius: ['45%', '70%'],
+                        center:pieData.center||["50%","60%"],
+                        radius: ['35%', '60%'],
                         avoidLabelOverlap: false,
                         label: {
                             normal: {

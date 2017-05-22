@@ -125,6 +125,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 $("#leftTabs").removeClass("hide");
                 $("#leftOperation").addClass("hide");
                 $("#sevenStepsTab").addClass("hide");
+                $("#leftTabs").find("span.disease").addClass("active").siblings().removeClass("active")
 
                 //右侧--------------------start
                 //ajax
@@ -411,7 +412,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 //ajax
                 var data={};
                 $('#rightSide').html(template('povertyRightSideTemp_poverty', data));
+                charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]})
 
+            }
+        });
+        $(".sectionTab").on("click","span",function(){
+            if(!$(this).hasClass("active")&&$(this).text()=="人"){
+                $("#povertyTypeRank").find("thead th:eq(1)").text("人数")
             }
         });
 
