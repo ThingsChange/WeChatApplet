@@ -29,24 +29,31 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         var outerBox = $("#"+id);
         var innerBoxArr = outerBox.children().children();
         var leng = innerBoxArr.length;
-        outerBox.children().animate({left:0},"fast")
+        // outerBox.children().animate({left:0},"fast")
         if(leng<3)return;
-        var i=1;
+        // var i=1;
         var leftFlag = 0;
+        var perWidth = innerBoxArr[0].offsetWidth;
+        var distance = perWidth/2200;
         var setLeft = function(arr){
-            var perWidth = innerBoxArr[0].offsetWidth;
-            var distance = perWidth/90;
-            if(leftFlag > perWidth*(leng-1)) {
+            /*if(leftFlag > perWidth*(leng-1)) {
                 leftFlag = 0;
                 outerBox.children().animate({left: "0px"});
-            };
+            };*/
             leftFlag += distance;
             leftFlagPx = "-" + leftFlag + "px";
-            outerBox.children().animate({left: leftFlagPx},"fast");
-            /*i++;
-            console.log(i)*/
+            outerBox.children().css({left: leftFlagPx});
+            //如果第一个模块滚出视线，则将其移动到该列末尾
+            if(leftFlag > perWidth){
+                var arr = Array.prototype.shift.call(innerBoxArr);
+                var first = outerBox.children().children().eq(0)
+                first.remove();
+                outerBox.children().append(first);
+                innerBoxArr.push(arr);
+                leftFlag = 0;
+            }
         }
-        window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 2);
+        window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 10);
     }
     //由于贫困家庭与首页共用签约，提取公共部分
     function bottomBind() {
@@ -280,23 +287,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     title.style.width ="96%";
                     var html = template('docCreateTemp',{});
                     document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                    var diseaseStructure = {
-                        legend:["心脏病","脑中风","良性脑肿瘤","类风湿性关节炎","活动性肺结核","肺癌","缺资金","白血病","自身动力不足","贫血","关节炎","感冒"],
-                        color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
-                        data:[
-                            {value:335, name:'心脏病'},
-                            {value:300, name:'良性脑肿瘤'},
-                            {value:211, name:'类风湿性关节炎'},
-                            {value:30, name:'活动性肺结核'},
-                            {value:320, name:'肺癌'},
-                            {value:100, name:'白血病'},
-                            {value:340, name:'自身动力不足'},
-                            {value:50, name:'贫血'},
-                            {value:20, name:'关节炎'},
-                            {value:232,name:"缺资金"}
-                        ],
-                        total:"2030"
-                    }
                     var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]}
                     charts.pieChart('docChart',true,docData)
                     // chart.poorChart("poorChart");
@@ -323,13 +313,66 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     title.style.width ="96%";
                     var html = template('laborTemp',{});
                     document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                    chart.Chart("poorChart");
+
+                    charts.labelPie("laborWindowChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"普通劳动力"},{value:"252",name:"丧失劳动力"},{value:"223",name:"无劳动力"},{value:"255",name:"技能劳动力"}]});
+                    /*var box=document.getElementById("jbox");
+                     box.style.top = "3vw";*/
+                })
+                //诊断情况 与建档情况公用一个模板
+                $("#diagnoseCondition").on("click", function () {
+                    $.jBox('', {title: "诊断情况", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    var html = template('docCreateTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]}
+                    charts.pieChart('docChart',true,docData)
+                    /*var box=document.getElementById("jbox");
+                     box.style.top = "3vw";*/
+                })
+                //身体健康状况 与劳动力情况公用一个模板
+                $("#healthCondition").on("click", function () {
+                    $.jBox('', {title: "身体健康情况", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    var html = template('laborTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+
+                    charts.labelPie("laborWindowChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"普通劳动力"},{value:"252",name:"丧失劳动力"},{value:"223",name:"无劳动力"},{value:"255",name:"技能劳动力"}]});
+                    /*var box=document.getElementById("jbox");
+                     box.style.top = "3vw";*/
+                })
+                //签约情况 与建档情况公用一个模板     --------------暂时这么写，后续提取公共部分--------------
+                $("#signCondition").on("click", function () {
+                    $.jBox('', {title: "签约情况", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    var html = template('docCreateTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:321,name:"五保贫困户"}]}
+                    charts.pieChart('docChart',true,docData)
                     /*var box=document.getElementById("jbox");
                      box.style.top = "3vw";*/
                 })
                 //个人中心
                 $("#openPerinfo").on("click", function () {
                     $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                    //设置弹窗top值
+                    var box = document.getElementById("jbox");
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    box.style.top = "2.6vw";
+                    title.style.textAlign ="left";
+                    var html = template('personalTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                })
+                //村贫困家庭表单
+                $("#openPoorInfo").on("click", function () {
+                    $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.2});
                     document.getElementsByTagName('body')[0].style.padding="0";
                     // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
                     //设置弹窗top值

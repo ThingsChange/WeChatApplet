@@ -418,6 +418,10 @@ table tr:nth-child(even) td{
     width: 100%;
     height: 20vw;
 }
+#laborWindowChart {
+    width: 100%;
+    height: 20vw;
+}
 .family-list ul li {
     display: inline-block;
     margin: 0 .3vw;
