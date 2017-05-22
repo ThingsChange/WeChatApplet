@@ -66,66 +66,6 @@ define(['echarts'],function(echarts){
     };
 
     /**
-     * 贫困家庭-贫困结构-饼图
-     */
-
-    var povertyStructureChart = function() {
-        echarts.init(document.getElementById('povertyStructureChart')).setOption(
-            {
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{b}<br />{c}<br />{d}%"
-                },
-                legend: {
-                    orient: 'horizontal',
-                    bottom: '20',
-                    right: '0',
-                    itemHeight: '5',
-                    itemWidth: 5,
-                    width: 10,
-                    textStyle: {
-                        color: '#fff'
-                    },
-                    data: ['一般贫困户', '五保贫困户', '低保贫困户']
-                },
-                series: [
-                    {
-                        type: 'pie',
-                        radius: ['40%', '60%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                            normal: {
-                                show: false,
-                                position: 'center'
-                            },
-                            emphasis: {
-                                show: false,
-                                textStyle: {
-                                    fontSize: '15',
-                                    fontWeight: 'normal'
-                                }
-                            }
-                        },
-                        labelLine: {
-                            normal: {
-                                show: false
-                            }
-                        },
-                        center: ["40%", "50%"],
-                        color: ['#abfb06', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef', '#fde101'],
-                        data: [
-                            {value: 335, name: '一般贫困户'},
-                            {value: 310, name: '五保贫困户'},
-                            {value: 234, name: '低保贫困户'},
-
-                        ]
-                    }
-                ]
-            }
-        );
-    };
-
-    /**
      * 实心饼图
      *
      */

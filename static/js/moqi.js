@@ -84,7 +84,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 $('.bottom').html(template('doctorSignTemp', data));
                 bottomBind();
                 //进度条生成
-                setTimeout(function(){
+
                     //右侧
                     $("#cause").find(".progressBar").each(function(){
                     var value = $(this).prev().text();
@@ -95,7 +95,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                     var value = $(this).next("div").children("span").text();
                     progressBar.generate(this,value);
                     })
-                },200)
+
 
                 var causePieChartData = {
                     color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
@@ -168,10 +168,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                     }
 
                 });
-                setTimeout(function(){$(".progressLi").each(function(){
+                $(".progressLi").each(function(){
                     var percent = $(this).find(".percent").text();
                     progressBar.generate($(this),percent);
-                })},200);
+                })
                 var diseaseStructure = {
                     legend:["心脏病","脑中风","良性脑肿瘤","类风湿性关节炎","活动性肺结核","肺癌","缺资金","白血病","自身动力不足","贫血","关节炎","感冒"],
                     color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
@@ -412,13 +412,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar'], f
                 //ajax
                 var data={};
                 $('#rightSide').html(template('povertyRightSideTemp_poverty', data));
-                charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]})
+                charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]});
+                $(".sectionTab").on("click","span",function(){
+                    if(!$(this).hasClass("active")&&$(this).text()=="人"){
+                        $(this).addClass("active").siblings().removeClass("active");
+                        $("#povertyTypeRank").find("thead th:eq(1)").text("人数")
+                        //ajax
+                    }else if(!$(this).hasClass("active")&&$(this).text()=="户"){
+                        $(this).addClass("active").siblings().removeClass("active");
+                        $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
+                        //ajax
+                    }
+                });
 
-            }
-        });
-        $(".sectionTab").on("click","span",function(){
-            if(!$(this).hasClass("active")&&$(this).text()=="人"){
-                $("#povertyTypeRank").find("thead th:eq(1)").text("人数")
             }
         });
 
