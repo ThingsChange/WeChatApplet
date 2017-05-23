@@ -1,4 +1,4 @@
-data:{//扶贫任务
+{//扶贫任务
 	"pyAlleMission":{//搬迁
 		"documentHouses":135,//建档户数
 		"documentPersons":350,//建档人数

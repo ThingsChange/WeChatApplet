@@ -24,6 +24,8 @@ require.config({
 });
 
 require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
+    var area = "";
+
     //底部轮播图
     function slide(id){
         var outerBox = $("#"+id);
@@ -285,7 +287,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
             })
         },
-        'getPoorFamily': function(){
+        'getDisease': function(){
             $("#leftTabs").removeClass("hide");
             $("#leftOperation").addClass("hide");
             $("#sevenStepsTab").addClass("hide");
@@ -382,139 +384,36 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             bottomBind();
             //底部--------------------end
 
-        }
-    }
-    $(function(){
-        //加载倒计时
-        countDown.countDown("2017/05/25")
-        //村贫困家庭表单
-        $(".logout").on("click", function () {
-            $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
-            document.getElementsByTagName('body')[0].style.padding="0";
-            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-            //设置弹窗top值
-            var html = template('villageTemp',{});
-            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-        })
-        //切换头部标签
-        $("#tab").on("click","div", function(){
-            var activeBool = $(this).hasClass("active");
-            if(!activeBool){
-                $("#rightSide").empty();
-                $(this).addClass("active");
-                $(this).siblings("div").removeClass("active")
-            }
-            if($(this).hasClass("homepage")){//点击首页按钮
-                api.getHomePage();
+        },
+        'getEducation':function(){
+            $('#rightSide').html(template('povertyRightSideTemp_education', data));
+            var eduData = {
+                legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
+                color:['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
+                data:[
+                    {value: 335, name: '学龄前儿童'},
+                    {value: 310, name: '小学'},
+                    {value: 234, name: '初中'},
+                    {value: 135, name: '高中'},
+                    {value: 1548, name: '大专及以上'},
+                    {value: 123, name: '文盲及半文盲'}
 
-            }else if($(this).hasClass("poverty")){//点击贫困家庭按钮
-                api.getPoorFamily();
-            }else if($(this).hasClass("fivePeople")){//---------------点击五人小组按钮----------------
-                api.getFiveGroup();
+                ]
             }
-        });
-        //贫困家庭右侧栏tab切换
-        $("#leftTabs").on("click","span",function(){
-            if(!$(this).hasClass("active")){
-                $("#rightSide").empty();
-                $(this).addClass("active").siblings().removeClass("active");
+            charts.fullPieChart("educationStructureChart",eduData)
 
-            }else{
-                return;
-            }
-            if($(this).hasClass("disease")){//大病结构
-                //ajax
-                var data={};
-                $('#rightSide').html(template('povertyRightSideTemp_disease', data));
-                //ajax
-                var data={
-                    disease:[
-                        {name:"心脏病",percent:"30%"},
-                        {name:"脑中风",percent:"40%"},
-                        {name:"良性脑肿瘤",percent:"20%"},
-                        {name:"类风湿性关节炎",percent:"50%"},
-                        {name:"活动性肺结核",percent:"60%"},
-                        {name:"肺癌",percent:"30%"},
-                        {name:"缺资金",percent:"40%"},
-                        {name:"白血病",percent:"40%"},
-                        {name:"自身动力不足",percent:"20%"},
-                        {name:"自身动力不足",percent:"40%"},
-                        {name:"自身动力不足",percent:"46%"},
-                        {name:"自身动力不足",percent:"34%"}
-                    ],
-
-                };
-                $('#rightSide').html(template('povertyRightSideTemp_disease', data));
-                setTimeout(function(){$(".progressLi").each(function(){
-                    var percent = $(this).find(".percent").text();
-                    progressBar.generate($(this),percent);
-                })},200);
-                var diseaseStructure = {
-                    legend:["心脏病","脑中风","良性脑肿瘤","类风湿性关节炎","活动性肺结核","肺癌","缺资金","白血病","自身动力不足","贫血","关节炎","感冒"],
-                    color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
-                    data:[
-                        {value:335, name:'心脏病'},
-                        {value:300, name:'良性脑肿瘤'},
-                        {value:211, name:'类风湿性关节炎'},
-                        {value:30, name:'活动性肺结核'},
-                        {value:320, name:'肺癌'},
-                        {value:100, name:'白血病'},
-                        {value:340, name:'自身动力不足'},
-                        {value:50, name:'贫血'},
-                        {value:20, name:'关节炎'},
-                        {value:232,name:"缺资金"}
-                    ],
-                    total:"2030"
+        },
+        'getSex':function(){
+            $.getJSON("../js/json/povertyFamily/sex.json",function(data){
+                if(data){
+                    var sexData = data.povertyStructure[area];
                 }
-                charts.pieChart("diseaseStructureChart",true,diseaseStructure);
-                var diseaseIncidence = {
-                    color:['#ff5232','#1996e6'],
-                    data:[{value:335, name:'发生',
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'center',
-                                formatter: "{d}%",
-                                textStyle: {
-                                    fontSize: '11',
-                                    fontWeight: 'lighter',
-                                    color: '#fff'
-                                }
-                            }
-                        }
-                    },
-                        {value:310, name:'未发生'}],
-                    radius: ['50%', '70%'],
-                    center:["50%","50%"]
-                };
-                charts.pieChart("diseaseIncidenceChart",false,diseaseIncidence)
-
-
-            }else if($(this).hasClass("education")){//学历结构
-                $('#rightSide').html(template('povertyRightSideTemp_education', data));
-                var eduData = {
-                    legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
-                    color:['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
-                    data:[
-                        {value: 335, name: '学龄前儿童'},
-                        {value: 310, name: '小学'},
-                        {value: 234, name: '初中'},
-                        {value: 135, name: '高中'},
-                        {value: 1548, name: '大专及以上'},
-                        {value: 123, name: '文盲及半文盲'}
-
-                    ]
-                }
-                charts.fullPieChart("educationStructureChart",eduData)
-
-            }else if($(this).hasClass("sex")){//性别结构
-                $.getJSON("")
-                $('#rightSide').html(template('povertyRightSideTemp_population',{}));
+                $('#rightSide').html(template('povertyRightSideTemp_population',sexData));
                 maleChartData={
                     color: ['#c2ff42', '#1996e6'],
                     data:[
                         {
-                            value: 335,
+                            value: sexData,
                             name: '男性',
                             label: {
                                 normal: {
@@ -563,20 +462,70 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 }
                 charts.pieChart("femaleChart",false,femaleChartData)
 
-            }else if($(this).hasClass("poverty")){//贫困结构
-                $('#rightSide').html(template('povertyRightSideTemp_poverty', {}));
-                charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]});
-                $(".sectionTab").on("click","span",function(){
-                    if(!$(this).hasClass("active")&&$(this).text()=="人"){
-                        $(this).addClass("active").siblings().removeClass("active");
-                        $("#povertyTypeRank").find("thead th:eq(1)").text("人数")
-                        //ajax
-                    }else if(!$(this).hasClass("active")&&$(this).text()=="户"){
-                        $(this).addClass("active").siblings().removeClass("active");
-                        $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
-                    }
-                });
+            })
+        },
+        'getPoverty':function(){
+            $('#rightSide').html(template('povertyRightSideTemp_poverty', {}));
+            charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]});
+            $(".sectionTab").on("click","span",function(){
+                if(!$(this).hasClass("active")&&$(this).text()=="人"){
+                    $(this).addClass("active").siblings().removeClass("active");
+                    $("#povertyTypeRank").find("thead th:eq(1)").text("人数")
+                    //ajax
+                }else if(!$(this).hasClass("active")&&$(this).text()=="户"){
+                    $(this).addClass("active").siblings().removeClass("active");
+                    $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
+                }
+            });
+        }
 
+    }
+    $(function(){
+        //加载倒计时
+        countDown.countDown("2017/05/25")
+        //村贫困家庭表单
+        $(".logout").on("click", function () {
+            $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
+            document.getElementsByTagName('body')[0].style.padding="0";
+            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+            //设置弹窗top值
+            var html = template('villageTemp',{});
+            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+        })
+        //切换头部标签
+        $("#tab").on("click","div", function(){
+            var activeBool = $(this).hasClass("active");
+            if(!activeBool){
+                $("#rightSide").empty();
+                $(this).addClass("active");
+                $(this).siblings("div").removeClass("active")
+            }
+            if($(this).hasClass("homepage")){//点击首页按钮
+                api.getHomePage();
+
+            }else if($(this).hasClass("poverty")){//点击贫困家庭按钮
+                api.getDisease();
+            }else if($(this).hasClass("fivePeople")){//---------------点击五人小组按钮----------------
+                api.getFiveGroup();
+            }
+        });
+        //贫困家庭右侧栏tab切换
+        $("#leftTabs").on("click","span",function(){
+            if(!$(this).hasClass("active")){
+                $("#rightSide").empty();
+                $(this).addClass("active").siblings().removeClass("active");
+
+            }else{
+                return;
+            }
+            if($(this).hasClass("disease")){//大病结构
+                api.getDisease();
+            }else if($(this).hasClass("education")){//学历结构
+                api.getEducation()
+            }else if($(this).hasClass("sex")){//性别结构
+                api.getSex()
+            }else if($(this).hasClass("poverty")){//贫困结构
+                api.getPoverty();
             }
         });
 

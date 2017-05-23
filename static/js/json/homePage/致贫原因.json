@@ -1,4 +1,4 @@
-data:{//致贫原因
+{//致贫原因
 	"poorCausesZhutu":{//致贫原因柱形图
 		"illnessCasuses":"42.53%",//疾病原因
 		"studyCasuses":"0.67%",//因学
