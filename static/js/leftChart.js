@@ -7,7 +7,7 @@ require.config({
     }
 });
 define(['echarts'],function(echarts){
-    var pieChart = function(id, color1,color2){
+    var pieChart = function(id, color1,color2,dataArr,percent){
         var pieChart = echarts.init(document.getElementById(id));
         pieChart.setOption({
             tooltip: {
@@ -28,7 +28,7 @@ define(['echarts'],function(echarts){
                         normal: {
                             show: true,
                             position: 'center',
-                            formatter:'88.65%',
+                            formatter:percent,
                             textStyle: {
                                 fontSize: '12',
                                 fontWeight: 'normal',
@@ -39,13 +39,7 @@ define(['echarts'],function(echarts){
                             show:false
                         }
                     },
-                    data: [
-                        {value:200, name:'未完成'},
-                        {
-                            value:1548,
-                            name:'已完成',
-                        }
-                    ],
+                    data: dataArr,
 
                     labelLine: {
                         normal: {
@@ -62,15 +56,20 @@ define(['echarts'],function(echarts){
         });
         resize_window(pieChart);
     };
-    var barChart = function(id){
+    var barChart = function(id,towns,data){
         var barchart = echarts.init(document.getElementById(id));
-        var towns = ["尼尔基镇", "西瓦尔图镇", "拉杜尔鄂温族乡","拉杜尔鄂","拉杜", "拉杜克民族乡", "反政府武装", "西瓦尔图镇", "拉杜尔鄂乡", "拉杜克民族乡", "反政府武装","伊拉克", "美国", "北京", "登特办事处", "坤米尔", "办事粗"];
+        // var towns = ["尼尔基镇", "西瓦尔图镇", "拉杜尔鄂温族乡","拉杜尔鄂","拉杜", "拉杜克民族乡", "反政府武装", "西瓦尔图镇", "拉杜尔鄂乡", "拉杜克民族乡", "反政府武装","伊拉克", "美国", "北京", "登特办事处", "坤米尔", "办事粗"];
         barchart.setOption({
             color: ['#3398DB'],
             tooltip : {
                 trigger: 'axis',
                 axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                     type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                },
+                formatter: function (params) {
+                    console.log(params)
+                    var tar = params[0];
+                    return tar.name + ':' + tar.data;
                 }
             },
             grid: {
@@ -124,7 +123,7 @@ define(['echarts'],function(echarts){
             ],
             series : [
                 {
-                    name:'直接访问',
+                    name:'',
                     type:'bar',
                     barWidth: '60%',
                     label: {
@@ -147,7 +146,7 @@ define(['echarts'],function(echarts){
                             color: []
                         }
                     },
-                    data:[10, 52, 200, 334, 390, 330, 220, 390, 330, 220,330, 220, 390, 330, 220, 330, 220]
+                    data:data
                 }
             ]
         })

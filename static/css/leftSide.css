@@ -94,7 +94,9 @@ span.span-active {
     cursor: pointer;
 }
 .s-left-header {
-    padding: 0.8vw 0;
+    padding: 0.4vw 0;
+    line-height: 1.4vw;
+    font-size: .9vw;
 }
 .second-sec .progressBar .progressBarBar{
     -webkit-transition: width 2s;

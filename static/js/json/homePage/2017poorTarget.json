@@ -1,0 +1,121 @@
+{
+    "nierjizhen": {
+        "townName": "尼尔基镇",
+        "targetHouseholds": "353",
+        "doneHouseholds": "353",
+        "targetPopulation": "911",
+        "donePopulation": "353"
+    },
+    "hongyanzhen": {
+        "townName": "红彦镇",
+        "targetHouseholds": "124",
+        "doneHouseholds": "?",
+        "targetPopulation": "276",
+        "donePopulation": "?"
+    },
+    "xiwaertuzhen": {
+        "townName": "西瓦尔图镇",
+        "targetHouseholds": "59",
+        "doneHouseholds": "?",
+        "targetPopulation": "147",
+        "donePopulation": "?"
+    },
+    "baoshanzhen": {
+        "townName": "宝山镇",
+        "targetHouseholds": "150",
+        "doneHouseholds": "?",
+        "targetPopulation": "363",
+        "donePopulation": "?"
+    },
+    "tawenaobaozhen": {
+        "townName": "塔温敖宝镇",
+        "targetHouseholds": "50",
+        "doneHouseholds": "?",
+        "targetPopulation": "153",
+        "donePopulation": "?"
+    },
+    "tengkezhen": {
+        "townName": "腾克镇",
+        "targetHouseholds": "141",
+        "doneHouseholds": "?",
+        "targetPopulation": "387",
+        "donePopulation": "?"
+    },
+    "bayanxiang": {
+        "townName": "巴彦乡",
+        "targetHouseholds": "132",
+        "doneHouseholds": "?",
+        "targetPopulation": "270",
+        "donePopulation": "?"
+    },
+    "aerlazhen": {
+        "townName": "阿尔拉镇",
+        "targetHouseholds": "35",
+        "doneHouseholds": "?",
+        "targetPopulation": "105",
+        "donePopulation": "?"
+    },
+    "dulaerxiang": {
+        "townName": "杜拉尔乡",
+        "targetHouseholds": "41",
+        "doneHouseholds": "?",
+        "targetPopulation": "99",
+        "donePopulation": "?"
+    },
+    "hanguerhezhen": {
+        "townName": "汉古尔河镇",
+        "targetHouseholds": "119",
+        "doneHouseholds": "?",
+        "targetPopulation": "317",
+        "donePopulation": "?"
+    },
+    "hadayangzhen": {
+        "townName": "哈达阳镇",
+        "targetHouseholds": "57",
+        "doneHouseholds": "?",
+        "targetPopulation": "145",
+        "donePopulation": "?"
+    },
+    "kuilehezhen": {
+        "townName": "奎勒河镇",
+        "targetHouseholds": "112",
+        "doneHouseholds": "?",
+        "targetPopulation": "291",
+        "donePopulation": "?"
+    },
+    "kuquqixiang": {
+        "townName": "库如奇乡",
+        "targetHouseholds": "53",
+        "doneHouseholds": "?",
+        "targetPopulation": "127",
+        "donePopulation": "?"
+    },
+    "dengteke": {
+        "townName": "登特科",
+        "targetHouseholds": "124",
+        "doneHouseholds": "?",
+        "targetPopulation": "294",
+        "donePopulation": "?"
+    },
+    "eerhe": {
+        "townName": "额尔和",
+        "targetHouseholds": "116",
+        "doneHouseholds": "?",
+        "targetPopulation": "237",
+        "donePopulation": "?"
+    },
+    "woluohe": {
+        "townName": "卧罗河",
+        "targetHouseholds": "68",
+        "doneHouseholds": "?",
+        "targetPopulation": "212",
+        "donePopulation": "?"
+    },
+    "kunmierdi": {
+        "townName": "坤密尔堤",
+        "targetHouseholds": "51",
+        "doneHouseholds": "?",
+        "targetPopulation": "141",
+        "donePopulation": "?"
+    }
+}

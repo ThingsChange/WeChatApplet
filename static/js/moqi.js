@@ -24,6 +24,7 @@ require.config({
 });
 
 require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
+    //当前所选区域对应的全局变量
     var area = "nierjizhen";
 
     //底部轮播图
@@ -58,27 +59,23 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 10);
     }
     //由于贫困家庭与首页共用签约，提取公共部分
+    /**
+     * 家医签约点击方法，暂时不做保存筛选条件的处理
+     */
     function bottomBind() {
         $(".bottom-head").on("click",function(){
+            $(".bottom-header ul li").removeClass("click-active").eq(0).addClass("click-active")
             var $this = $(this).siblings(".bottom-content");
             $this.slideToggle(function(){
-                chart.barChart("doctorSign");
+                api.getDoctorSign('illnessCasuses');
             });
-        });
-        //家医签约切换标题
-        $(".bottom-header ul").on("click","li", function(){
-            var activeBool = $(this).hasClass("click-active");
-            if(!activeBool){
-                $(this).addClass("click-active");
-                $(this).siblings("li").removeClass("click-active");
-                chart.barChart("doctorSign");
-            }
+
         });
     }
 
     // 数据加载
     var api = {
-        'getHomePage': function(data){
+        'getHomePage': function(town){
             $("#leftTabs").addClass("hide");
             $("#leftOperation").removeClass("hide");
             $("#sevenStepsTab").addClass("hide");
@@ -119,10 +116,27 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
             })
             //左侧--------------------start
-            $('#leftSide').html(template('homepageLeftSideTemp', data));
-            chart.pieChart("poorFamily","#8ed02b","#1b9aea");
-            chart.pieChart("poorPeople","#8ed02b","#1b9aea");
-            chart.pieChart("poorRate","#8ed02b","#1b9aea");
+            //获取首页左侧数据
+            var dataLeft ={};
+            var houseHoldArr, populationArr;
+            $.ajaxSettings.async = false;
+            $.getJSON("../js/json/homePage/2017poorTarget.json",function(res){
+                dataLeft['townData']=res[town];
+                houseHoldArr = [
+                    {"value":parseInt(res[town].doneHouseholds),"name":'已完成'},{"value":558,"name":'未完成'}
+                ];
+                populationArr = [
+                    {"value":parseInt(res[town].donePopulation),"name":'已完成'},{"value":558,"name":'未完成'}
+                ];
+            });
+            $.getJSON("../js/json/homePage/helpMission.json",function(res){
+                dataLeft['mission']=res;
+            });
+            $('#leftSide').html(template('homepageLeftSideTemp', dataLeft));
+            // $('#leftSide').html(template('homepageLeftSideTemp', data));
+            chart.pieChart("poorFamily","#8ed02b","#1b9aea",houseHoldArr,'61.25%');
+            chart.pieChart("poorPeople","#8ed02b","#1b9aea",populationArr,'61.25%');
+            chart.pieChart("poorRate","#8ed02b","#1b9aea",populationArr,'61.25%');
             $(".section-body.second-sec").find(".progressBar").each(function () {
                 var value = $(this).next("div").children("span").text();
                 progressBar.generate(this,value);
@@ -130,8 +144,17 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //左侧--------------------end
 
             //底部--------------------start
-            $('.bottom').html(template('doctorSignTemp', data));
+            $('.bottom').html(template('doctorSignTemp', {}));
             bottomBind();
+            //家医签约切换标题
+            $(".bottom-header ul").on("click","li", function(){
+                var activeBool = $(this).hasClass("click-active");
+                if(!activeBool){
+                    $(this).addClass("click-active");
+                    $(this).siblings("li").removeClass("click-active");
+                    api.getDoctorSign('documentPersons');
+                }
+            });
             //底部--------------------end
         },
         'getFiveGroup': function(){
@@ -150,6 +173,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //右侧--------------------end
 
             //左侧--------------------start
+
             $('#leftSide').html(template('fiveLeftSideTemp', data));
             //进度条生成
             $(".section-body.second-sec").find(".progressBar").each(function () {
@@ -281,52 +305,78 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
             })
         },
-        'getDisease': function(){
+        'getPoorFamily': function(switchFlag){//贫困家庭左侧
+            $.getJSON("../js/json/povertyFamily/poorFamily.json",function(data){
+                data["huorren"] = switchFlag || 1;
+                $('#leftSide').html(template('povertyLeftSideTemp', data));
+            });
+            //绑定左侧 人/户 切换点击事件
+            $(".switch-head").on("click","span", function(){
+                var activeBool = $(this).hasClass("span-active");
+                if(!activeBool){
+                    // $(this).addClass("span-active");
+                    // $(this).siblings("span").removeClass("span-active")
+                    var text = $(this).text();
+                    // var obj = $(".section-body table thead tr").children();
+                    if(text == "户"){
+                        api.getPoorFamily(1);
+                    }else{
+                        api.getPoorFamily(2);
+                    }
+                }
+
+            });
+        },
+        'getDisease': function(dataLeft){
             $("#leftTabs").removeClass("hide");
             $("#leftOperation").addClass("hide");
             $("#sevenStepsTab").addClass("hide");
             $("#leftTabs").find("span.disease").addClass("active").siblings().removeClass("active")
 
             //右侧--------------------start
+            //右侧--------------------start
             var data={
                 disease:[
-                    {name:"心脏病",percent:"30%"},
-                    {name:"脑中风",percent:"40%"},
-                    {name:"良性脑肿瘤",percent:"20%"},
-                    {name:"类风湿性关节炎",percent:"50%"},
-                    {name:"活动性肺结核",percent:"60%"},
-                    {name:"肺癌",percent:"30%"},
-                    {name:"缺资金",percent:"40%"},
-                    {name:"白血病",percent:"40%"},
-                    {name:"自身动力不足",percent:"20%"},
-                    {name:"自身动力不足",percent:"40%"},
-                    {name:"自身动力不足",percent:"46%"},
-                    {name:"自身动力不足",percent:"34%"}
+                    {name:"高血压",percent:"16%"},
+                    {name:"脑血管病",percent:"8%"},
+                    {name:"糖尿病",percent:"6%"},
+                    {name:"冠心病",percent:"5%"},
+                    {name:"脑梗",percent:"3%"},
+                    {name:"布病",percent:"2%"},
+                    {name:"类风湿性关节炎",percent:"2%"},
+                    {name:"关节病",percent:"2%"},
+                    {name:"胆囊炎",percent:"1%"},
+                    {name:"心肌病",percent:"1%"},
+                    {name:"肺结核",percent:"1%"},
+                    {name:"腰间盘突出",percent:"1%"}
                 ],
 
             };
             $('#rightSide').html(template('povertyRightSideTemp_disease', data));
             var diseaseStructure = {
-                legend:["心脏病","脑中风","良性脑肿瘤","类风湿性关节炎","活动性肺结核","肺癌","缺资金","白血病","自身动力不足","贫血","关节炎","感冒"],
+                legend:["高血压","脑血管病","糖尿病","冠心病","脑梗","布病","类风湿性关节炎","关节病","胆囊炎","心肌病","肺结核","腰间盘突出","其他"],
                 color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
                 data:[
-                    {value:335, name:'心脏病'},
-                    {value:300, name:'良性脑肿瘤'},
-                    {value:211, name:'类风湿性关节炎'},
-                    {value:30, name:'活动性肺结核'},
-                    {value:320, name:'肺癌'},
-                    {value:100, name:'白血病'},
-                    {value:340, name:'自身动力不足'},
-                    {value:50, name:'贫血'},
-                    {value:20, name:'关节炎'},
-                    {value:232,name:"缺资金"}
+                    {value:532, name:'高血压'},
+                    {value:275, name:'脑血管病'},
+                    {value:191, name:'糖尿病'},
+                    {value:164, name:'冠心病'},
+                    {value:117, name:'脑梗'},
+                    {value:69, name:'布病'},
+                    {value:63, name:'类风湿性关节炎'},
+                    {value:57, name:'关节病'},
+                    {value:46, name:'胆囊炎'},
+                    {value:43,name:"心肌病"},
+                    {value:43,name:"肺结核"},
+                    {value:36,name:"腰间盘突出"},
+                    {value:1720,name:"其他"}
                 ],
-                total:"2030"
+                total:"3356"
             }
             charts.pieChart("diseaseStructureChart",true,diseaseStructure);
             var diseaseIncidence = {
                 color:['#ff5232','#1996e6'],
-                data:[{value:335, name:'发生',
+                data:[{value:3356, name:'发生',
                     label: {
                         normal: {
                             show: true,
@@ -340,7 +390,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         }
                     }
                 },
-                    {value:310, name:'未发生'}],
+                    {value:324444, name:'未发生'}],
                 radius: ['50%', '70%'],
                 center:["50%","50%"]
             };
@@ -348,25 +398,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //右侧--------------------end
 
             //左侧--------------------start
-            $('#leftSide').html(template('povertyLeftSideTemp', data));
-            //绑定左侧 人/户 切换点击事件
-            $(".switch-head").on("click","span", function(){
-                var activeBool = $(this).hasClass("span-active");
-                if(!activeBool){
-                    $(this).addClass("span-active");
-                    $(this).siblings("span").removeClass("span-active")
-                    var text = $(this).text();
-                    var obj = $(".section-body table thead tr").children();
-                    if(text == "户"){
-                        obj.eq(1).text("目标户数");
-                        obj.eq(2).text("完成户数");
-                    }else{
-                        obj.eq(1).text("目标人数");
-                        obj.eq(2).text("完成人数");
-                    }
-                }
+            api.getPoorFamily();
+            /*$.getJSON("../js/json/povertyFamily/poorFamily.json",function(data){
+                data["huorren"] = switchFlag || 1;
+                $('#leftSide').html(template('povertyLeftSideTemp', data));
+            });*/
 
-            });
+
             $(".progressLi").each(function(){
                 var percent = $(this).find(".percent").text();
                 progressBar.generate($(this),percent);
@@ -376,6 +414,16 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //底部--------------------start
             $('.bottom').html(template('doctorSignTemp', data));
             bottomBind();
+            // api.getDoctorSign('illnessCasuses');
+            //家医签约切换标题
+            $(".bottom-header ul").on("click","li", function(){
+                var activeBool = $(this).hasClass("click-active");
+                if(!activeBool){
+                    $(this).addClass("click-active");
+                    $(this).siblings("li").removeClass("click-active");
+                    api.getDoctorSign('documentPersons');
+                }
+            });
             //底部--------------------end
 
         },
@@ -471,6 +519,20 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
                 }
             });
+        },
+        'getDoctorSign':function(town){
+            $.getJSON("../js/json/homePage/doctorSign.json",function(data){
+                if(data) {
+                    var dataObj = data[town];
+                    var townArr = [];
+                    var dataArr = [];
+                    for(p in dataObj) {
+                        townArr.push(p);
+                        dataArr.push(dataObj[p]);
+                    }
+                    chart.barChart("doctorSign",townArr,dataArr);
+                }
+            })
         }
 
     }
@@ -495,10 +557,11 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 $(this).siblings("div").removeClass("active")
             }
             if($(this).hasClass("homepage")){//点击首页按钮
-                api.getHomePage();
+                api.getHomePage("nierjizhen");
 
             }else if($(this).hasClass("poverty")){//点击贫困家庭按钮
-                api.getDisease();
+                    api.getDisease();
+
             }else if($(this).hasClass("fivePeople")){//---------------点击五人小组按钮----------------
                 api.getFiveGroup();
             }

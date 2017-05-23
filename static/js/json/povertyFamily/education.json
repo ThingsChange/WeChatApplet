@@ -1,6 +1,6 @@
 {
     "povertyStructure": [
-		"townName":{
+		{
             "numberOfPreschoolChildren": "学龄前儿童数量",
 			"preschoolChildrenPercentage": "学龄前儿童百分比",
             "numberOfPrimarySchool": "小学毕业数量",
@@ -14,7 +14,7 @@
 			"numberOfIlliteracy": "文盲半文盲数量",
 			"illiteracyPercentage": "文盲半文盲百分比"
         },
-		"townName":{
+		{
             "numberOfPreschoolChildren": "学龄前儿童数量",
 			"preschoolChildrenPercentage": "学龄前儿童百分比",
             "numberOfPrimarySchool": "小学毕业数量",
