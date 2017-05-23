@@ -24,7 +24,7 @@ require.config({
 });
 
 require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
-    var area = "";
+    var area = "nierjizhen";
 
     //底部轮播图
     function slide(id){
@@ -84,32 +84,26 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             $("#sevenStepsTab").addClass("hide");
 
             //右侧--------------------start
-            var data={};
-            //ajax
-            $('#rightSide').html(template('homepageRightSideTemp', data));
-            //进度条生成
-            $("#cause").find(".progressBar").each(function(){
-                var value = $(this).prev().text();
-                progressBar.generate(this,value);
-            });
-            //致贫原因饼图
-            var causePieChartData = {
-                color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
-                legend:['因病致贫','因学致贫','因灾致贫','缺土地','缺水','缺劳力','缺资金','交通条件落后','自身动力不足'],
-                data:[
-                    {value:335, name:'因病致贫'},
-                    {value:300, name:'因学致贫'},
-                    {value:211, name:'因灾致贫'},
-                    {value:30, name:'缺土地'},
-                    {value:320, name:'缺水'},
-                    {value:100, name:'缺劳力'},
-                    {value:340, name:'缺资金'},
-                    {value:50, name:'交通条件落后'},
-                    {value:20, name:'自身动力不足'},
 
-                ]
-            };
-            charts.pieChart("chartForCause",false,causePieChartData);
+            $.getJSON("../js/json/homePage/cause.json",function(data){
+                if(data) {
+                    $('#rightSide').html(template('homepageRightSideTemp', data));
+                    //进度条生成
+                    $("#cause").find(".progressBar").each(function(){
+                        var value = $(this).prev().text();
+                        progressBar.generate(this,value);
+                    });
+                    //致贫原因饼图
+                    var causePieChartData = {
+                        color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
+                        legend:['因病致贫','因学致贫','因灾致贫','缺土地','缺水','缺劳力','缺资金','交通条件落后','自身动力不足'],
+                        data:data.causePieChartData
+                    };
+                    charts.pieChart("chartForCause",false,causePieChartData);
+
+                }
+            })
+
             //右侧--------------------end
             //责任主体绑定点击事件
             $(".goToDetail").on("click", function () {
@@ -413,7 +407,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     color: ['#c2ff42', '#1996e6'],
                     data:[
                         {
-                            value: sexData,
+                            value: sexData.numberOfMen,
                             name: '男性',
                             label: {
                                 normal: {
@@ -428,7 +422,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                                 }
                             }
                         },
-                        {value: 221, name: '女性'}
+                        {value: sexData.numberOfWomen, name: '女性'}
 
                     ],
                     center: ["50%", "50%"],
@@ -439,7 +433,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     color: ['#fe5b3c', '#1996e6'],
                     data:[
                         {
-                            value: 45,
+                            value: sexData.numberOfWomen,
                             name: '女性',
                             label: {
                                 normal: {
@@ -454,7 +448,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                                 }
                             }
                         },
-                        {value: 321, name: '男性'}
+                        {value: sexData.numberOfMen, name: '男性'}
 
                     ],
                     center: ["50%", "50%"],

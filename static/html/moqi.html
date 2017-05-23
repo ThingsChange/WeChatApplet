@@ -81,15 +81,17 @@
         </div>
         <div class="content">
             <ul>
-                <li><span>五人小组（个）：</span>{{888}}</li>
-                <li><span>村支书（人）：</span>{{888}}</li>
-                <li><span>帮扶干部（人）：</span>{{888}}</li>
-                <li><span>家医团队（个）：</span>{{888}}</li>
-                <li><span>专科医生（个）：</span>{{888}}</li>
+                <li><span>五人小组（个）：</span>{{responsibility.fiveGroup}}</li>
+                <li><span>村支书（人）：</span>{{responsibility.villageSecretary}}</li>
+                <li><span>帮扶干部（人）：</span>{{responsibility.helpingCardres}}</li>
+                <li><span>家医团队（个）：</span>{{responsibility.familyDoctorTeams}}</li>
+                <li><span>专科医生（个）：</span>{{responsibility.specialist}}</li>
             </ul>
             <div>
+                <!--没有这条数据-->
                 <p>覆盖乡镇（办事处）</p>
                 <p>{{8}}个</p>
+                <!--没有这条数据-->
                 <p>覆盖行政村</p>
                 <p>{{888}}个</p>
             </div>
@@ -103,7 +105,7 @@
             <ul>
                 <li class="progressLi">
                     <p>因病</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.illnessCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -111,7 +113,7 @@
                 </li>
                 <li class="progressLi">
                     <p>因学</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.studyCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -119,7 +121,7 @@
                 </li>
                 <li class="progressLi">
                     <p>因灾</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.disasterCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -127,7 +129,7 @@
                 </li>
                 <li class="progressLi">
                     <p>缺土地</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.landCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -135,7 +137,7 @@
                 </li>
                 <li class="progressLi">
                     <p>缺水</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.waterCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -143,7 +145,7 @@
                 </li>
                 <li class="progressLi">
                     <p>缺技术</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.technologyCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -151,7 +153,7 @@
                 </li>
                 <li class="progressLi">
                     <p>缺劳力</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.labourCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -159,7 +161,7 @@
                 </li>
                 <li class="progressLi">
                     <p>缺资金</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.moneyCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -167,7 +169,7 @@
                 </li>
                 <li class="progressLi long">
                     <p>交通条件落后</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.trafficCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>
@@ -175,7 +177,7 @@
                 </li>
                 <li class="progressLi long">
                     <p>自身动力不足</p>
-                    <p class="percent">{{40.52}}%</p>
+                    <p class="percent">{{poorCausesZhutu.selfLabourCasuses}}</p>
                     <div class="progressBar pg_blue">
                         <div class="progressBarBg"></div>
                         <div class="progressBarBar"></div>

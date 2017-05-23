@@ -1,34 +1,34 @@
 {
     "povertyStructure": {
       "hanguerzhen": {
-        "numberOfMen": 123,//"男性数量"
-        "menPercentage": "45%",//"男性百分比"
-        "numberOfWomen": 234,//"女性数量"
-        "womenPercentage": "55%"//"人数百分比"
+        "numberOfMen": 123,
+        "menPercentage": "45%",
+        "numberOfWomen": 234,
+        "womenPercentage": "55%"
       },
       "nierjizhen": {
-        "numberOfMen": 456,//"男性数量"
-        "menPercentage": "65%",//"男性百分比"
-        "numberOfWomen": 234,//"女性数量"
-        "womenPercentage": "35%"//"人数百分比"
+        "numberOfMen": 456,
+        "menPercentage": "65%",
+        "numberOfWomen": 234,
+        "womenPercentage": "35%"
       },
       "xiertuzhen": {
-        "numberOfMen": 666,//"男性数量"
-        "menPercentage": "45%",//"男性百分比"
-        "numberOfWomen":777,//"女性数量"
-        "womenPercentage": "55%"//"人数百分比"
+        "numberOfMen": 666,
+        "menPercentage": "45%",
+        "numberOfWomen":777,
+        "womenPercentage": "55%"
       },
       "baoshanzhen": {
-        "numberOfMen": 222,//"男性数量"
-        "menPercentage": "33%",//"男性百分比"
-        "numberOfWomen": 654,//"女性数量"
-        "womenPercentage": "67%"//"人数百分比"
+        "numberOfMen": 222,
+        "menPercentage": "33%",
+        "numberOfWomen": 654,
+        "womenPercentage": "67%"
       },
       "moqi":{
-        "numberOfMen": 7789,//"男性数量"
-        "menPercentage": "67%",//"男性百分比"
-        "numberOfWomen": 2222,//"女性数量"
-        "womenPercentage": "34%"//"人数百分比"
+        "numberOfMen": 7789,
+        "menPercentage": "67%",
+        "numberOfWomen": 2222,
+        "womenPercentage": "34%"
       }
     }
 }
