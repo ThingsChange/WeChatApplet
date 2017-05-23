@@ -1,0 +1,25 @@
+{
+    "povertyStructure": [
+        {
+            "townName": "乡镇名称",
+            "numberOfMen": "男性数量",
+			"menPercentage": "男性百分比",
+            "numberOfWomen": "女性数量",
+			"womenPercentage": "人数百分比"
+        },
+        {
+            "townName": "乡镇名称",
+            "numberOfMen": "男性数量",
+			"menPercentage": "男性百分比",
+            "numberOfWomen": "女性数量",
+			"womenPercentage": "人数百分比"
+        },
+		{
+            "townName": "乡镇名称",
+            "numberOfMen": "男性数量",
+			"menPercentage": "男性百分比",
+            "numberOfWomen": "女性数量",
+			"womenPercentage": "人数百分比"
+        }
+    ]
+}

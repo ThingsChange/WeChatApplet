@@ -494,6 +494,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 charts.fullPieChart("educationStructureChart",eduData)
 
             }else if($(this).hasClass("sex")){//性别结构
+                $.getJSON("")
                 $('#rightSide').html(template('povertyRightSideTemp_population',{}));
                 maleChartData={
                     color: ['#c2ff42', '#1996e6'],

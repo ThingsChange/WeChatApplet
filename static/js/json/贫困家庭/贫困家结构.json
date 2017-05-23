@@ -1,0 +1,58 @@
+{
+    "povertyStructure": [
+        {
+            "townName": "乡镇名称",
+            "poorTypeGeneral": "一般贫困户",
+            "generalPovertyHouseholds": "贫困户数",
+            "generalHouseholdsPercentage": "户数百分比",
+			"generalPovertyPopulation": "贫困人数",
+            "generalPopulationPercentage": "人数百分比",
+            "poorTypeDB": "低保贫困户",
+            "DBPovertyHouseholds": "低保贫困户数",
+            "DBHouseholdsPercentage": "低保户数百分比",
+			"DBPovertyPopulation": "低保贫困人数",
+            "DBPopulationPercentage": "低保人数百分比",
+			"poorTypeWB": "五保贫困户",
+            "WBPovertyHouseholds": "五保贫困户数",
+            "WBHouseholdsPercentage": "五保户数百分比",
+			"WBPovertyPopulation": "五保贫困人数",
+            "WBPopulationPercentage": "五保人数百分比"
+        },
+        {
+            "townName": "乡镇名称",
+            "poorTypeGeneral": "一般贫困户",
+            "generalPovertyHouseholds": "贫困户数",
+            "generalHouseholdsPercentage": "户数百分比",
+			"generalPovertyPopulation": "贫困人数",
+            "generalPopulationPercentage": "人数百分比",
+            "poorTypeDB": "低保贫困户",
+            "DBPovertyHouseholds": "低保贫困户数",
+            "DBHouseholdsPercentage": "低保户数百分比",
+			"DBPovertyPopulation": "低保贫困人数",
+            "DBPopulationPercentage": "低保人数百分比",
+			"poorTypeWB": "五保贫困户",
+            "WBPovertyHouseholds": "五保贫困户数",
+            "WBHouseholdsPercentage": "五保户数百分比",
+			"WBPovertyPopulation": "五保贫困人数",
+            "WBPopulationPercentage": "五保人数百分比"
+        },
+		{
+            "townName": "乡镇名称",
+            "poorTypeGeneral": "一般贫困户",
+            "generalPovertyHouseholds": "贫困户数",
+            "generalHouseholdsPercentage": "户数百分比",
+			"generalPovertyPopulation": "贫困人数",
+            "generalPopulationPercentage": "人数百分比",
+            "poorTypeDB": "低保贫困户",
+            "DBPovertyHouseholds": "低保贫困户数",
+            "DBHouseholdsPercentage": "低保户数百分比",
+			"DBPovertyPopulation": "低保贫困人数",
+            "DBPopulationPercentage": "低保人数百分比",
+			"poorTypeWB": "五保贫困户",
+            "WBPovertyHouseholds": "五保贫困户数",
+            "WBHouseholdsPercentage": "五保户数百分比",
+			"WBPovertyPopulation": "五保贫困人数",
+            "WBPopulationPercentage": "五保人数百分比"
+        }
+    ]
+}

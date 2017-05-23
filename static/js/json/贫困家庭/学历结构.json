@@ -1,0 +1,49 @@
+{
+    "povertyStructure": [
+        {
+            "townName": "乡镇名称",
+            "numberOfPreschoolChildren": "学龄前儿童数量",
+			"preschoolChildrenPercentage": "学龄前儿童百分比",
+            "numberOfPrimarySchool": "小学毕业数量",
+			"primarySchoolPercentage": "小学毕业百分比",
+			"numberOfJuniorMiddleSchool": "初中毕业数量",
+			"juniorMiddleSchoolPercentage": "初中毕业百分比",
+			"numberOfHighSchool": "高中毕业数量",
+			"highSchoolPercentage": "高中毕业百分比",
+			"numberOfCollegeDegreeOrAbove": "大专及以上毕业数量",
+			"collegeDegreeOrAbovePercentage": "大专及以上毕业百分比",
+			"numberOfIlliteracy": "文盲半文盲数量",
+			"illiteracyPercentage": "文盲半文盲百分比"
+        },
+        {
+            "townName": "乡镇名称",
+            "numberOfPreschoolChildren": "学龄前儿童数量",
+			"preschoolChildrenPercentage": "学龄前儿童百分比",
+            "numberOfPrimarySchool": "小学毕业数量",
+			"primarySchoolPercentage": "小学毕业百分比",
+			"numberOfJuniorMiddleSchool": "初中毕业数量",
+			"juniorMiddleSchoolPercentage": "初中毕业百分比",
+			"numberOfHighSchool": "高中毕业数量",
+			"highSchoolPercentage": "高中毕业百分比",
+			"numberOfCollegeDegreeOrAbove": "大专及以上毕业数量",
+			"collegeDegreeOrAbovePercentage": "大专及以上毕业百分比",
+			"numberOfIlliteracy": "文盲半文盲数量",
+			"illiteracyPercentage": "文盲半文盲百分比"
+        },
+		{
+            "townName": "乡镇名称",
+            "numberOfPreschoolChildren": "学龄前儿童数量",
+			"preschoolChildrenPercentage": "学龄前儿童百分比",
+            "numberOfPrimarySchool": "小学毕业数量",
+			"primarySchoolPercentage": "小学毕业百分比",
+			"numberOfJuniorMiddleSchool": "初中毕业数量",
+			"juniorMiddleSchoolPercentage": "初中毕业百分比",
+			"numberOfHighSchool": "高中毕业数量",
+			"highSchoolPercentage": "高中毕业百分比",
+			"numberOfCollegeDegreeOrAbove": "大专及以上毕业数量",
+			"collegeDegreeOrAbovePercentage": "大专及以上毕业百分比",
+			"numberOfIlliteracy": "文盲半文盲数量",
+			"illiteracyPercentage": "文盲半文盲百分比"
+        }
+    ]
+}

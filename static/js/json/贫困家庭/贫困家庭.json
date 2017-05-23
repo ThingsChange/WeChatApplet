@@ -1,0 +1,25 @@
+{
+    "overcomePovertyPlan": [
+        {
+            "townName": "乡镇名称",
+            "targetHouseholds": "目标户数",
+            "doneHouseholds": "完成户数",
+            "targetPopulation": "目标人数",
+            "donePopulation": "完成人数"
+        },
+        {
+            "townName": "乡镇名称",
+            "targetHouseholds": "目标户数",
+            "doneHouseholds": "完成户数",
+            "targetPopulation": "目标人数",
+            "donePopulation": "完成人数"
+        },
+		{
+            "townName": "乡镇名称",
+            "targetHouseholds": "目标户数",
+            "doneHouseholds": "完成户数",
+            "targetPopulation": "目标人数",
+            "donePopulation": "完成人数"
+        }
+    ]
+}
