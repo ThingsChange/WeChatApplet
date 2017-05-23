@@ -1,0 +1,122 @@
+{
+	"moqi":{
+		"healthDocument":1200,
+		"healthPoint":0.5,
+		"diagnosisCount":1200,
+
+		"diagnosisPoint":0.5,
+
+		"healthDetail":[
+			{"value":125,"name":"健康人数"},
+			{"value":125,"name":"大病人数"},
+			{"value":125,"name":"残疾人数"},
+			{"value":125,"name":"长期慢病"}
+		],
+		"laborDetail":[
+			{"value":125,"name":"普通劳动力"},
+			{"value":125,"name":"丧失劳动力"},
+			{"value":125,"name":"无劳动力"},
+			{"value":125,"name":"技能劳动力"}
+		],
+		"signCount":"1200",
+		"signPoint":0.5,
+		"poorCount":1200,
+		"poorPoint":0.5
+	},
+	"baoshanzhen":{
+		"healthDocument":1200,
+		"healthPoint":0.5,
+		"diagnosisCount":1200,
+
+		"diagnosisPoint":0.5,
+
+		"healthDetail":[
+			{"value":125,"name":"健康人数"},
+			{"value":125,"name":"大病人数"},
+			{"value":125,"name":"残疾人数"},
+			{"value":125,"name":"长期慢病"}
+		],
+		"laborDetail":[
+			{"value":125,"name":"普通劳动力"},
+			{"value":125,"name":"丧失劳动力"},
+			{"value":125,"name":"无劳动力"},
+			{"value":125,"name":"技能劳动力"}
+		],
+		"signCount":"1200",
+		"signPoint":0.5,
+		"poorCount":1200,
+		"poorPoint":0.5
+	},
+	"nierjizhen":{
+		"healthDocument":1200,
+		"healthPoint":0.5,
+		"diagnosisCount":1200,
+
+		"diagnosisPoint":0.5,
+
+		"healthDetail":[
+			{"value":125,"name":"健康人数"},
+			{"value":125,"name":"大病人数"},
+			{"value":125,"name":"残疾人数"},
+			{"value":125,"name":"长期慢病"}
+		],
+		"laborDetail":[
+			{"value":125,"name":"普通劳动力"},
+			{"value":125,"name":"丧失劳动力"},
+			{"value":125,"name":"无劳动力"},
+			{"value":125,"name":"技能劳动力"}
+		],
+		"signCount":"1200",
+		"signPoint":0.5,
+		"poorCount":1200,
+		"poorPoint":0.5
+	},
+	"xiwaertuzhen":{
+		"healthDocument":1200,
+		"healthPoint":0.5,
+		"diagnosisCount":1200,
+
+		"diagnosisPoint":0.5,
+
+		"healthDetail":[
+			{"value":125,"name":"健康人数"},
+			{"value":125,"name":"大病人数"},
+			{"value":125,"name":"残疾人数"},
+			{"value":125,"name":"长期慢病"}
+		],
+		"laborDetail":[
+			{"value":125,"name":"普通劳动力"},
+			{"value":125,"name":"丧失劳动力"},
+			{"value":125,"name":"无劳动力"},
+			{"value":125,"name":"技能劳动力"}
+		],
+		"signCount":"1200",
+		"signPoint":0.5,
+		"poorCount":1200,
+		"poorPoint":0.5
+	},
+	"hanguerhezhen":{
+		"healthDocument":1200,
+		"healthPoint":0.5,
+		"diagnosisCount":1200,
+
+		"diagnosisPoint":0.5,
+
+		"healthDetail":[
+			{"value":125,"name":"健康人数"},
+			{"value":125,"name":"大病人数"},
+			{"value":125,"name":"残疾人数"},
+			{"value":125,"name":"长期慢病"}
+		],
+		"laborDetail":[
+			{"value":125,"name":"普通劳动力"},
+			{"value":125,"name":"丧失劳动力"},
+			{"value":125,"name":"无劳动力"},
+			{"value":125,"name":"技能劳动力"}
+		],
+		"signCount":"1200",
+		"signPoint":0.5,
+		"poorCount":1200,
+		"poorPoint":0.5
+	}
+}

@@ -1,121 +1,97 @@
 {
-    "nierjizhen": {
-        "townName": "尼尔基镇",
-        "targetHouseholds": "353",
-        "doneHouseholds": "353",
-        "targetPopulation": "911",
-        "donePopulation": "353"
+    "moqi":{
+        "poorHouseholds":{
+            "planPoorHouseholds":2153,
+            "actualPoorHouseholds":53,
+            "notPoorHouseholds":2100,
+            "percentage":"2.46%"
+        },
+        "poorPersons":{
+            "planPoorPersons":5511,
+            "actualPoorPersons":161,
+            "notPoorPersons":5350,
+            "percentage":"2.91%"
+        },
+        "poorProbability":{
+            "poorPersons":8195,
+            "countryHousePersons":244000,
+            "percentage":"3.35%"
+        }
     },
-    "hongyanzhen": {
-        "townName": "红彦镇",
-        "targetHouseholds": "124",
-        "doneHouseholds": "?",
-        "targetPopulation": "276",
-        "donePopulation": "?"
+    "baoshanzhen":{
+        "poorHouseholds":{
+            "planPoorHouseholds":102,
+            "actualPoorHouseholds":5,
+            "notPoorHouseholds":97,
+            "percentage":"4.9%"
+        },
+        "poorPersons":{
+            "planPoorPersons":263,
+            "actualPoorPersons":17,
+            "notPoorPersons":246,
+            "percentage":"6.46%"
+        },
+        "poorProbability":{
+            "poorPersons":709,
+            "countryHousePersons":22189,
+            "percentage":"3.20%"
+        }
     },
-    "xiwaertuzhen": {
-        "townName": "西瓦尔图镇",
-        "targetHouseholds": "59",
-        "doneHouseholds": "?",
-        "targetPopulation": "147",
-        "donePopulation": "?"
+    "nierjizhen":{
+        "poorHouseholds":{
+            "planPoorHouseholds":464,
+            "actualPoorHouseholds":15,
+            "notPoorHouseholds":449,
+            "percentage":"3.23%"
+        },
+        "poorPersons":{
+            "planPoorPersons":1189,
+            "actualPoorPersons":50,
+            "notPoorPersons":51000,
+            "percentage":"4.21%"
+        },
+        "poorProbability":{
+            "poorPersons":2222,
+            "countryHousePersons":34362,
+            "percentage":"6.47%"
+        }
     },
-    "baoshanzhen": {
-        "townName": "宝山镇",
-        "targetHouseholds": "150",
-        "doneHouseholds": "?",
-        "targetPopulation": "363",
-        "donePopulation": "?"
+    "xiwaertuzhen":{
+        "poorHouseholds":{
+            "planPoorHouseholds":86,
+            "actualPoorHouseholds":3,
+            "notPoorHouseholds":83,
+            "percentage":"3.49%"
+        },
+        "poorPersons":{
+            "planPoorPersons":226,
+            "actualPoorPersons":12,
+            "notPoorPersons":214,
+            "percentage":"5.31%"
+        },
+        "poorProbability":{
+            "poorPersons":454,
+            "countryHousePersons":11324,
+            "percentage":"4.01%"
+        }
     },
-    "tawenaobaozhen": {
-        "townName": "塔温敖宝镇",
-        "targetHouseholds": "50",
-        "doneHouseholds": "?",
-        "targetPopulation": "153",
-        "donePopulation": "?"
-    },
-    "tengkezhen": {
-        "townName": "腾克镇",
-        "targetHouseholds": "141",
-        "doneHouseholds": "?",
-        "targetPopulation": "387",
-        "donePopulation": "?"
-    },
-    "bayanxiang": {
-        "townName": "巴彦乡",
-        "targetHouseholds": "132",
-        "doneHouseholds": "?",
-        "targetPopulation": "270",
-        "donePopulation": "?"
-    },
-    "aerlazhen": {
-        "townName": "阿尔拉镇",
-        "targetHouseholds": "35",
-        "doneHouseholds": "?",
-        "targetPopulation": "105",
-        "donePopulation": "?"
-    },
-    "dulaerxiang": {
-        "townName": "杜拉尔乡",
-        "targetHouseholds": "41",
-        "doneHouseholds": "?",
-        "targetPopulation": "99",
-        "donePopulation": "?"
-    },
-    "hanguerhezhen": {
-        "townName": "汉古尔河镇",
-        "targetHouseholds": "119",
-        "doneHouseholds": "?",
-        "targetPopulation": "317",
-        "donePopulation": "?"
-    },
-    "hadayangzhen": {
-        "townName": "哈达阳镇",
-        "targetHouseholds": "57",
-        "doneHouseholds": "?",
-        "targetPopulation": "145",
-        "donePopulation": "?"
-    },
-    "kuilehezhen": {
-        "townName": "奎勒河镇",
-        "targetHouseholds": "112",
-        "doneHouseholds": "?",
-        "targetPopulation": "291",
-        "donePopulation": "?"
-    },
-    "kuquqixiang": {
-        "townName": "库如奇乡",
-        "targetHouseholds": "53",
-        "doneHouseholds": "?",
-        "targetPopulation": "127",
-        "donePopulation": "?"
-    },
-    "dengteke": {
-        "townName": "登特科",
-        "targetHouseholds": "124",
-        "doneHouseholds": "?",
-        "targetPopulation": "294",
-        "donePopulation": "?"
-    },
-    "eerhe": {
-        "townName": "额尔和",
-        "targetHouseholds": "116",
-        "doneHouseholds": "?",
-        "targetPopulation": "237",
-        "donePopulation": "?"
-    },
-    "woluohe": {
-        "townName": "卧罗河",
-        "targetHouseholds": "68",
-        "doneHouseholds": "?",
-        "targetPopulation": "212",
-        "donePopulation": "?"
-    },
-    "kunmierdi": {
-        "townName": "坤密尔堤",
-        "targetHouseholds": "51",
-        "doneHouseholds": "?",
-        "targetPopulation": "141",
-        "donePopulation": "?"
+    "hanguerhezhen":{
+        "poorHouseholds":{
+            "planPoorHouseholds":152,
+            "actualPoorHouseholds":7,
+            "notPoorHouseholds":145,
+            "percentage":"4.61%"
+        },
+        "poorPersons":{
+            "planPoorPersons":396,
+            "actualPoorPersons":31,
+            "notPoorPersons":365,
+            "percentage":"8.49%"
+        },
+        "poorProbability":{
+            "poorPersons":1020,
+            "countryHousePersons":11847,
+            "percentage":"8.61%"
+        }
     }
 }

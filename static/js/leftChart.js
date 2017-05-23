@@ -67,7 +67,6 @@ define(['echarts'],function(echarts){
                     type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
                 },
                 formatter: function (params) {
-                    console.log(params)
                     var tar = params[0];
                     return tar.name + ':' + tar.data;
                 }

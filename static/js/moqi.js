@@ -27,7 +27,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     //当前所选区域对应的全局变量
     var area = "nierjizhen";
 
-    //底部轮播图
+    /**
+     * 轮播图方法
+     * @param id 轮播图容器
+     */
     function slide(id){
         var outerBox = $("#"+id);
         var innerBoxArr = outerBox.children().children();
@@ -82,9 +85,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             //右侧--------------------start
 
-            $.getJSON("../js/json/homePage/cause.json",function(data){
+            $.getJSON("../js/json/homePage/dutyHost.json",function(data){
                 if(data) {
-                    $('#rightSide').html(template('homepageRightSideTemp', data));
+                    $('#rightSide').html(template('homepageRightSideTemp', data[town]));
                     //进度条生成
                     $("#cause").find(".progressBar").each(function(){
                         var value = $(this).prev().text();
@@ -94,49 +97,57 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     var causePieChartData = {
                         color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
                         legend:['因病致贫','因学致贫','因灾致贫','缺土地','缺水','缺劳力','缺资金','交通条件落后','自身动力不足'],
-                        data:data.causePieChartData
+                        data:data[town].causePieChartData
                     };
                     charts.pieChart("chartForCause",false,causePieChartData);
-
+                    //责任主体绑定点击事件
+                    $(".goToDetail").on("click", function () {
+                        $.jBox('', {title: "组织架构", buttons: {}, border: 0, opacity: 0.4});
+                        document.getElementsByTagName('body')[0].style.padding="0";
+                        var title = document.getElementsByClassName("jbox-title")[0];
+                        title.style.width ="96%";
+                        // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                        //设置弹窗top值
+                        var box = document.getElementById("jbox");
+                        // var title = document.getElementsByClassName("jbox-title")[0];
+                        box.style.top = "2.6vw";
+                        // title.style.textAlign ="cen";
+                        var html = template('organizationTemp',{});
+                        document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    })
                 }
             })
 
             //右侧--------------------end
-            //责任主体绑定点击事件
-            $(".goToDetail").on("click", function () {
-                $.jBox('', {title: "组织架构", buttons: {}, border: 0, opacity: 0.4});
-                document.getElementsByTagName('body')[0].style.padding="0";
-                // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-                //设置弹窗top值
-                var box = document.getElementById("jbox");
-                // var title = document.getElementsByClassName("jbox-title")[0];
-                box.style.top = "2.6vw";
-                // title.style.textAlign ="cen";
-                var html = template('organizationTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-            })
+
             //左侧--------------------start
             //获取首页左侧数据
             var dataLeft ={};
-            var houseHoldArr, populationArr;
+            var houseHoldArr, populationArr, rateArr;
             $.ajaxSettings.async = false;
             $.getJSON("../js/json/homePage/2017poorTarget.json",function(res){
-                dataLeft['townData']=res[town];
+                // console.log(res)
+                var _data = res[town];
                 houseHoldArr = [
-                    {"value":parseInt(res[town].doneHouseholds),"name":'已完成'},{"value":558,"name":'未完成'}
+                    {"value":_data.poorHouseholds.actualPoorHouseholds,"name":'已完成'},{"value":_data.poorHouseholds.notPoorHouseholds,"name":'未完成'}
                 ];
                 populationArr = [
-                    {"value":parseInt(res[town].donePopulation),"name":'已完成'},{"value":558,"name":'未完成'}
+                    {"value":_data.poorPersons.actualPoorPersons,"name":'已完成'},{"value":_data.poorHouseholds.notPoorPersons,"name":'未完成'}
                 ];
+                rateArr = [
+                    {"value":_data.poorProbability.poorPersons,"name":'贫困人口'},{"value":_data.poorProbability.countryHousePersons,"name":'农村户籍人口'}
+
+                ];
+                dataLeft['townData']=_data;
             });
             $.getJSON("../js/json/homePage/helpMission.json",function(res){
                 dataLeft['mission']=res;
             });
             $('#leftSide').html(template('homepageLeftSideTemp', dataLeft));
             // $('#leftSide').html(template('homepageLeftSideTemp', data));
-            chart.pieChart("poorFamily","#8ed02b","#1b9aea",houseHoldArr,'61.25%');
-            chart.pieChart("poorPeople","#8ed02b","#1b9aea",populationArr,'61.25%');
-            chart.pieChart("poorRate","#8ed02b","#1b9aea",populationArr,'61.25%');
+            chart.pieChart("poorFamily","#8ed02b","#1b9aea",houseHoldArr,dataLeft.townData.poorHouseholds.percentage);
+            chart.pieChart("poorPeople","#8ed02b","#1b9aea",populationArr,dataLeft.townData.poorHouseholds.percentage);
+            chart.pieChart("poorRate","#8ed02b","#1b9aea",rateArr,dataLeft.townData.poorProbability.percentage);
             $(".section-body.second-sec").find(".progressBar").each(function () {
                 var value = $(this).next("div").children("span").text();
                 progressBar.generate(this,value);
@@ -157,33 +168,41 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
             //底部--------------------end
         },
-        'getFiveGroup': function(){
+        'getFiveGroup': function(town){
             $("#leftTabs").addClass("hide");
             $("#leftOperation").addClass("hide");
             $("#sevenStepsTab").removeClass("hide");
             //右侧--------------------start
-            var data={};
-            $('#rightSide').html(template('sevenStepsRightSideTemp', data));
-            charts.gauge("putOnRecordChart",{value:'.5',color:'#83ea43'});
-            charts.gauge("diagnosisChart",{value:'.6',color:'#fd8320'});
-            charts.labelPie("healthChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"健康人数"},{value:"222",name:"大病人数"},{value:"333",name:"残疾人数"},{value:"221",name:"长期慢病"}]});
-            charts.labelPie("laborChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"普通劳动力"},{value:"252",name:"丧失劳动力"},{value:"223",name:"无劳动力"},{value:"255",name:"技能劳动力"}]});
-            charts.gauge("signChart",{value:'.4',color:'#3ad3e1'});
-            charts.gauge("overcomePovertyChart",{value:'.8',color:'#e14e35'});
+            $.getJSON("../js/json/fiveGroup/fivegroup_right.json",function(res){
+                var data = res[town];
+                $('#rightSide').html(template('sevenStepsRightSideTemp', data));
+
+                charts.gauge("putOnRecordChart",{value:data.healthPoint,color:'#83ea43'});
+                charts.gauge("diagnosisChart",{value:data.diagnosisPoint,color:'#fd8320'});
+                charts.labelPie("healthChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:data.healthDetail});
+                charts.labelPie("laborChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:data.laborDetail});
+                charts.gauge("signChart",{value:data.signPoint,color:'#3ad3e1'});
+                charts.gauge("overcomePovertyChart",{value:data.poorPoint,color:'#e14e35'});
+            });
+
+
             //右侧--------------------end
 
             //左侧--------------------start
+            $.getJSON("../js/json/fiveGroup/fivegroup_left.json",function(res){
+                var data = res[town];
+                $('#leftSide').html(template('fiveLeftSideTemp', data));
+                //进度条生成
+                $(".section-body.second-sec").find(".progressBar").each(function () {
+                    var value = $(this).next("div").children("span").text();
+                    progressBar.generate(this,value);
+                })
+            });
 
-            $('#leftSide').html(template('fiveLeftSideTemp', data));
-            //进度条生成
-            $(".section-body.second-sec").find(".progressBar").each(function () {
-                var value = $(this).next("div").children("span").text();
-                progressBar.generate(this,value);
-            })
             //左侧--------------------end
 
             //底部--------------------start
-            $('.bottom').html(template('helpDynamicTemp', data));
+            $('.bottom').html(template('helpDynamicTemp', {}));
             //家医签约按钮点击事件
             $(".bottom-head").on("click",function(){
                 var $this = $(this).siblings(".bottom-content");
@@ -327,7 +346,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             });
         },
-        'getDisease': function(dataLeft){
+        'getDisease': function(){
             $("#leftTabs").removeClass("hide");
             $("#leftOperation").addClass("hide");
             $("#sevenStepsTab").addClass("hide");
@@ -428,7 +447,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         },
         'getEducation':function(){
-            $('#rightSide').html(template('povertyRightSideTemp_education', data));
+            $.getJSON("../js/json/povertyFamily/education.json",function(data){
+                $('#rightSide').html(template('povertyRightSideTemp_education', data[area]));
+            });
             var eduData = {
                 legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
                 color:['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
@@ -439,7 +460,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     {value: 135, name: '高中'},
                     {value: 1548, name: '大专及以上'},
                     {value: 123, name: '文盲及半文盲'}
-
                 ]
             }
             charts.fullPieChart("educationStructureChart",eduData)
@@ -450,12 +470,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 if(data){
                     var sexData = data.povertyStructure[area];
                 }
+                sexData.numberOfMen = (parseInt(sexData.poorCount) - parseInt(sexData.numberOfWomen)) + "";
                 $('#rightSide').html(template('povertyRightSideTemp_population',sexData));
                 maleChartData={
                     color: ['#c2ff42', '#1996e6'],
                     data:[
                         {
-                            value: sexData.numberOfMen,
+                            value: (parseInt(sexData.poorCount) - sexData.numberOfWomen),
                             name: '男性',
                             label: {
                                 normal: {
@@ -496,7 +517,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                                 }
                             }
                         },
-                        {value: sexData.numberOfMen, name: '男性'}
+                        {value: (parseInt(sexData.poorCount) - sexData.numberOfWomen), name: '男性'}
 
                     ],
                     center: ["50%", "50%"],
@@ -539,6 +560,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     $(function(){
         //加载倒计时
         countDown.countDown("2017/05/25")
+        //刷新时触发首页点击事件
+        api.getHomePage(area);
         //村贫困家庭表单
         $(".logout").on("click", function () {
             $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
@@ -557,13 +580,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 $(this).siblings("div").removeClass("active")
             }
             if($(this).hasClass("homepage")){//点击首页按钮
-                api.getHomePage("nierjizhen");
+                api.getHomePage(area);
 
             }else if($(this).hasClass("poverty")){//点击贫困家庭按钮
                     api.getDisease();
 
             }else if($(this).hasClass("fivePeople")){//---------------点击五人小组按钮----------------
-                api.getFiveGroup();
+                api.getFiveGroup(area);
             }
         });
         //贫困家庭右侧栏tab切换
@@ -588,7 +611,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         //督导组成员弹窗
 
-        $("#rightSide").on("click",".goToDetail",function(){
+        /*$("#rightSide").on("click",".goToDetail",function(){
             var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
             membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
             var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});
@@ -602,19 +625,151 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 $("#jbox-content").append(membersTemp)
             })
 
-        })
-
-        //added by zrq  暂时这么判断
-        var bool = $("#poorFamily").length;
-        if(bool){
-
-        }
+        })*/
         var height = $("header").height();
         var clientHeight = $(window).height();
         var margin = +$("#rightSide").css("margin-top").slice(0,-2);
         var sideHeight= clientHeight-height-margin;
         $("#rightSide,#leftSide").height(sideHeight-2);
-        //刷新时触发首页点击事件
-        $(".homepage").trigger("click");
     })
+
+
+
+    //地图模块js ---------start----------
+    $(function() {
+        var aPath = $('#moqi_x');
+        getMap(aPath);
+
+        var hoverLock = true;  //hover事件开关；
+        var curr_path_id=false;  //当前选中path对象id;
+        //var Next_map_name=null;
+        var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var dis_w = 70; //鼠标坐标偏移量
+        var dis_h = 150; //
+        var $cheangeMap=$('#changeMap');//进入地图按钮
+
+        function getMap(oSvg) {
+            oSvg.on('mouseover', 'path', function(event) {
+                if (hoverLock) {
+                    $(this).addClass('map-hover');
+                    oSvg.find('path').css('fill','#919689');
+                    this.style.fill = '#5c5f57';
+
+                    var x = event.pageX || event.clientX + scrollX;
+                    var y = event.pageY || event.clientY + scrollY;
+                    $(".map-tips").addClass('show');
+                    //console.log($(this).attr('id'));
+
+                    $(".map-tips").css({
+                        "left": x - dis_w,
+                        "top": y - dis_h,
+                    });
+                }
+            });
+
+            oSvg.on('click', 'path', function(event) {
+
+                if (curr_path_id){
+                    //如果有当前id 已选中某镇
+                    if (curr_path_id!=this.id) {
+                        oSvg.find('path').css('fill','#919689');
+                        curr_path_id='';
+                        $(".map-links").removeClass('show');
+                        hoverLock=true;
+                        return false;
+                    }
+                }
+                if (!curr_path_id){
+                    //如果没有当前id;未选中镇
+                    hoverLock = false;
+                    oSvg.find('path').css('fill','#919689');
+                    $(this).addClass('map-active');
+                    this.style.fill = '#5c5f57';
+                    var x = event.pageX || event.clientX + scrollX;
+                    var y = event.pageY || event.clientY + scrollY;
+                    curr_path_id=this.id;
+
+                    console.log(this.id);
+
+                    $(".map-tips").removeClass('show');
+
+                    $(".map-links").css({
+                        "left": x - dis_w,
+                        "top": y - dis_h,
+                    }).addClass('show');
+                }
+
+            });
+
+
+        }
+
+
+        function getSubMap(oSvg) {
+            oSvg.on('mouseover', 'path', function(event) {
+                if (hoverLock) {
+                    //$(this).addClass('map-hover');
+                    oSvg.find('path').css('fill','#919689');
+                    this.style.fill = '#5c5f57';
+
+                    var x = event.pageX || event.clientX + scrollX;
+                    var y = event.pageY || event.clientY + scrollY;
+                    $(".map-tips").addClass('show');
+                    //console.log($(this).attr('id'));
+                    $(".map-tips").css({
+                        "left": x - dis_w,
+                        "top": y - dis_h,
+                    });
+                }
+            });
+
+            oSvg.on('click', 'path', function(event) {
+
+                if (curr_path_id){
+                    //如果有当前id 已选中某镇
+                    if (curr_path_id!=this.id) {
+                        oSvg.find('path').css('fill','#919689');
+                        curr_path_id='';
+                        alert('饮茶美好列表');
+                    }
+                }
+                if (!curr_path_id){
+                    //如果没有当前id;未选中镇
+                    hoverLock = false;
+                    oSvg.find('path').css('fill','#919689');
+                    this.style.fill = '#5c5f57';
+                    var x = event.pageX || event.clientX + scrollX;
+                    var y = event.pageY || event.clientY + scrollY;
+                    curr_path_id=this.id;
+
+                    console.log(this.id);
+
+                    alert('弹出列表');
+
+
+                }
+
+            });
+
+
+        }
+
+        //进入下级地图
+        $cheangeMap.on('click', function(event) {
+
+            event.preventDefault();
+            aPath.removeClass('show');
+            $(".map-links").removeClass('show');
+
+            var _id='#'+'xiwaertuzhenSvg';
+
+            $(_id).addClass('show');
+            getSubMap($(_id));
+            hoverLock=true;
+
+        });
+    });
+    //地图模块js ---------end----------
+
 });
