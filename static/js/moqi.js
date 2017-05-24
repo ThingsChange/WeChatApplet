@@ -743,6 +743,22 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         //镇地图
         function getSubMap(oSvg) {
 
+
+            curr_svg=oSvg;
+           
+            if (curr_svg) {
+                oSvgBox.on('click', function(event) {
+                    event.preventDefault();
+                    oSvg.find('.validMap').css('fill','#919689');
+                    $(".map-links").removeClass('show');
+                    $(".map-tips").removeClass('show');
+                    hoverLock=true;
+                    curr_path_id=false;
+
+                    /* Act on the event */
+                });
+            }
+
             oSvg.on('mouseover', '.validMap', function(event) {
 
                 if (hoverLock) {
@@ -779,7 +795,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
                     curr_path_id=this.id;
-                    alert(curr_path_id);
+                  
                     console.log(this.id);
                     //村贫困家庭表单
                     $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
