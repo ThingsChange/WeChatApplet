@@ -111,8 +111,13 @@
 }
 .box-middle p {
     margin-top: 0.8vw;
-    line-height: 1.5vw;
-    font-size: 1vw;
+    line-height: 1.2vw;
+    font-size: .9vw;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
 }
 .item-img {
     width: 8.2vw;
@@ -122,6 +127,9 @@
     margin: 0.3vw;
     overflow: hidden;
     border: 1px solid #465b77;
+}
+.item-img img {
+    width: 8.2vw;
 }
 
 /*家医签约*/

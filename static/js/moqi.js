@@ -168,8 +168,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //左侧--------------------end
 
             //底部--------------------start
-            $.getJSON("../js/json/fiveGroup/fivegroup_left.json",function(res){
-                var data = res[area];
+            $.getJSON("../js/json/fiveGroup/helpDynamic.json",function(res){
+                var data={};
+                data.list = res.povertyNews[area];
                 $('.bottom').html(template('helpDynamicTemp', data));
             });
             //家医签约按钮点击事件
@@ -705,7 +706,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
                             oSvg.find(".validMap").css("fill", mapApi.outColor);
                             this.style.fill = mapApi.inColor;
-                            
+
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             //加载hover模板
