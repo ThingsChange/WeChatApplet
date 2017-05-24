@@ -674,8 +674,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "dis_w": 90, //鼠标坐标偏移量
             "dis_h": 200, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
-
-
+            "inColor":"#5c5f57",
+            "outColor":"#919689",
+            
             "init": function() {
                 mapApi.getMap($("#moqi"));
             },
