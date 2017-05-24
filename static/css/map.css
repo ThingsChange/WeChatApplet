@@ -13,10 +13,11 @@
 }
 
 .svgBox{
-	margin:150px auto;
+	margin:6.6vw auto;
+	margin-bottom: 0;
 	width: 50%;
 	/*background-color: pink;*/
-	height: 80%;
+	height: 90%;
 	position: relative;
 	overflow: hidden;	
 }

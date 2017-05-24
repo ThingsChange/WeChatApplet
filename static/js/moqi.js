@@ -26,7 +26,6 @@ require.config({
 require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
     //当前所选区域对应的全局变量
     var area = "moqi";
-
     /**
      * 轮播图方法
      * @param id 轮播图容器
@@ -342,9 +341,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         },
         'getPoorFamily': function(switchFlag){//贫困家庭左侧
             $.getJSON("../js/json/povertyFamily/poorFamily.json",function(data){
-                var _data = data[area];
-                _data["huorren"] = switchFlag || 1;
-                $('#leftSide').html(template('povertyLeftSideTemp', _data));
+                data["huorren"] = switchFlag || 1;
+                $('#leftSide').html(template('povertyLeftSideTemp', data));
             });
             //绑定左侧 人/户 切换点击事件
             $(".switch-head").on("click","span", function(){
@@ -579,7 +577,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     }
     $(function(){
         //加载倒计时
-        countDown.countDown("2017/05/25")
+        countDown.countDown("2017/12/31");
         //刷新时触发首页点击事件
         api.getHomePage(area);
         //绑定
@@ -674,7 +672,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "dis_w": 90, //鼠标坐标偏移量
             "dis_h": 200, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
-            
+
 
             "init": function() {
                 mapApi.getMap($("#moqixianSvg"));
@@ -750,8 +748,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         mapApi.getData(txt);
                         //打开督导组成员弹窗
                         $(".links-list li").eq(1).unbind("click").on("click", function() {
-                            var membersTemp = template("selectTown", { town: [{ "id": "123", "name": "张家口村" }, { "id": "234", "name": "别的什么村" }] });
-                            membersTemp += template("members", { data: [{ "duty": "组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }, { "duty": "副组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }] });
+                            var membersTemp = template("members", { data: [{ "duty": "组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }, { "duty": "副组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }] });
                             var $pop = $.jBox(membersTemp, { title: "督导组成员", buttons: {}, border: 0, opacity: 0.4 });
                             document.getElementsByTagName("body")[0].style.padding = "0";
                             var title = document.getElementsByClassName("jbox-title")[0];
@@ -908,7 +905,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     // $(function() {
 
 
-    //     var oSvgBox=$('#svgBox');  
+    //     var oSvgBox=$('#svgBox');
     //      var curr_svg=false;   //当前显示地图对象
 
     //     var aPath = $('#moqixianSvg');
@@ -922,13 +919,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     //     var dis_w = 90; //鼠标坐标偏移量
     //     var dis_h = 200; //
     //     var $cheangeMap=$('#changeMap');//进入地图按钮
-        
-       
+
+
     //     //旗地图
     //     function getMap(oSvg) {
 
     //         curr_svg=oSvg;
-           
+
     //         if (curr_svg) {
     //             oSvgBox.on('click', function(event) {
     //                 event.preventDefault();
@@ -1043,7 +1040,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
 
     //         curr_svg=oSvg;
-           
+
     //         if (curr_svg) {
     //             oSvgBox.on('click', function(event) {
     //                 event.preventDefault();
@@ -1093,7 +1090,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     //                 var x = event.pageX || event.clientX + scrollX;
     //                 var y = event.pageY || event.clientY + scrollY;
     //                 curr_path_id=this.id;
-                  
+
     //                 console.log(this.id);
     //                 //村贫困家庭表单
     //                 $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
