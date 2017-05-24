@@ -629,7 +629,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
     //地图模块js ---------start----------
     $(function() {
-        var aPath = $('#moqi_x');
+        var aPath = $('#moqixianSvg');
         getMap(aPath);
 
         var hoverLock = true;  //hover事件开关；
@@ -643,10 +643,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         //旗地图
         function getMap(oSvg) {
-            oSvg.on('mouseover', 'path', function(event) {
+            oSvg.on('mouseover', '.validMap', function(event) {
                 if (hoverLock) {
 
-                    oSvg.find('path').css('fill','#919689');
+                    oSvg.find('.validMap').css('fill','#919689');
                     this.style.fill = '#5c5f57';
 
                     var x = event.pageX || event.clientX + scrollX;
@@ -661,11 +661,11 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 }
             });
 
-            oSvg.on('click', 'path', function(event) {
+            oSvg.on('click', '.validMap', function(event) {
                 if (curr_path_id){
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
-                        oSvg.find('path').css('fill','#919689');
+                        oSvg.find('.validMap').css('fill','#919689');
                         curr_path_id='';
                         $(".map-links").removeClass('show');
                         hoverLock=true;
@@ -675,7 +675,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 if (!curr_path_id){
                     //如果没有当前id;未选中镇
                     hoverLock = false;
-                    oSvg.find('path').css('fill','#919689');
+                    oSvg.find('.validMap').css('fill','#919689');
 
                     this.style.fill = '#5c5f57';
                     var x = event.pageX || event.clientX + scrollX;
@@ -788,7 +788,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             aPath.removeClass('show');
             $(".map-links").removeClass('show');
 
-            var _id='#'+'xiwaertuzhenSvg';
+            var _id='#'+curr_path_id+'Svg';
 
             $(_id).addClass('show');
             getSubMap($(_id));
