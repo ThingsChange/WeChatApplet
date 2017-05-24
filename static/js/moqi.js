@@ -168,7 +168,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //左侧--------------------end
 
             //底部--------------------start
-            $('.bottom').html(template('helpDynamicTemp', {}));
+            $.getJSON("../js/json/fiveGroup/fivegroup_left.json",function(res){
+                var data = res[area];
+                $('.bottom').html(template('helpDynamicTemp', data));
+            });
             //家医签约按钮点击事件
             $(".bottom-head").on("click",function(){
                 var $this = $(this).siblings(".bottom-content");
@@ -663,7 +666,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     //地图模块js ---------start----------
 
     var mapApi = {
-
             "oSvgBox": $("#svgBox"),
             "curr_svg": false, //当前显示地图对象
             "hoverLock": true, //hover事件开关；
@@ -748,16 +750,18 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                                 "left": x - mapApi.dis_w,
                                 "top": y - mapApi.dis_h,
                             }).addClass("show");
-
                         }
                         //改变当前选择区域
                         area = mapApi.curr_path_id;
-                        var txt = $("#tab div.active").text();
-                        mapApi.getData(txt);
+                        // var txt = $("#tab div.active").text();
+                        mapApi.getData();
                         //打开督导组成员弹窗
                         $(".links-list li").eq(1).unbind("click").on("click", function() {
-                            var membersTemp = template("members", { data: [{ "duty": "组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }, { "duty": "副组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }] });
-                            var $pop = $.jBox(membersTemp, { title: "督导组成员", buttons: {}, border: 0, opacity: 0.4 });
+                            $.getJSON("../js/json/superVisorGroup.json",function(res){
+                                var data = res[area];
+                                var membersTemp = template("members", data);
+                                $.jBox(membersTemp, { title: "督导组成员", buttons: {}, border: 0, opacity: 0.4 });
+                            })
                             document.getElementsByTagName("body")[0].style.padding = "0";
                             var title = document.getElementsByClassName("jbox-title")[0];
                             title.style.width = "96%";
@@ -793,7 +797,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             "getSubMap" :function(oSvg) {
                     mapApi.curr_svg = oSvg;
-
                     if (mapApi.curr_svg) {
                         mapApi.oSvgBox.on("click", function(event) {
                             event.preventDefault();
@@ -844,7 +847,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             mapApi.curr_path_id = this.id;
 
-                            console.log(this.id);
+                            // console.log(this.id);
                             //村贫困家庭表单
                             $.jBox('', { title: "", buttons: {}, border: 0, opacity: 0.4 });
                             document.getElementsByTagName('body')[0].style.padding = "0";

@@ -16,7 +16,7 @@
     <div class="map-tips hide"></div>
     <div class='map-links'>
         <ul class="links-list">
-            <li><a id="changeMap" class="" href="javascript:;">进入卧漯河办事处</a></li>
+            <li><a id="changeMap" class="" href="javascript:;">进入该区域地图</a></li>
             <li><a href="javascript:;">查看督导组成员</span></a></li>
         </ul>
         <div class="map-sanjiao"></div>
@@ -3782,17 +3782,16 @@
         </tr>
         </thead>
         <tbody>
-        {{each data as data}}
+        {{each list as data}}
         <tr>
-            <td>{{data.duty}}</td>
+            <td>{{data.zhiWu}}</td>
             <td>{{data.name}}</td>
             <td>{{data.sex}}</td>
-            <td>{{data.nation}}</td>
-            <td>{{data.politic}}</td>
-            <td>{{data.office}}</td>
-            <td>{{data.contect}}</td>
-            <td>{{data.remarks}}</td>
-
+            <td>{{data.minZu}}</td>
+            <td>{{data.zzmm}}</td>
+            <td>{{data.ggdwjzw}}</td>
+            <td>{{data.moblie}}</td>
+            <td>{{data.remark}}</td>
         </tr>
         {{/each}}
         </tbody>

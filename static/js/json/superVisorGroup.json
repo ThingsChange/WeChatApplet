@@ -1,6 +1,6 @@
 {
-    "nierjizhen":
-        [
+    "nierjizhen": {
+        "list":[
             {
                 "zhiWu": "组长",
                 "name": "关国杰",
@@ -51,9 +51,10 @@
                 "moblie": "13848093933",
                 "remark": ""
             }
-        ],
-    "hanguerhezhen":
-        [
+        ]
+    },
+    "hanguerhezhen": {
+        "list":[
             {
                 "zhiWu": "组长",
                 "name": "王兴发",
@@ -104,9 +105,10 @@
                 "moblie": "13488508355",
                 "remark": ""
             }
-        ],
+        ]
+    },
     "baoshanzhen": {
-        [
+        "list":[
             {
                 "zhiWu": "组长",
                 "name": "高景波",
@@ -160,7 +162,7 @@
         ]
     },
     "xiwaertuzhen": {
-        [
+        "list":[
             {
                 "zhiWu": "组长",
                 "name": "吴耀义",
@@ -212,5 +214,5 @@
                 "remark": ""
             }
         ]
-
+    }
 }
