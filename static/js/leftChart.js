@@ -150,9 +150,8 @@ define(['echarts'],function(echarts){
             ]
         })
     }
-    var outPovertyChart = function(id){
+    var outPovertyChart = function(id,data){
         var barchart = echarts.init(document.querySelector("#jbox #"+id));
-        var towns = ["尼尔基镇", "西瓦尔图镇", "拉杜尔鄂温族乡","拉杜尔鄂","拉杜", "拉杜克民族乡", "反政府武装", "西瓦尔图镇", "拉杜尔鄂乡", "拉杜克民族乡", "反政府武装","伊拉克", "美国", "北京", "登特办事处", "坤米尔", "办事粗"];
         barchart.setOption({
             tooltip : {
                 trigger: 'axis',
@@ -176,7 +175,7 @@ define(['echarts'],function(echarts){
             xAxis : [
                 {
                     type : 'category',
-                    data : towns,
+                    data : data.townNames,
                     axisTick: {
                         alignWithLabel: true,
                         show: false
@@ -242,7 +241,7 @@ define(['echarts'],function(echarts){
                             color: "#ff7151"
                         }
                     },
-                    data:[10, 52, 200, 334, 390, 330, 220, 390, 330, 220,330, 220, 390, 330, 220, 330, 220]
+                    data:data.complete
                 },
                 {
                     name:'未脱贫',
@@ -259,7 +258,7 @@ define(['echarts'],function(echarts){
                             )
                         }
                     },
-                    data:[10, 52, 200, 334, 390, 330, 220, 390, 330, 220,330, 220, 390, 330, 220, 330, 220]
+                    data:data.andPoor
                 }
             ]
     })

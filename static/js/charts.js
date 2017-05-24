@@ -175,7 +175,7 @@ define(['echarts'],function(echarts){
 
                     },
                     data: [{
-                        value: 50,
+                        value: barData.dataValue,
                         label: {
                             textStyle: {
                                 fontSize: 12

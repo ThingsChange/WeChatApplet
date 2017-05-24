@@ -143,12 +143,12 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 var data = res[area];
                 $('#rightSide').html(template('sevenStepsRightSideTemp', data));
 
-                charts.gauge("putOnRecordChart",{value:data.healthPoint,color:'#83ea43'});
-                charts.gauge("diagnosisChart",{value:data.diagnosisPoint,color:'#fd8320'});
+                charts.gauge("putOnRecordChart",{value:data.healthPoint,color:'#83ea43',dataValue:data.healthPoint*100});
+                charts.gauge("diagnosisChart",{value:data.diagnosisPoint,color:'#fd8320',dataValue:data.diagnosisPoint*100});
                 charts.labelPie("healthChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:data.healthDetail});
                 charts.labelPie("laborChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:data.laborDetail});
-                charts.gauge("signChart",{value:data.signPoint,color:'#3ad3e1'});
-                charts.gauge("overcomePovertyChart",{value:data.poorPoint,color:'#e14e35'});
+                charts.gauge("signChart",{value:data.signPoint,color:'#3ad3e1',dataValue:data.signPoint*100});
+                charts.gauge("overcomePovertyChart",{value:data.poorPoint,color:'#e14e35',dataValue:data.poorPoint*100});
             });
 
 
@@ -188,8 +188,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //底部--------------------end
             //弹窗部分代码
 
-
-
             //建档情况
             $("#openDoc").on("click", function () {
                 var $pop = $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.4});
@@ -206,21 +204,26 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         charts.pieChart('docChart',true,docData)
                     }
                 });
-                // chart.poorChart("poorChart");
-                /*var box=document.getElementById("jbox");
-                 box.style.top = "3vw";*/
             })
             //脱贫情况
             $("#openTuopin").on("click", function () {
-                $.jBox('', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.4});
+                var $pop = $.jBox('', {title: "脱贫情况", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
-                var html = template('tuopinTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                chart.poorChart("poorChart");
-                /*var box=document.getElementById("jbox");
-                 box.style.top = "3vw";*/
+                $.getJSON("../js/json/fiveGroup/overcomePoverty.json",function(res){
+                    if(res){
+                        $pop.find('.jbox-content').html(template('tuopinTemp',{}));
+                        var townNames=[],andPoor=[],complete=[];
+                        res.forEach(function(item){
+                            townNames.push(item.townName);
+                            andPoor.push(item.andPoor);
+                            complete.push(item.completionHouses);
+                        })
+                        var docData = {townNames:townNames,andPoor:andPoor,complete:complete}
+                        chart.poorChart("poorChart",docData);
+                    }
+                });
             })
             //劳动力情况
             $("#laborCondition").on("click", function () {

@@ -1,52 +1,47 @@
 {
-	"moqi":{
-		"populationTarget":{"poorTarget":100,"complete":"4.5%"},
-
-		"illnessCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"studyCasuses":{"poorTarget":100,"complete":"44.5%"},
-		"disasterCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"landCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"teachnologyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"moneyCasuses":{"poorTarget":100,"complete":"44.5%"}
-	},
-	"baoshanzhen":{
-		"populationTarget":{"poorTarget":100,"complete":"4.5%"},
-
-		"illnessCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"studyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"disasterCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"landCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"teachnologyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"moneyCasuses":{"poorTarget":100,"complete":"4.5%"}
-	},
-	"nierjizhen":{
-		"populationTarget":{"poorTarget":100,"complete":"44.5%"},
-
-		"illnessCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"studyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"disasterCasuses":{"poorTarget":100,"complete":"44.5%"},
-		"landCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"teachnologyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"moneyCasuses":{"poorTarget":100,"complete":"4.5%"}
-	},
-	"xiwaertuzhen":{
-		"populationTarget":{"poorTarget":100,"complete":"4.5%"},
-
-		"illnessCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"studyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"disasterCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"landCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"teachnologyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"moneyCasuses":{"poorTarget":100,"complete":"4.5%"}
-	},
-	"hanguerhezhen":{
-		"populationTarget":{"poorTarget":100,"complete":"4.5%"},
-
-		"illnessCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"studyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"disasterCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"landCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"teachnologyCasuses":{"poorTarget":100,"complete":"4.5%"},
-		"moneyCasuses":{"poorTarget":100,"complete":"4.5%"}
-	}
+"moqi":{
+"populationTarget":{"poorTarget":2153,"complete":"53.73%"},
+"illnessCasuses":{"poorTarget":1618,"complete":"0.00%"},
+"studyCasuses":{"poorTarget":33,"complete":"0.00%"},
+"disasterCasuses":{"poorTarget":266,"complete":"0.00%"},
+"landCasuses":{"poorTarget":0,"complete":"0.00%"},
+"teachnologyCasuses":{"poorTarget":97,"complete":"0.00%"},
+"moneyCasuses":{"poorTarget":428,"complete":"0.00%"}
+},
+"baoshanzhen":{
+"populationTarget":{"poorTarget":291,"complete":"25.77%"},
+"illnessCasuses":{"poorTarget":48,"complete":"0.00%"},
+"studyCasuses":{"poorTarget":2,"complete":"0.00%"},
+"disasterCasuses":{"poorTarget":0,"complete":"0.00%"},
+"landCasuses":{"poorTarget":0,"complete":"0.00%"},
+"teachnologyCasuses":{"poorTarget":21,"complete":"0.00%"},
+"moneyCasuses":{"poorTarget":38,"complete":"0.00%"}
+},
+"nierjizhen":{
+"populationTarget":{"poorTarget":881,"complete":"22.70%"},
+"illnessCasuses":{"poorTarget":349,"complete":"0.00%"},
+"studyCasuses":{"poorTarget":1,"complete":"0.00%"},
+"disasterCasuses":{"poorTarget":39,"complete":"0.00%"},
+"landCasuses":{"poorTarget":0,"complete":"0.00%"},
+"teachnologyCasuses":{"poorTarget":28,"complete":"0.00%"},
+"moneyCasuses":{"poorTarget":105,"complete":"0.00%"}
+},
+"xiwaertuzhen":{
+"populationTarget":{"poorTarget":351,"complete":"10.83%"},
+"illnessCasuses":{"poorTarget":99,"complete":"0.00%"},
+"studyCasuses":{"poorTarget":3,"complete":"0.00%"},
+"disasterCasuses":{"poorTarget":7,"complete":"0.00%"},
+"landCasuses":{"poorTarget":0,"complete":"0.00%"},
+"teachnologyCasuses":{"poorTarget":6,"complete":"0.00%"},
+"moneyCasuses":{"poorTarget":16,"complete":"0.00%"}
+},
+"hanguerhezhen":{
+"populationTarget":{"poorTarget":395,"complete":"37.47%"},
+"illnessCasuses":{"poorTarget":171,"complete":"0.00%"},
+"studyCasuses":{"poorTarget":7,"complete":"0.00%"},
+"disasterCasuses":{"poorTarget":4,"complete":"0.00%"},
+"landCasuses":{"poorTarget":0,"complete":"0.00%"},
+"teachnologyCasuses":{"poorTarget":3,"complete":"0.00%"},
+"moneyCasuses":{"poorTarget":33,"complete":"0.00%"}
+}
 }
