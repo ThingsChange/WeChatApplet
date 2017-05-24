@@ -661,244 +661,488 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
 
     //地图模块js ---------start----------
-    $(function() {
+
+    var mapApi = {
+
+            "oSvgBox": $("#svgBox"),
+            "curr_svg": false, //当前显示地图对象
+            "hoverLock": true, //hover事件开关；
+            "curr_path_id": false, //当前选中path对象id;
+            "Next_map_name": null,
+            "scrollX": document.documentElement.scrollLeft || document.body.scrollLeft,
+            "scrollY": document.documentElement.scrollTop || document.body.scrollTop,
+            "dis_w": 90, //鼠标坐标偏移量
+            "dis_h": 200, //
+            "$cheangeMap": $("#changeMap"), //进入地图按钮
+            
+
+            "init": function() {
+                mapApi.getMap($("#moqixianSvg"));
+            },
+            "getMap": function(oSvg) {
+
+                    mapApi.curr_svg = oSvg;
+                    if (mapApi.curr_svg) {
+                        mapApi.oSvgBox.on("click", function(event) {
+                            event.preventDefault();
+                            oSvg.find(".validMap").css("fill", "#919689");
+                            $(".map-links").removeClass("show");
+                            $(".map-tips").removeClass("show");
+                            mapApi.hoverLock = true;
+                            mapApi.curr_path_id = false;
+
+                            /* Act on the event */
+                        });
+                    }
+                    oSvg.on("mouseover", ".validMap", function(event) {
+                        if (mapApi.hoverLock) {
+
+                            oSvg.find(".validMap").css("fill", "#919689");
+                            this.style.fill = "#5c5f57";
+
+                            var x = event.pageX || event.clientX + mapApi.scrollX;
+                            var y = event.pageY || event.clientY + mapApi.scrollY;
+                            //加载hover模板
+                            $(".map-tips").html(template("mapHoverTemp", {})).addClass("show")
+                                .css({
+                                    "left": x - mapApi.dis_w,
+                                    "top": y - mapApi.dis_h,
+                                });
+                            //console.log($(this).attr("id"));
+                        }
+                    });
+
+                    oSvg.on("click", ".validMap", function(event) {
+                        event.stopPropagation();
+                        if (mapApi.curr_path_id) {
+                            //如果有当前id 已选中某镇
+                            if (mapApi.curr_path_id != this.id) {
+                                oSvg.find(".validMap").css("fill", "#919689");
+                                mapApi.curr_path_id = false;
+                                area = "moqi";
+                                mapApi.getData();
+                                $(".map-links").removeClass("show");
+                                mapApi.hoverLock = true;
+                                return false;
+                            }
+                        } else {
+                            //如果没有当前id;未选中镇
+                            mapApi.hoverLock = false;
+                            oSvg.find(".validMap").css("fill", "#919689");
+
+                            this.style.fill = "#5c5f57";
+                            var x = event.pageX || event.clientX + mapApi.scrollX;
+                            var y = event.pageY || event.clientY + mapApi.scrollY;
+                            mapApi.curr_path_id = this.id;
+
+                            console.log(this.id);
+                            $(".map-tips").removeClass("show");
+
+                            $(".map-links").css({
+                                "left": x - mapApi.dis_w,
+                                "top": y - mapApi.dis_h,
+                            }).addClass("show");
+
+                        }
+                        //改变当前选择区域
+                        area = mapApi.curr_path_id;
+                        var txt = $("#tab div.active").text();
+                        mapApi.getData(txt);
+                        //打开督导组成员弹窗
+                        $(".links-list li").eq(1).unbind("click").on("click", function() {
+                            var membersTemp = template("selectTown", { town: [{ "id": "123", "name": "张家口村" }, { "id": "234", "name": "别的什么村" }] });
+                            membersTemp += template("members", { data: [{ "duty": "组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }, { "duty": "副组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }] });
+                            var $pop = $.jBox(membersTemp, { title: "督导组成员", buttons: {}, border: 0, opacity: 0.4 });
+                            document.getElementsByTagName("body")[0].style.padding = "0";
+                            var title = document.getElementsByClassName("jbox-title")[0];
+                            title.style.width = "96%";
+                            $(".select-switch").on("change", "select", function() {
+                                var selected = $(this).children("option:selected").val();
+                                var membersTemp = template("members", { data: [{ "duty": "组长", "name": "李骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }, { "duty": "副组长", "name": "李天骄", "sex": "女", "nation": "汉族", "politic": "党员", "office": "北京", "contect": "13711111111", "remarks": "没有备注" }] });
+                                $("#jbox-content").find("table").remove().append(membersTemp);
+
+                            });
+                        });
+
+                    });
+
+                },//getMap
+
+                //     /**
+                //      * 地图和顶部tab结合查询数据
+                //      * @param type 所选中的tab
+                //      */
+                 "getData":function () {
+                        var txt = $("#tab div.active").text();
+                        switch (txt) {
+                            case "首页":
+                                api.getHomePage();
+                                break;
+                            case "五人小组":
+                                api.getFiveGroup();
+                                break;
+                            case "贫困家庭":
+                                api.getDisease();
+                                break;
+                        }
+                    },
+
+                "getSubMap" :function(oSvg) {
+                    mapApi.curr_svg = oSvg;
+
+                    if (mapApi.curr_svg) {
+                        mapApi.oSvgBox.on("click", function(event) {
+                            event.preventDefault();
+                            oSvg.find(".validMap").css("fill", "#919689");
+                            $(".map-links").removeClass("show");
+                            $(".map-tips").removeClass("show");
+                            mapApi.hoverLock = true;
+                            mapApi.curr_path_id = false;
+
+                            /* Act on the event */
+                        });
+                    }
+
+                    oSvg.on("mouseover", '.validMap', function(event) {
+
+                        if (mapApi.hoverLock) {
+                            //$(this).addClass('map-hover');
+                            oSvg.find('.validMap').css('fill', '#919689');
+                            this.style.fill = '#5c5f57';
+                            var x = event.pageX || event.clientX + mapApi.scrollX;
+                            var y = event.pageY || event.clientY + mapApi.scrollY;
+                            $(".map-tips").addClass('show');
+                            //console.log($(this).attr('id'));
+                            $(".map-tips").css({
+                                "left": x - mapApi.dis_w,
+                                "top": y - mapApi.dis_h
+                            });
+                        }
+                    });
+
+                    oSvg.on('click', '.validMap', function(event) {
+                        event.stopPropagation();
+                        if (mapApi.curr_path_id) {
+                            //如果有当前id 已选中某镇
+                            if (mapApi.curr_path_id != this.id) {
+                                oSvg.find('.validMap').css('fill', '#919689');
+                                mapApi.curr_path_id = false;
+                                $(".map-tips").removeClass('show');
+                                mapApi.hoverLock = true;
+                                //alert('饮茶美好列表');
+                            }
+                        } else {
+                            //如果没有当前id;未选中镇
+                            mapApi.hoverLock = false;
+                            oSvg.find('.validMap').css('fill', '#919689');
+                            this.style.fill = '#5c5f57';
+                            var x = event.pageX || event.clientX + mapApi.scrollX;
+                            var y = event.pageY || event.clientY + mapApi.scrollY;
+                            mapApi.curr_path_id = this.id;
+
+                            console.log(this.id);
+                            //村贫困家庭表单
+                            $.jBox('', { title: "", buttons: {}, border: 0, opacity: 0.4 });
+                            document.getElementsByTagName('body')[0].style.padding = "0";
+                            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                            //设置弹窗top值
+                            var html = template('villageTemp', {});
+                            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                            //家庭列表绑定点击事件
+                            $(".village tr").on("click", function() {
+                                var $pop = $.jBox('', { title: "李茜茜", buttons: {}, border: 0, opacity: 0.4 });
+                                document.getElementsByTagName('body')[0].style.padding = "0";
+                                // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                                //设置弹窗top值
+                                $pop.find("#jbox").css("top", "2.6vw");
+                                // $pop.eq(0).find("jbox-title").css("textAlign","left");
+                                console.log($pop);
+                                // var box = document.getElementById("jbox");
+                                // var title = document.getElementsByClassName("jbox-title")[1];
+                                // box.style.top = "2.6vw";
+                                // title.style.textAlign ="left";
+                                var html = template('personalTemp', {});
+                                document.getElementsByClassName('jbox-content')[1].innerHTML = html;
+                            });
+                            //alert('弹出列表');
 
 
-        var oSvgBox=$('#svgBox');  
-         var curr_svg=false;   //当前显示地图对象
+                        }
 
-        var aPath = $('#moqixianSvg');
-        getMap(aPath);
+                    });
 
-        var hoverLock = true;  //hover事件开关；
-        var curr_path_id=false;  //当前选中path对象id;
-        //var Next_map_name=null;
-        var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
-        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-        var dis_w = 90; //鼠标坐标偏移量
-        var dis_h = 200; //
-        var $cheangeMap=$('#changeMap');//进入地图按钮
+
+                }, //getSubmap
+
+
+                //切换地图公共方法 mapApi.showMap
+                //传入地图 id
+                "showMap":function(mapid){
+                    var idStr='#'+mapid;
+                    $('svg').removeClass('show');
+                    $(idStr).addClass('show');
+                    mapApi.getSubMap($(idStr));
+                    mapApi.hoverLock = true;
+                    mapApi.curr_path_id=false;
+                },
+
+        }; //mapApi
+        //初始化地图方法；
+        mapApi.init();
+
+        //进入下一级地图
+        mapApi.$cheangeMap.on('click', function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+                mapApi.curr_svg.removeClass('show');
+                $(".map-links").removeClass('show');
+
+                var _id = '#' + mapApi.curr_path_id + 'Svg';
+
+                $(_id).addClass('show');
+                mapApi.getSubMap($(_id));
+                mapApi.hoverLock = true;
+                mapApi.curr_path_id=false;
+
+            });
+    // $(function() {
+
+
+    //     var oSvgBox=$('#svgBox');  
+    //      var curr_svg=false;   //当前显示地图对象
+
+    //     var aPath = $('#moqixianSvg');
+    //     getMap(aPath);
+
+    //     var hoverLock = true;  //hover事件开关；
+    //     var curr_path_id=false;  //当前选中path对象id;
+    //     //var Next_map_name=null;
+    //     var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+    //     var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+    //     var dis_w = 90; //鼠标坐标偏移量
+    //     var dis_h = 200; //
+    //     var $cheangeMap=$('#changeMap');//进入地图按钮
         
        
-        //旗地图
-        function getMap(oSvg) {
+    //     //旗地图
+    //     function getMap(oSvg) {
 
-            curr_svg=oSvg;
+    //         curr_svg=oSvg;
            
-            if (curr_svg) {
-                oSvgBox.on('click', function(event) {
-                    event.preventDefault();
-                    oSvg.find('.validMap').css('fill','#919689');
-                    $(".map-links").removeClass('show');
-                    $(".map-tips").removeClass('show');
-                    hoverLock=true;
-                    curr_path_id=false;
+    //         if (curr_svg) {
+    //             oSvgBox.on('click', function(event) {
+    //                 event.preventDefault();
+    //                 oSvg.find('.validMap').css('fill','#919689');
+    //                 $(".map-links").removeClass('show');
+    //                 $(".map-tips").removeClass('show');
+    //                 hoverLock=true;
+    //                 curr_path_id=false;
 
-                    /* Act on the event */
-                });
-            }
-            // oSvgBox.on('click', function(event) {
-            //     event.preventDefault();
-            //     oSvg.find('.validMap').css('fill','#919689');
-            //     $(".map-links").removeClass('show');
-            //     $(".map-tips").removeClass('show');
-            //     /* Act on the event */
-            // });
+    //                 /* Act on the event */
+    //             });
+    //         }
+    //         // oSvgBox.on('click', function(event) {
+    //         //     event.preventDefault();
+    //         //     oSvg.find('.validMap').css('fill','#919689');
+    //         //     $(".map-links").removeClass('show');
+    //         //     $(".map-tips").removeClass('show');
+    //         //     /* Act on the event */
+    //         // });
 
-            oSvg.on('mouseover', '.validMap', function(event) {
-                if (hoverLock) {
+    //         oSvg.on('mouseover', '.validMap', function(event) {
+    //             if (hoverLock) {
 
-                    oSvg.find('.validMap').css('fill','#919689');
-                    this.style.fill = '#5c5f57';
+    //                 oSvg.find('.validMap').css('fill','#919689');
+    //                 this.style.fill = '#5c5f57';
 
-                    var x = event.pageX || event.clientX + scrollX;
-                    var y = event.pageY || event.clientY + scrollY;
-                    //加载hover模板
-                    $('.map-tips').html(template('mapHoverTemp', {})).addClass('show')
-                            .css({
-                            "left": x - dis_w,
-                            "top": y - dis_h,
-                        });
-                    //console.log($(this).attr('id'));
-                }
-            });
+    //                 var x = event.pageX || event.clientX + scrollX;
+    //                 var y = event.pageY || event.clientY + scrollY;
+    //                 //加载hover模板
+    //                 $('.map-tips').html(template('mapHoverTemp', {})).addClass('show')
+    //                         .css({
+    //                         "left": x - dis_w,
+    //                         "top": y - dis_h,
+    //                     });
+    //                 //console.log($(this).attr('id'));
+    //             }
+    //         });
 
-            oSvg.on('click', '.validMap', function(event) {
-                event.stopPropagation();
-                if (curr_path_id){
-                    //如果有当前id 已选中某镇
-                    if (curr_path_id!=this.id) {
-                        oSvg.find('.validMap').css('fill','#919689');
-                        curr_path_id=false;
-                        area = "moqi";
-                        getData();
-                        $(".map-links").removeClass('show');
-                        hoverLock=true;
-                        return false;
-                    }
-                }else{
-                    //如果没有当前id;未选中镇
-                    hoverLock = false;
-                    oSvg.find('.validMap').css('fill','#919689');
+    //         oSvg.on('click', '.validMap', function(event) {
+    //             event.stopPropagation();
+    //             if (curr_path_id){
+    //                 //如果有当前id 已选中某镇
+    //                 if (curr_path_id!=this.id) {
+    //                     oSvg.find('.validMap').css('fill','#919689');
+    //                     curr_path_id=false;
+    //                     area = "moqi";
+    //                     getData();
+    //                     $(".map-links").removeClass('show');
+    //                     hoverLock=true;
+    //                     return false;
+    //                 }
+    //             }else{
+    //                 //如果没有当前id;未选中镇
+    //                 hoverLock = false;
+    //                 oSvg.find('.validMap').css('fill','#919689');
 
-                    this.style.fill = '#5c5f57';
-                    var x = event.pageX || event.clientX + scrollX;
-                    var y = event.pageY || event.clientY + scrollY;
-                    curr_path_id=this.id;
+    //                 this.style.fill = '#5c5f57';
+    //                 var x = event.pageX || event.clientX + scrollX;
+    //                 var y = event.pageY || event.clientY + scrollY;
+    //                 curr_path_id=this.id;
 
-                    console.log(this.id);
-                    $(".map-tips").removeClass('show');
+    //                 console.log(this.id);
+    //                 $(".map-tips").removeClass('show');
 
-                    $(".map-links").css({
-                        "left": x - dis_w,
-                        "top": y - dis_h,
-                    }).addClass('show');
+    //                 $(".map-links").css({
+    //                     "left": x - dis_w,
+    //                     "top": y - dis_h,
+    //                 }).addClass('show');
 
-                }
-                //改变当前选择区域
-                area = curr_path_id;
-                var txt = $("#tab div.active").text();
-                getData(txt);
-                //打开督导组成员弹窗
-                $(".links-list li").eq(1).unbind("click").on("click",function(){
-                    var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
-                    membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
-                    var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});
-                    document.getElementsByTagName('body')[0].style.padding="0";
-                    var title = document.getElementsByClassName("jbox-title")[0];
-                    title.style.width ="96%";
-                    $(".select-switch").on("change",'select',function(){
-                        var selected=$(this).children('option:selected').val();
-                        var membersTemp = template('members',{data:[{'duty':'组长','name':'李骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
-                        $("#jbox-content").find("table").remove().append(membersTemp);
+    //             }
+    //             //改变当前选择区域
+    //             area = curr_path_id;
+    //             var txt = $("#tab div.active").text();
+    //             getData(txt);
+    //             //打开督导组成员弹窗
+    //             $(".links-list li").eq(1).unbind("click").on("click",function(){
+    //                 var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
+    //                 membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
+    //                 var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});
+    //                 document.getElementsByTagName('body')[0].style.padding="0";
+    //                 var title = document.getElementsByClassName("jbox-title")[0];
+    //                 title.style.width ="96%";
+    //                 $(".select-switch").on("change",'select',function(){
+    //                     var selected=$(this).children('option:selected').val();
+    //                     var membersTemp = template('members',{data:[{'duty':'组长','name':'李骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
+    //                     $("#jbox-content").find("table").remove().append(membersTemp);
 
-                    })
-                })
-            });
-
-
-        }
-
-        /**
-         * 地图和顶部tab结合查询数据
-         * @param type 所选中的tab
-         */
-        function getData() {
-            var txt = $("#tab div.active").text();
-            switch (txt) {
-                case "首页": api.getHomePage();
-                    break;
-                case "五人小组": api.getFiveGroup();
-                    break;
-                case "贫困家庭": api.getDisease();
-                    break;
-            }
-        }
-        //镇地图
-        function getSubMap(oSvg) {
+    //                 })
+    //             })
+    //         });
 
 
-            curr_svg=oSvg;
+    //     }
+
+    //     /**
+    //      * 地图和顶部tab结合查询数据
+    //      * @param type 所选中的tab
+    //      */
+    //     function getData() {
+    //         var txt = $("#tab div.active").text();
+    //         switch (txt) {
+    //             case "首页": api.getHomePage();
+    //                 break;
+    //             case "五人小组": api.getFiveGroup();
+    //                 break;
+    //             case "贫困家庭": api.getDisease();
+    //                 break;
+    //         }
+    //     }
+    //     //镇地图
+    //     function getSubMap(oSvg) {
+
+
+    //         curr_svg=oSvg;
            
-            if (curr_svg) {
-                oSvgBox.on('click', function(event) {
-                    event.preventDefault();
-                    oSvg.find('.validMap').css('fill','#919689');
-                    $(".map-links").removeClass('show');
-                    $(".map-tips").removeClass('show');
-                    hoverLock=true;
-                    curr_path_id=false;
+    //         if (curr_svg) {
+    //             oSvgBox.on('click', function(event) {
+    //                 event.preventDefault();
+    //                 oSvg.find('.validMap').css('fill','#919689');
+    //                 $(".map-links").removeClass('show');
+    //                 $(".map-tips").removeClass('show');
+    //                 hoverLock=true;
+    //                 curr_path_id=false;
 
-                    /* Act on the event */
-                });
-            }
+    //                 /* Act on the event */
+    //             });
+    //         }
 
-            oSvg.on('mouseover', '.validMap', function(event) {
+    //         oSvg.on('mouseover', '.validMap', function(event) {
 
-                if (hoverLock) {
-                    //$(this).addClass('map-hover');
-                    oSvg.find('.validMap').css('fill','#919689');
-                    this.style.fill = '#5c5f57';
-                    var x = event.pageX || event.clientX + scrollX;
-                    var y = event.pageY || event.clientY + scrollY;
-                    $(".map-tips").addClass('show');
-                    //console.log($(this).attr('id'));
-                    $(".map-tips").css({
-                        "left": x - dis_w,
-                        "top": y - dis_h
-                    });
-                }
-            });
+    //             if (hoverLock) {
+    //                 //$(this).addClass('map-hover');
+    //                 oSvg.find('.validMap').css('fill','#919689');
+    //                 this.style.fill = '#5c5f57';
+    //                 var x = event.pageX || event.clientX + scrollX;
+    //                 var y = event.pageY || event.clientY + scrollY;
+    //                 $(".map-tips").addClass('show');
+    //                 //console.log($(this).attr('id'));
+    //                 $(".map-tips").css({
+    //                     "left": x - dis_w,
+    //                     "top": y - dis_h
+    //                 });
+    //             }
+    //         });
 
-            oSvg.on('click', '.validMap', function(event) {
-                event.stopPropagation();
-                if (curr_path_id){
-                    //如果有当前id 已选中某镇
-                    if (curr_path_id!=this.id) {
-                        oSvg.find('.validMap').css('fill','#919689');
-                        curr_path_id=false;
-                         $(".map-tips").removeClass('show');
-                            hoverLock=true;
-                        //alert('饮茶美好列表');
-                    }
-                }else{
-                    //如果没有当前id;未选中镇
-                    hoverLock = false;
-                    oSvg.find('.validMap').css('fill','#919689');
-                    this.style.fill = '#5c5f57';
-                    var x = event.pageX || event.clientX + scrollX;
-                    var y = event.pageY || event.clientY + scrollY;
-                    curr_path_id=this.id;
+    //         oSvg.on('click', '.validMap', function(event) {
+    //             event.stopPropagation();
+    //             if (curr_path_id){
+    //                 //如果有当前id 已选中某镇
+    //                 if (curr_path_id!=this.id) {
+    //                     oSvg.find('.validMap').css('fill','#919689');
+    //                     curr_path_id=false;
+    //                      $(".map-tips").removeClass('show');
+    //                         hoverLock=true;
+    //                     //alert('饮茶美好列表');
+    //                 }
+    //             }else{
+    //                 //如果没有当前id;未选中镇
+    //                 hoverLock = false;
+    //                 oSvg.find('.validMap').css('fill','#919689');
+    //                 this.style.fill = '#5c5f57';
+    //                 var x = event.pageX || event.clientX + scrollX;
+    //                 var y = event.pageY || event.clientY + scrollY;
+    //                 curr_path_id=this.id;
                   
-                    console.log(this.id);
-                    //村贫困家庭表单
-                    $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
-                    document.getElementsByTagName('body')[0].style.padding="0";
-                    // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-                    //设置弹窗top值
-                    var html = template('villageTemp',{});
-                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                    //家庭列表绑定点击事件
-                    $(".village tr").on("click",function(){
-                        var $pop = $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.4});
-                        document.getElementsByTagName('body')[0].style.padding="0";
-                        // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-                        //设置弹窗top值
-                        $pop.find("#jbox").css("top","2.6vw");
-                        // $pop.eq(0).find("jbox-title").css("textAlign","left");
-                        console.log($pop);
-                        // var box = document.getElementById("jbox");
-                        // var title = document.getElementsByClassName("jbox-title")[1];
-                        // box.style.top = "2.6vw";
-                        // title.style.textAlign ="left";
-                        var html = template('personalTemp',{});
-                        document.getElementsByClassName('jbox-content')[1].innerHTML = html;
-                    });
-                    //alert('弹出列表');
+    //                 console.log(this.id);
+    //                 //村贫困家庭表单
+    //                 $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
+    //                 document.getElementsByTagName('body')[0].style.padding="0";
+    //                 // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+    //                 //设置弹窗top值
+    //                 var html = template('villageTemp',{});
+    //                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+    //                 //家庭列表绑定点击事件
+    //                 $(".village tr").on("click",function(){
+    //                     var $pop = $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.4});
+    //                     document.getElementsByTagName('body')[0].style.padding="0";
+    //                     // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+    //                     //设置弹窗top值
+    //                     $pop.find("#jbox").css("top","2.6vw");
+    //                     // $pop.eq(0).find("jbox-title").css("textAlign","left");
+    //                     console.log($pop);
+    //                     // var box = document.getElementById("jbox");
+    //                     // var title = document.getElementsByClassName("jbox-title")[1];
+    //                     // box.style.top = "2.6vw";
+    //                     // title.style.textAlign ="left";
+    //                     var html = template('personalTemp',{});
+    //                     document.getElementsByClassName('jbox-content')[1].innerHTML = html;
+    //                 });
+    //                 //alert('弹出列表');
 
 
-                }
+    //             }
 
-            });
+    //         });
 
 
-        }
+    //     }
 
-        //进入下级地图
-        $cheangeMap.on('click', function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            aPath.removeClass('show');
-            $(".map-links").removeClass('show');
+    //     //进入下级地图
+    //     $cheangeMap.on('click', function(event) {
+    //         event.stopPropagation();
+    //         event.preventDefault();
+    //         aPath.removeClass('show');
+    //         $(".map-links").removeClass('show');
 
-            var _id='#'+curr_path_id+'Svg';
+    //         var _id='#'+curr_path_id+'Svg';
 
-            $(_id).addClass('show');
-            getSubMap($(_id));
-            hoverLock=true;
+    //         $(_id).addClass('show');
+    //         getSubMap($(_id));
+    //         hoverLock=true;
 
-        });
-    });
+    //     });
+    // });
     //地图模块js ---------end----------
 
 });
