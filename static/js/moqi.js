@@ -184,6 +184,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
             //底部--------------------end
             //弹窗部分代码
+
+
+
             //建档情况
             $("#openDoc").on("click", function () {
                 var $pop = $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.4});
@@ -193,7 +196,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 title.style.width ="96%";
                 $.getJSON("../js/json/fiveGroup/recordJbox.json",function(res){
                     if(res&&res[area]){
-                        var data = res[area]
+                        var data = res[area];
+                        data.type=1;
                         $pop.find('.jbox-content').html(template('docCreateTemp',data));
                         var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:data.pieChart.rate,center:["50%","50%"],data:data.pieChart.dataList}
                         charts.pieChart('docChart',true,docData)
@@ -239,11 +243,16 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 document.getElementsByTagName('body')[0].style.padding="0";
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
+                $.getJSON("../js/json/fiveGroup/diagnose.json",function(res){
+                    if(res&&res[area]){
+                        var data = res[area];
+                        data.type=3
+                        $pop.find('.jbox-content').html(template('docCreateTemp',data));
+                        var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:data.pieChart.rate,center:["50%","50%"],data:data.pieChart.dataList}
+                        charts.pieChart('docChart',true,docData)
+                    }
+                });
 
-                var html = template('docCreateTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]}
-                charts.pieChart('docChart',true,docData)
                 /*var box=document.getElementById("jbox");
                  box.style.top = "3vw";*/
             })
@@ -267,14 +276,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             })
             //签约情况 与建档情况公用一个模板     --------------暂时这么写，后续提取公共部分--------------
             $("#signCondition").on("click", function () {
-                $.jBox('', {title: "签约情况", buttons: {}, border: 0, opacity: 0.4});
+                var $pop = $.jBox('', {title: "签约情况", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
-                var html = template('docCreateTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:321,name:"五保贫困户"}]}
-                charts.pieChart('docChart',true,docData)
+                $.getJSON("../js/json/fiveGroup/sign.json",function(res){
+                    if(res&&res[area]){
+                        var data = res[area];
+                        data.type=2
+                        $pop.find('.jbox-content').html(template('docCreateTemp',data));
+                        var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:data.pieChart.rate,center:["50%","50%"],data:data.pieChart.dataList}
+                        charts.pieChart('docChart',true,docData)
+                    }
+                });
                 /*var box=document.getElementById("jbox");
                  box.style.top = "3vw";*/
             })
@@ -430,20 +444,20 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         'getEducation':function(){
             $.getJSON("../js/json/povertyFamily/education.json",function(data){
                 $('#rightSide').html(template('povertyRightSideTemp_education', data[area]));
+                var eduData = {
+                    legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
+                    color:['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
+                    data:[
+                        {value: data[area].numberOfPreschoolChildren, name: '学龄前儿童'},
+                        {value: data[area].numberOfPrimarySchool, name: '小学'},
+                        {value: data[area].numberOfJuniorMiddleSchool, name: '初中'},
+                        {value: data[area].numberOfHighSchool, name: '高中'},
+                        {value: data[area].numberOfCollegeDegreeOrAbove, name: '大专及以上'},
+                        {value: data[area].numberOfIlliteracy, name: '文盲及半文盲'}
+                    ]
+                }
+                charts.fullPieChart("educationStructureChart",eduData)
             });
-            var eduData = {
-                legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
-                color:['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
-                data:[
-                    {value: data[area].numberOfPreschoolChildren, name: '学龄前儿童'},
-                    {value: data[area].numberOfPrimarySchool, name: '小学'},
-                    {value: data[area].numberOfJuniorMiddleSchool, name: '初中'},
-                    {value: data[area].numberOfHighSchool, name: '高中'},
-                    {value: data[area].numberOfCollegeDegreeOrAbove, name: '大专及以上'},
-                    {value: data[area].numberOfIlliteracy, name: '文盲及半文盲'}
-                ]
-            }
-            charts.fullPieChart("educationStructureChart",eduData)
 
         },
         'getSex':function(){
@@ -637,24 +651,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             }
         });
 
-
-        //督导组成员弹窗
-
-        /*$("#mapBox").on("click",".goToDetail",function(){
-            var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
-            membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
-            var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});
-            document.getElementsByTagName('body')[0].style.padding="0";
-            var title = document.getElementsByClassName("jbox-title")[0];
-            title.style.width ="96%";
-            $(".select-switch").on("change",'select',function(){
-                var selected=$(this).children('option:selected').val();
-                var membersTemp = template('members',{data:[{'duty':'组长','name':'李骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
-                $("#jbox-content").find("table").remove();
-                $("#jbox-content").append(membersTemp)
-            })
-
-        })*/
         var height = $("header").height();
         var clientHeight = $(window).height();
         var margin = +$("#rightSide").css("margin-top").slice(0,-2);

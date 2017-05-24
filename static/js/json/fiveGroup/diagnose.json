@@ -1,120 +1,465 @@
 {
-  "moqi": {
-    "poorPersons": 5511,
-    //贫困人口数
-    "pieChart": {
-      "count": 2030,
-      //总数
-      "dataList": [
-        {
-          "value": 300,
-          "name": "一般贫困户"
-        },
-        {
-          "value": 400,
-          "name": "低保贫困户"
-        },
-        {
-          "value": 500,
-          "name": "五保贫困户"
-        }
-      ],
-      "documentCount": 5511
-    },
-    "list":[
-      {
-        "name": "李天骄",
-        //姓名
-        "sex": "女",
-        //性别
-        "householderRelation": "父女关系",
-        //与户主关系
-        "phone": "15712209876",
-        //联系电话
-        "workAbility": "普通劳动能力"
-      },
-      {
-        "name": "李天骄",
-        //姓名
-        "sex": "女",
-        //性别
-        "householderRelation": "父女关系",
-        //与户主关系
-        "phone": "15712209876",
-        //联系电话
-        "workAbility": "普通劳动能力"
-      }
-    ]
-  },
-  "baoshanzhen": {
-    "poorPersons": 5511, //贫困人口数
+  "moqi":{
+    "inllnessCasuses":667,
     "pieChart":{
-      "count": 2030, //总数
-      "dataList":[{value: 300, name: "一般贫困户"},{value: 400, name: "低保贫困户"},{value: 500, name: "五保贫困户"}],
-      "documentCount": 5511
+      "rate":"12.10%",
+      "dataList":[{"value":667,"name":"因病致贫"},{"value":4844,"name":"其他"}],
+      "poorPersons":5511
     },
     "list":[
       {
-        "name": "李天骄", //姓名
-        "sex": "女", //性别
-        "householderRelation": "父女关系", //与户主关系
-        "phone": "15712209876", //联系电话
-        "workAbility": "普通劳动能力"
+        "townName":"宝山镇",
+        "poorPersons":263,
+        "inllnessCasuses":48,
+        "completionRate":"18.25%"
       },
       {
-        "name": "李天骄", //姓名
-        "sex": "女", //性别
-        "householderRelation": "父女关系", //与户主关系
-        "phone": "15712209876", //联系电话
-        "workAbility": "普通劳动能力"
+        "townName":"尼尔基镇",
+        "poorPersons":1189,
+        "inllnessCasuses":349,
+        "completionRate":"29.35%"
+      },
+      {
+        "townName":"汗古尔河镇",
+        "poorPersons":396,
+        "inllnessCasuses":171,
+        "completionRate":"43.18%"
+      },
+      {
+        "townName":"西瓦尔图镇",
+        "poorPersons":226,
+        "inllnessCasuses":99,
+        "completionRate":"43.81%"
       }
     ]
   },
-  "nierjizhen": {
-    "poorPersons": 5511, //贫困人口数
-    "pieChart": {
-      "count": 2030, //总数
-      "dataList":[{"value": 300, "name": "一般贫困户"},{"value": 400, "name": "低保贫困户"},{"value": 500, "name": "五保贫困户"}],
-      "documentCount": 5511
+  "baoshanzhen":{
+    "inllnessCasuses":48,
+    "pieChart":{
+      "rate":"18.25%",
+      "dataList":[{"value":48,"name":"因病致贫"},{"value":215,"name":"其他人数"}],
+      "poorPersons":263
     },
     "list":[
       {
-        "name": "李天骄", //姓名
-        "sex": "女", //性别
-        "householderRelation": "父女关系", //与户主关系
-        "phone": "15712209876", //联系电话
-        "workAbility": "普通劳动能力"
+        "townName":"西宝山",
+        "poorPersons":13,
+        "inllnessCasuses":4,
+        "completionRate":"30.77%"
       },
       {
-        "name": "李天骄", //姓名
-        "sex": "女", //性别
-        "householderRelation": "父女关系", //与户主关系
-        "phone": "15712209876", //联系电话
-        "workAbility": "普通劳动能力"
+        "townName":"五马架",
+        "poorPersons":15,
+        "inllnessCasuses":5,
+        "completionRate":"3.33%"
+      },
+      {
+        "townName":"居委会",
+        "poorPersons":3,
+        "inllnessCasuses":1,
+        "completionRate":"33.33%"
+      },
+      {
+        "townName":"宝山村",
+        "poorPersons":21,
+        "inllnessCasuses":9,
+        "completionRate":"42.86%"
+      },
+      {
+        "townName":"福兴",
+        "poorPersons":11,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"五家子",
+        "poorPersons":2,
+        "inllnessCasuses":2,
+        "completionRate":"100.00%"
+      },
+      {
+        "townName":"兴安",
+        "poorPersons":10,
+        "inllnessCasuses":3,
+        "completionRate":"30.00%"
+      },
+      {
+        "townName":"小泉子",
+        "poorPersons":10,
+        "inllnessCasuses":3,
+        "completionRate":"30.00%"
+      },
+      {
+        "townName":"甲其口子",
+        "poorPersons":13,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"太平岗",
+        "poorPersons":4,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"太平川",
+        "poorPersons":6,
+        "inllnessCasuses":1,
+        "completionRate":"16.67%"
+      },
+      {
+        "townName":"太裕春",
+        "poorPersons":14,
+        "inllnessCasuses":1,
+        "completionRate":"7.14%"
+      },
+      {
+        "townName":"福德",
+        "poorPersons":8,
+        "inllnessCasuses":1,
+        "completionRate":"12.50%"
+      },
+      {
+        "townName":"巨泉山",
+        "poorPersons":13,
+        "inllnessCasuses":1,
+        "completionRate":"7.69%"
+      },
+      {
+        "townName":"宝龙泉",
+        "poorPersons":10,
+        "inllnessCasuses":4,
+        "completionRate":"40.00%"
+      },
+      {
+        "townName":"太平桥",
+        "poorPersons":14,
+        "inllnessCasuses":5,
+        "completionRate":"35.71%"
+      },
+      {
+        "townName":"后福民",
+        "poorPersons":72,
+        "inllnessCasuses":2,
+        "completionRate":"2.78%"
+      },
+      {
+        "townName":"福民",
+        "poorPersons":10,
+        "inllnessCasuses":2,
+        "completionRate":"20.00%"
+      },
+      {
+        "townName":"万发",
+        "poorPersons":14,
+        "inllnessCasuses":4,
+        "completionRate":"28.57%"
       }
     ]
   },
-  "hanguerhezhen": {
-    "poorPersons": 5511, //贫困人口数
-    "pieChart": {
-      "count": 2030, //总数
-      "dataList":[{"value": 300, "name": "一般贫困户"},{"value": 400, "name": "低保贫困户"},{"value": 500, "name": "五保贫困户"}],
-      "documentCount": 5511
+  "nierjizhen":{
+    "inllnessCasuses":349,
+    "pieChart":{
+      "rate":"29.35%",
+      "dataList":[{"value":349,"name":"因病致贫"},{"value":849,"name":"其他人数"}],
+      "poorPersons":1189
     },
     "list":[
       {
-        "name": "李天骄", //姓名
-        "sex": "女", //性别
-        "householderRelation": "父女关系", //与户主关系
-        "phone": "15712209876", //联系电话
-        "workAbility": "普通劳动能力"
+        "townName":"龙兴村",
+        "poorPersons":38,
+        "inllnessCasuses":15,
+        "completionRate":"39.47%"
       },
       {
-        "name": "李天骄", //姓名
-        "sex": "女", //性别
-        "householderRelation": "父女关系", //与户主关系
-        "phone": "15712209876", //联系电话
-        "workAbility": "普通劳动能力"
+        "townName":"博荣村",
+        "poorPersons":0,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"西拉金村",
+        "poorPersons":36,
+        "inllnessCasuses":17,
+        "completionRate":"47.22%"
+      },
+      {
+        "townName":"东升村",
+        "poorPersons":39,
+        "inllnessCasuses":10,
+        "completionRate":"25.64%"
+      },
+      {
+        "townName":"前巨仁村",
+        "poorPersons":57,
+        "inllnessCasuses":17,
+        "completionRate":"29.82%"
+      },
+      {
+        "townName":"乌尔科村",
+        "poorPersons":49,
+        "inllnessCasuses":9,
+        "completionRate":"50%"
+      },
+      {
+        "townName":"丰华村",
+        "poorPersons":181,
+        "inllnessCasuses":29,
+        "completionRate":"16.02%"
+      },
+      {
+        "townName":"永合发村",
+        "poorPersons":119,
+        "inllnessCasuses":21,
+        "completionRate":"17.65%"
+      },
+      {
+        "townName":"向阳村",
+        "poorPersons":64,
+        "inllnessCasuses":31,
+        "completionRate":"48.44%"
+      },
+      {
+        "townName":"宜卧奇村",
+        "poorPersons":28,
+        "inllnessCasuses":27,
+        "completionRate":"96.43%"
+      },
+      {
+        "townName":"后兴农村",
+        "poorPersons":23,
+        "inllnessCasuses":15,
+        "completionRate":"65.22%"
+      },
+      {
+        "townName":"前兴农村",
+        "poorPersons":11,
+        "inllnessCasuses":11,
+        "completionRate":"100.00%"
+      },
+      {
+        "townName":"西博荣村",
+        "poorPersons":11,
+        "inllnessCasuses":2,
+        "completionRate":"18.18%"
+      },
+      {
+        "townName":"红星村",
+        "poorPersons":38,
+        "inllnessCasuses":8,
+        "completionRate":"21.05%"
+      },
+      {
+        "townName":"哈力浅村",
+        "poorPersons":28,
+        "inllnessCasuses":3,
+        "completionRate":"10.71%"
+      },
+      {
+        "townName":"博克图村",
+        "poorPersons":82,
+        "inllnessCasuses":9,
+        "completionRate":"11.11%"
+      },
+      {
+        "townName":"毕台村",
+        "poorPersons":37,
+        "inllnessCasuses":13,
+        "completionRate":"35.14%"
+      },
+      {
+        "townName":"兴隆泉村",
+        "poorPersons":90,
+        "inllnessCasuses":17,
+        "completionRate":"50%"
+      },
+      {
+        "townName":"双龙泉村",
+        "poorPersons":16,
+        "inllnessCasuses":5,
+        "completionRate":"18.89%"
+      },
+      {
+        "townName":"七家子村",
+        "poorPersons":15,
+        "inllnessCasuses":2,
+        "completionRate":"13.33%"
+      },
+      {
+        "townName":"绘图莫丁村",
+        "poorPersons":115,
+        "inllnessCasuses":37,
+        "completionRate":"32.17%"
+      },
+      {
+        "townName":"万宝山村",
+        "poorPersons":47,
+        "inllnessCasuses":37,
+        "completionRate":"78.72%"
+      }
+    ]
+  },
+  "xiwaertuzhen":{
+    "inllnessCasuses":99,
+    "pieChart":{
+      "rate":"21.81%",
+      "dataList":[{"value":99,"name":"因病致贫"},{"value":355,"name":"其他"}],
+      "poorPersons":454
+    },
+    "list":[
+      {
+        "townName":"卓洛尼村",
+        "poorPersons":19,
+        "inllnessCasuses":1,
+        "completionRate":"5.26%"
+      },
+      {
+        "townName":"永安村",
+        "poorPersons":107,
+        "inllnessCasuses":18,
+        "completionRate":"16.82%"
+      },
+      {
+        "townName":"新发村",
+        "poorPersons":11,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"巨龙泉村",
+        "poorPersons":9,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"双龙堡村",
+        "poorPersons":15,
+        "inllnessCasuses":4,
+        "completionRate":"26.67%"
+      },
+      {
+        "townName":"兴隆村",
+        "poorPersons":97,
+        "inllnessCasuses":13,
+        "completionRate":"13.40%"
+      },
+      {
+        "townName":"七间房村",
+        "poorPersons":18,
+        "inllnessCasuses":4,
+        "completionRate":"22.22%"
+      },
+      {
+        "townName":"长新村",
+        "poorPersons":128,
+        "inllnessCasuses":7,
+        "completionRate":"5.47%"
+      },
+      {
+        "townName":"大库木尓村",
+        "poorPersons":40,
+        "inllnessCasuses":6,
+        "completionRate":"15.00%"
+      },
+      {
+        "townName":"民巨川",
+        "poorPersons":4,
+        "inllnessCasuses":0,
+        "completionRate":"0.00%"
+      },
+      {
+        "townName":"西瓦尔图村",
+        "poorPersons":6,
+        "inllnessCasuses":1,
+        "completionRate":"16.67%"
+      }
+    ]
+  },
+  "hanguerhezhen":{
+    "inllnessCasuses":171,
+    "pieChart":{
+      "rate":"16.76%",
+      "dataList":[{"value":171,"name":"因病致贫"},{"value":849,"name":"其他"}],
+      "poorPersons":1020
+    },
+    "list":[
+      {
+        "townName":"三合村",
+        "poorPersons":63,
+        "inllnessCasuses":14,
+        "completionRate":"22.22%"
+      },
+      {
+        "townName":"乌兰村",
+        "poorPersons":29,
+        "inllnessCasuses":8,
+        "completionRate":"27.59%"
+      },
+      {
+        "townName":"小都尔本村",
+        "poorPersons":35,
+        "inllnessCasuses":11,
+        "completionRate":"31.43%"
+      },
+      {
+        "townName":"胜利村",
+        "poorPersons":132,
+        "inllnessCasuses":9,
+        "completionRate":"6.82%"
+      },
+      {
+        "townName":"额尔根浅村",
+        "poorPersons":33,
+        "inllnessCasuses":4,
+        "completionRate":"12.12%"
+      },
+      {
+        "townName":"东坤浅村",
+        "poorPersons":53,
+        "inllnessCasuses":22,
+        "completionRate":"41.51%"
+      },
+      {
+        "townName":"西坤浅村",
+        "poorPersons":79,
+        "inllnessCasuses":5,
+        "completionRate":"6.33%"
+      },
+      {
+        "townName":"南坤浅村",
+        "poorPersons":61,
+        "inllnessCasuses":12,
+        "completionRate":"19.67%"
+      },
+      {
+        "townName":"北坤浅村",
+        "poorPersons":115,
+        "inllnessCasuses":12,
+        "completionRate":"10.43%"
+      },
+      {
+        "townName":"朝阳村",
+        "poorPersons":49,
+        "inllnessCasuses":6,
+        "completionRate":"12.24%"
+      },
+      {
+        "townName":"汉古尔河村",
+        "poorPersons":88,
+        "inllnessCasuses":27,
+        "completionRate":"20.15%"
+      },
+      {
+        "townName":"东诺敏村",
+        "poorPersons":134,
+        "inllnessCasuses":25,
+        "completionRate":"18.66%"
+      },
+      {
+        "townName":"西诺敏村",
+        "poorPersons":149,
+        "inllnessCasuses":16,
+        "completionRate":"10.74%"
       }
     ]
   }

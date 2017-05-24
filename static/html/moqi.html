@@ -3426,13 +3426,6 @@
 </script>
 <!--建档情况模板-->
 <script id = "docCreateTemp" type="text/html">
-    <div class="select-switch">
-        <select name="" id="docTown">
-            <option value="1">张家口镇</option>
-            <option value="2">革镇堡</option>
-        </select>
-        <em class="down-angle"></em>
-    </div>
     <div class="tuopin-left doc-left">
         <div class="family-list">
             <table>
@@ -3440,9 +3433,19 @@
                 <tr>
                     <th>序号</th>
                     <th>乡村（办事处）</th>
+                    {{if type==1}}<!--建档情况-->
                     <th>建档立卡总数</th>
                     <th>贫困人口数</th>
                     <th>完成率</th>
+                    {{else if type==2}}<!--签约情况-->
+                    <th>人口总数</th>
+                    <th>签约居民数</th>
+                    <th>完成率</th>
+                    {{else if type==3}}<!--诊断情况-->
+                    <th>贫困人口户数</th>
+                    <th>因病致贫人数</th>
+                    <th>占比</th>
+                    {{/if}}
                 </tr>
                 </thead>
                 <tbody>
@@ -3450,13 +3453,24 @@
                 <tr>
                     <td>{{$index+1}}</td>
                     <td>{{data.townName}}</td>
-                    <td>{{data.townName}}</td>
+                    {{if type==1}}<!--建档情况-->
+                    <td>{{data.documentCount}}</td>
                     <td>{{data.poorPersons}}</td>
                     <td>{{data.completionRate}}</td>
+                    {{else if type==2}}<!--签约情况-->
+                    <td>{{data.allPersons}}</td>
+                    <td>{{data.signPersons}}</td>
+                    <td>{{data.completionRate}}</td>
+                    {{else if type==3}}<!--诊断情况-->
+                    <td>{{data.poorPersons}}</td>
+                    <td>{{data.inllnessCasuses}}</td>
+                    <td>{{data.completionRate}}</td>
+                    {{/if}}
                 </tr>
                 {{/each}}
                 </tbody>
             </table>
+            {{if list.length>10}}
             <ul>
                 <li><</li>
                 <li>1</li>
@@ -3471,23 +3485,29 @@
                 <li>111</li>
                 <li>></li>
             </ul>
+            {{/if}}
         </div>
     </div>
     <div class="tuopin-right doc-right">
+        {{if type==1}}
         <h5>建档立卡总数：<span>{{pieChart.documentCount}}</span>人</h5>
+        {{else if type==2}}
+        <h5>签约居民总数：<span>{{signPersons}}</span>人</h5>
+        {{else if type==3}}
+        <h5>因病致贫户数：<span>{{inllnessCasuses}}</span>人</h5>
+        {{/if}}
         <div id="docChart"></div>
+        {{if type==1}}
         <p>贫困人口数：<span>{{poorPersons}}</span>人</p>
+        {{else if type==2}}
+        <p>人口总数：<span>{{pieChart.allPersons}}</span>人</p>
+        {{else if type==3}}
+        <p>贫困人口户数：<span>{{pieChart.poorPersons}}</span>人</p>
+        {{/if}}
     </div>
 </script>
 <!--身体健康情况、劳动力情况模板-->
 <script id = "laborTemp" type="text/html">
-    <div class="select-switch">
-        <select name="">
-            <option value="1">张家口镇</option>
-            <option value="2">革镇堡</option>
-        </select>
-        <em class="down-angle"></em>
-    </div>
     <div class="tuopin-left doc-left">
         <div class="family-list">
             <table>
@@ -3531,6 +3551,7 @@
                 {{/each}}
                 </tbody>
             </table>
+            {{if list.length>10}}
             <ul>
                 <li><</li>
                 <li>1</li>
@@ -3545,6 +3566,7 @@
                 <li>111</li>
                 <li>></li>
             </ul>
+            {{/if}}
         </div>
     </div>
     <div class="tuopin-right doc-right">
@@ -3781,10 +3803,12 @@
 <!--jbox标题里的select模板 start-->
 <script id = "selectTown" type="text/html">
     <div class="select-switch">
-        <select name="">
-            {{each town as town}}
-            <option value="{{town.id}}">{{town.name}}</option>
-            {{/each}}
+        <select name="selectTown">
+            <option value="1">莫力达瓦达翰尔族自治旗</option>
+            <option value="2">汉古尔镇</option>
+            <option value="3">尼尔基镇</option>
+            <option value="4">希尔图镇</option>
+            <option value="5">宝山镇</option>
         </select>
         <em class="down-angle"></em>
     </div>
