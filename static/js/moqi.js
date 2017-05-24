@@ -884,13 +884,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         var idStr='#'+mapid;
                         $('svg').removeClass('show');
                         $(idStr).addClass('show');
+                        $('.map-links').removeClass('show');
+                        $('.map-tips').removeClass('show');
+                        mapApi.curr_svg.find(".validMap").css("fill", mapApi.outColor);
                         mapApi.getMap($(idStr));
                         mapApi.hoverLock = true;
                         mapApi.curr_path_id=false;
                         return;
                     }
-                    var idStr='#'+mapid;
+                    var idStr='#'+mapid+'Svg';
                     $('svg').removeClass('show');
+                    $('.map-links').removeClass('show');
+                    $('.map-tips').removeClass('show');
+                    mapApi.curr_svg.find(".validMap").css("fill", mapApi.outColor);
                     $(idStr).addClass('show');
                     mapApi.getSubMap($(idStr));
                     mapApi.hoverLock = true;
@@ -907,10 +913,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 event.preventDefault();
                 mapApi.curr_svg.removeClass('show');
                 $(".map-links").removeClass('show');
-
-                var _id = '#' + mapApi.curr_path_id + 'Svg';
-
-                $(_id).addClass('show');
+                var _id = '#' + mapApi.curr_path_id+'Svg';               
+                $(_id).addClass('show');               
                 mapApi.getSubMap($(_id));
                 mapApi.hoverLock = true;
                 mapApi.curr_path_id=false;
