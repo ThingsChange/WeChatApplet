@@ -676,8 +676,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "dis_w": 90, //鼠标坐标偏移量
             "dis_h": 200, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
-            "inColor":"#5c5f57",
-            "outColor":"#919689",
+            "inColor":"#1d4b99",
+            "outColor":"#1c2d49",
             
             "init": function() {
                 mapApi.getMap($("#moqi"));
@@ -815,8 +815,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
                         if (mapApi.hoverLock) {
                             //$(this).addClass('map-hover');
-                            oSvg.find('.validMap').css('fill', '#919689');
-                            this.style.fill = '#5c5f57';
+                            oSvg.find('.validMap').css('fill', mapApi.outColor);
+                            this.style.fill = mapApi.inColor;
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             $(".map-tips").addClass('show');
@@ -833,7 +833,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         if (mapApi.curr_path_id) {
                             //如果有当前id 已选中某镇
                             if (mapApi.curr_path_id != this.id) {
-                                oSvg.find('.validMap').css('fill', '#919689');
+                                oSvg.find('.validMap').css('fill', mapApi.outColor);
                                 mapApi.curr_path_id = false;
                                 $(".map-tips").removeClass('show');
                                 mapApi.hoverLock = true;
@@ -842,8 +842,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         } else {
                             //如果没有当前id;未选中镇
                             mapApi.hoverLock = false;
-                            oSvg.find('.validMap').css('fill', '#919689');
-                            this.style.fill = '#5c5f57';
+                            oSvg.find('.validMap').css('fill', mapApi.outColor);
+                            this.style.fill = mapApi.inColor;
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             mapApi.curr_path_id = this.id;

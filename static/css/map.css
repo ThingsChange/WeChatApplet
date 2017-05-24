@@ -91,9 +91,10 @@
  	height: 600px;
  }
  path {
-     stroke: #b0b8a6;
-     stroke-width: 3;
-     fill: #919689;
+     stroke: #436082;
+     stroke-width:2;
+     fill: #1c2d49;
+     opacity: 1;
  }
 
 .st0{
