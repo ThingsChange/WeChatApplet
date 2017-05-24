@@ -652,19 +652,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         function getMap(oSvg) {
             oSvg.on('mouseover', 'path', function(event) {
                 if (hoverLock) {
-                    $(this).addClass('map-hover');
+
                     oSvg.find('path').css('fill','#919689');
                     this.style.fill = '#5c5f57';
 
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
-                    $(".map-tips").addClass('show');
+                    //加载hover模板
+                    $('.map-tips').html(template('mapHoverTemp', {})).addClass('show')
+                            .css({
+                            "left": x - dis_w,
+                            "top": y - dis_h,
+                        });
                     //console.log($(this).attr('id'));
-
-                    $(".map-tips").css({
-                        "left": x - dis_w,
-                        "top": y - dis_h,
-                    });
                 }
             });
 
@@ -683,7 +683,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     //如果没有当前id;未选中镇
                     hoverLock = false;
                     oSvg.find('path').css('fill','#919689');
-                    $(this).addClass('map-active');
+
                     this.style.fill = '#5c5f57';
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
@@ -710,7 +710,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     //$(this).addClass('map-hover');
                     oSvg.find('path').css('fill','#919689');
                     this.style.fill = '#5c5f57';
-
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
                     $(".map-tips").addClass('show');
@@ -723,7 +722,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
 
             oSvg.on('click', 'path', function(event) {
-
                 if (curr_path_id){
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
