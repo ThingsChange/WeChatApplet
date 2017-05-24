@@ -637,7 +637,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
     //地图模块js ---------start----------
     $(function() {
-        var aPath = $('#moqi_x');
+        var aPath = $('#moqixianSvg');
         getMap(aPath);
 
         var hoverLock = true;  //hover事件开关；
