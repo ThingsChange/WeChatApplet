@@ -26,40 +26,6 @@ require.config({
 require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
     //当前所选区域对应的全局变量
     var area = "moqi";
-    /**
-     * 轮播图方法
-     * @param id 轮播图容器
-     */
-    function slide(id){
-        var outerBox = $("#"+id);
-        var innerBoxArr = outerBox.children().children();
-        var leng = innerBoxArr.length;
-        // outerBox.children().animate({left:0},"fast")
-        if(leng<3)return;
-        // var i=1;
-        var leftFlag = 0;
-        var perWidth = innerBoxArr[0].offsetWidth;
-        var distance = perWidth/2200;
-        var setLeft = function(arr){
-            /*if(leftFlag > perWidth*(leng-1)) {
-                leftFlag = 0;
-                outerBox.children().animate({left: "0px"});
-            };*/
-            leftFlag += distance;
-            leftFlagPx = "-" + leftFlag + "px";
-            outerBox.children().css({left: leftFlagPx});
-            //如果第一个模块滚出视线，则将其移动到该列末尾
-            if(leftFlag > perWidth){
-                var arr = Array.prototype.shift.call(innerBoxArr);
-                var first = outerBox.children().children().eq(0)
-                first.remove();
-                outerBox.children().append(first);
-                innerBoxArr.push(arr);
-                leftFlag = 0;
-            }
-        }
-        window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 10);
-    }
     //由于贫困家庭与首页共用签约，提取公共部分
     /**
      * 家医签约点击方法，暂时不做保存筛选条件的处理
@@ -211,7 +177,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     if(!showBool){
                         clearTimeout(timeOut);
                     }else{
-                        slide("slideBox");
+                        api.slide("slideBox");
                         // chart.barChart("doctorSign");
                     }
                 });
@@ -339,7 +305,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
             })
         },
-        'getPoorFamily': function(switchFlag){//贫困家庭左侧
+        'getPoorFamilyLeft': function(switchFlag){//贫困家庭左侧
             $.getJSON("../js/json/povertyFamily/poorFamily.json",function(data){
                 data["huorren"] = switchFlag || 1;
                 $('#leftSide').html(template('povertyLeftSideTemp', data));
@@ -353,9 +319,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     var text = $(this).text();
                     // var obj = $(".section-body table thead tr").children();
                     if(text == "户"){
-                        api.getPoorFamily(1);
+                        api.getPoorFamilyLeft(1);
                     }else{
-                        api.getPoorFamily(2);
+                        api.getPoorFamilyLeft(2);
                     }
                 }
 
@@ -432,7 +398,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //右侧--------------------end
 
             //左侧--------------------start
-            api.getPoorFamily();
+            api.getPoorFamilyLeft();
             /*$.getJSON("../js/json/povertyFamily/poorFamily.json",function(data){
                 data["huorren"] = switchFlag || 1;
                 $('#leftSide').html(template('povertyLeftSideTemp', data));
@@ -460,7 +426,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
             //底部--------------------end
 
-        },
+        },//大病结构方法
         'getEducation':function(){
             $.getJSON("../js/json/povertyFamily/education.json",function(data){
                 $('#rightSide').html(template('povertyRightSideTemp_education', data[area]));
@@ -572,15 +538,55 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     chart.barChart("doctorSign",townArr,dataArr);
                 }
             })
+        },
+        /**
+         * 轮播图方法
+         * @param id 容器id
+         */
+        'slide':function(id){
+            var outerBox = $("#"+id);
+            var innerBoxArr = outerBox.children().children();
+            var leng = innerBoxArr.length;
+            // outerBox.children().animate({left:0},"fast")
+            if(leng<3)return;
+            // var i=1;
+            var leftFlag = 0;
+            var perWidth = innerBoxArr[0].offsetWidth;
+            var distance = perWidth/2200;
+            var setLeft = function(arr){
+                /*if(leftFlag > perWidth*(leng-1)) {
+                 leftFlag = 0;
+                 outerBox.children().animate({left: "0px"});
+                 };*/
+                leftFlag += distance;
+                leftFlagPx = "-" + leftFlag + "px";
+                outerBox.children().css({left: leftFlagPx});
+                //如果第一个模块滚出视线，则将其移动到该列末尾
+                if(leftFlag > perWidth){
+                    var arr = Array.prototype.shift.call(innerBoxArr);
+                    var first = outerBox.children().children().eq(0)
+                    first.remove();
+                    outerBox.children().append(first);
+                    innerBoxArr.push(arr);
+                    leftFlag = 0;
+                }
+            }
+            window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 10);
         }
 
-    }
+    };
     $(function(){
         //加载倒计时
         countDown.countDown("2017/12/31");
         //刷新时触发首页点击事件
         api.getHomePage(area);
-        //绑定
+        //绑定右上角区域切换事件
+        $("#areaSelectInHeader").on("change",function () {
+            var town = $(this).val();
+            area = town;
+            mapApi.showMap(town);
+            mapApi.getData();
+        })
         //切换头部标签
         $("#tab").on("click","div", function(){
             var activeBool = $(this).hasClass("active");
@@ -672,12 +678,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "dis_w": 90, //鼠标坐标偏移量
             "dis_h": 200, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
-            "outColor":'#919689',
-            "inColor":'#5c5f57',
 
 
             "init": function() {
-                mapApi.getMap($("#moqixianSvg"));
+                mapApi.getMap($("#moqi"));
             },
             "getMap": function(oSvg) {
 
@@ -703,11 +707,16 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             //加载hover模板
-                            $(".map-tips").html(template("mapHoverTemp", {})).addClass("show")
-                                .css({
-                                    "left": x - mapApi.dis_w,
-                                    "top": y - mapApi.dis_h,
-                                });
+                            $.getJSON("../js/json/map_hover.json",function(res){
+                                var target = event.target.id;
+                                var data = res.povertyStructure[target];
+                                $(".map-tips").html(template("mapHoverTemp", data)).addClass("show")
+                                    .css({
+                                        "left": x - mapApi.dis_w,
+                                        "top": y - mapApi.dis_h,
+                                    });
+                            })
+
                             //console.log($(this).attr("id"));
                         }
                     });
@@ -766,12 +775,11 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     });
 
                 },//getMap
-
                 //     /**
                 //      * 地图和顶部tab结合查询数据
                 //      * @param type 所选中的tab
                 //      */
-                 "getData":function () {
+            "getData":function () {
                         var txt = $("#tab div.active").text();
                         switch (txt) {
                             case "首页":
@@ -786,7 +794,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         }
                     },
 
-                "getSubMap" :function(oSvg) {
+            "getSubMap" :function(oSvg) {
                     mapApi.curr_svg = oSvg;
 
                     if (mapApi.curr_svg) {
@@ -872,11 +880,18 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
 
                 }, //getSubmap
-
-
                 //切换地图公共方法 mapApi.showMap
                 //传入地图 id
-                "showMap":function(mapid){
+            "showMap":function(mapid){
+                    if(mapid=="moqi"){
+                        var idStr='#'+mapid;
+                        $('svg').removeClass('show');
+                        $(idStr).addClass('show');
+                        mapApi.getMap($(idStr));
+                        mapApi.hoverLock = true;
+                        mapApi.curr_path_id=false;
+                        return;
+                    }
                     var idStr='#'+mapid;
                     $('svg').removeClass('show');
                     $(idStr).addClass('show');

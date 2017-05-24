@@ -23,7 +23,7 @@
     </div>
     <div id='svgBox' class="svgBox ">
         <!-- 县图 moqixian -->
-        <svg id='moqixianSvg' class='show' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-400 250 3400 3600" style="enable-background:new 0 0 2453.8 3322.6;" xml:space="preserve">
+        <svg id='moqi' class='show' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-400 250 3400 3600" style="enable-background:new 0 0 2453.8 3322.6;" xml:space="preserve">
                 <style type="text/css">
                 .st0 {
                     opacity: 0.502;
@@ -2423,11 +2423,11 @@
     <div id="changeAreaInHeader">
         <label for="areaSelectInHeader">区域：</label>
         <select name="" id="areaSelectInHeader">
-            <option value="1">莫力达瓦达翰尔族自治旗</option>
-            <option value="2">汉古尔镇</option>
-            <option value="3">尼尔基镇</option>
-            <option value="4">希尔图镇</option>
-            <option value="5">宝山镇</option>
+            <option value="moqi">莫力达瓦达翰尔族自治旗</option>
+            <option value="hanguerhezhen">汉古尔河镇</option>
+            <option value="nierjizhen">尼尔基镇</option>
+            <option value="xiwaertuzhen">西瓦尔图镇</option>
+            <option value="baoshanzhen">宝山镇</option>
         </select>
         <div class="logout">退出</div>
     </div>
@@ -2474,9 +2474,9 @@
     <ul class="tips-list">
         <li>贫困户:<span>{{poorHouseCount}}</span></li>
         <li>贫困人口:<span>{{poorPeoCount}}</span></li>
-        <li>因病致贫:<span>23</span></li>
+        <li>因病致贫:<span>{{poorSick}}</span></li>
         <!--  <li>产业扶贫:<span>23</span></li> -->
-        <li>签约数量:<span>23</span></li>
+        <li>签约数量:<span>{{signJYCount}}</span></li>
     </ul>
     <div class="map-sanjiao"></div>
 </script>
@@ -3554,13 +3554,13 @@
 </script>
 <!--村贫困家庭弹窗模板-->
 <script id = "villageTemp" type="text/html">
-    <div class="select-switch">
+    <!--<div class="select-switch">
         <select name="">
             <option value="1">张家口镇</option>
             <option value="2">革镇堡</option>
         </select>
         <em class="down-angle"></em>
-    </div>
+    </div>-->
     <div class="tuopin-left doc-left village">
         <div class="family-list">
             <table>
