@@ -629,6 +629,11 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
     //地图模块js ---------start----------
     $(function() {
+
+
+        var oSvgBox=$('#svgBox');  
+         var curr_svg=false;   //当前显示地图对象
+
         var aPath = $('#moqixianSvg');
         getMap(aPath);
 
@@ -640,9 +645,33 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         var dis_w = 90; //鼠标坐标偏移量
         var dis_h = 200; //
         var $cheangeMap=$('#changeMap');//进入地图按钮
-
+        
+       
         //旗地图
         function getMap(oSvg) {
+
+            curr_svg=oSvg;
+           
+            if (curr_svg) {
+                oSvgBox.on('click', function(event) {
+                    event.preventDefault();
+                    oSvg.find('.validMap').css('fill','#919689');
+                    $(".map-links").removeClass('show');
+                    $(".map-tips").removeClass('show');
+                    hoverLock=true;
+                    curr_path_id=false;
+
+                    /* Act on the event */
+                });
+            }
+            // oSvgBox.on('click', function(event) {
+            //     event.preventDefault();
+            //     oSvg.find('.validMap').css('fill','#919689');
+            //     $(".map-links").removeClass('show');
+            //     $(".map-tips").removeClass('show');
+            //     /* Act on the event */
+            // });
+
             oSvg.on('mouseover', '.validMap', function(event) {
                 if (hoverLock) {
 
@@ -662,6 +691,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
 
             oSvg.on('click', '.validMap', function(event) {
+                event.stopPropagation();
                 if (curr_path_id){
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
@@ -671,8 +701,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         hoverLock=true;
                         return false;
                     }
-                }
-                if (!curr_path_id){
+                }else{
                     //如果没有当前id;未选中镇
                     hoverLock = false;
                     oSvg.find('.validMap').css('fill','#919689');
@@ -689,6 +718,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         "left": x - dis_w,
                         "top": y - dis_h,
                     }).addClass('show');
+
                 }
                 //打开督导组成员弹窗
                 $(".links-list li").eq(1).unbind("click").on("click",function(){
@@ -712,7 +742,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         //镇地图
         function getSubMap(oSvg) {
+
             oSvg.on('mouseover', '.validMap', function(event) {
+
                 if (hoverLock) {
                     //$(this).addClass('map-hover');
                     oSvg.find('.validMap').css('fill','#919689');
@@ -729,15 +761,17 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
 
             oSvg.on('click', '.validMap', function(event) {
+                event.stopPropagation();
                 if (curr_path_id){
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
                         oSvg.find('.validMap').css('fill','#919689');
                         curr_path_id=false;
-                        alert('饮茶美好列表');
+                         $(".map-tips").removeClass('show');
+                            hoverLock=true;
+                        //alert('饮茶美好列表');
                     }
-                }
-                if (!curr_path_id){
+                }else{
                     //如果没有当前id;未选中镇
                     hoverLock = false;
                     oSvg.find('.validMap').css('fill','#919689');
@@ -745,7 +779,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
                     curr_path_id=this.id;
-
+                    alert(curr_path_id);
                     console.log(this.id);
                     //村贫困家庭表单
                     $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
@@ -771,7 +805,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         var html = template('personalTemp',{});
                         document.getElementsByClassName('jbox-content')[1].innerHTML = html;
                     });
-                    alert('弹出列表');
+                    //alert('弹出列表');
 
 
                 }
@@ -783,7 +817,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         //进入下级地图
         $cheangeMap.on('click', function(event) {
-
+            event.stopPropagation();
             event.preventDefault();
             aPath.removeClass('show');
             $(".map-links").removeClass('show');
