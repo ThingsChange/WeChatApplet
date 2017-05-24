@@ -25,7 +25,7 @@ require.config({
 
 require(['jquery','migrate','template','chart','charts','jbox','progressBar','countDown'], function ($,migrate,template,chart,charts,jbox,progressBar,countDown){
     //当前所选区域对应的全局变量
-    var area = "nierjizhen";
+    var area = "moqi";
 
     /**
      * 轮播图方法
@@ -163,7 +163,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 if(!activeBool){
                     $(this).addClass("click-active");
                     $(this).siblings("li").removeClass("click-active");
-                    api.getDoctorSign('documentPersons');
+                    var type = $(this).attr("data-type");
+                    api.getDoctorSign(type);
                 }
             });
             //底部--------------------end
@@ -326,8 +327,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         },
         'getPoorFamily': function(switchFlag){//贫困家庭左侧
             $.getJSON("../js/json/povertyFamily/poorFamily.json",function(data){
-                data["huorren"] = switchFlag || 1;
-                $('#leftSide').html(template('povertyLeftSideTemp', data));
+                var _data = data[area];
+                _data["huorren"] = switchFlag || 1;
+                $('#leftSide').html(template('povertyLeftSideTemp', _data));
             });
             //绑定左侧 人/户 切换点击事件
             $(".switch-head").on("click","span", function(){
@@ -697,6 +699,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     if (curr_path_id!=this.id) {
                         oSvg.find('.validMap').css('fill','#919689');
                         curr_path_id=false;
+                        area = "moqi";
+                        getData();
                         $(".map-links").removeClass('show');
                         hoverLock=true;
                         return false;
@@ -720,6 +724,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     }).addClass('show');
 
                 }
+                //改变当前选择区域
+                area = curr_path_id;
+                var txt = $("#tab div.active").text();
+                getData(txt);
                 //打开督导组成员弹窗
                 $(".links-list li").eq(1).unbind("click").on("click",function(){
                     var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
@@ -740,6 +748,21 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         }
 
+        /**
+         * 地图和顶部tab结合查询数据
+         * @param type 所选中的tab
+         */
+        function getData() {
+            var txt = $("#tab div.active").text();
+            switch (txt) {
+                case "首页": api.getHomePage();
+                    break;
+                case "五人小组": api.getFiveGroup();
+                    break;
+                case "贫困家庭": api.getDisease();
+                    break;
+            }
+        }
         //镇地图
         function getSubMap(oSvg) {
 
@@ -771,7 +794,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     //console.log($(this).attr('id'));
                     $(".map-tips").css({
                         "left": x - dis_w,
-                        "top": y - dis_h,
+                        "top": y - dis_h
                     });
                 }
             });
@@ -805,14 +828,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     var html = template('villageTemp',{});
                     document.getElementsByClassName('jbox-content')[0].innerHTML = html;
                     //家庭列表绑定点击事件
-                    $(".village tr").on("click",function(event){
-                        event.stopPropagation();
+                    $(".village tr").on("click",function(){
                         var $pop = $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.4});
                         document.getElementsByTagName('body')[0].style.padding="0";
                         // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
                         //设置弹窗top值
-                        $pop.eq(0).css("top","2.6vw");
-                        $pop.eq(0).find("jbox-title").css("textAlign","left");
+                        $pop.find("#jbox").css("top","2.6vw");
+                        // $pop.eq(0).find("jbox-title").css("textAlign","left");
                         console.log($pop);
                         // var box = document.getElementById("jbox");
                         // var title = document.getElementsByClassName("jbox-title")[1];
