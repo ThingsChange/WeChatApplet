@@ -705,7 +705,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
                             oSvg.find(".validMap").css("fill", mapApi.outColor);
                             this.style.fill = mapApi.inColor;
-
+                            
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             //加载hover模板
