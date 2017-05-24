@@ -1,0 +1,121 @@
+{
+  "moqi": {
+    "poorPersons": 5511,
+    //贫困人口数
+    "pieChart": {
+      "count": 2030,
+      //总数
+      "dataList": [
+        {
+          "value": 300,
+          "name": "一般贫困户"
+        },
+        {
+          "value": 400,
+          "name": "低保贫困户"
+        },
+        {
+          "value": 500,
+          "name": "五保贫困户"
+        }
+      ],
+      "documentCount": 5511
+    },
+    "list":[
+      {
+        "name": "李天骄",
+        //姓名
+        "sex": "女",
+        //性别
+        "householderRelation": "父女关系",
+        //与户主关系
+        "phone": "15712209876",
+        //联系电话
+        "workAbility": "普通劳动能力"
+      },
+      {
+        "name": "李天骄",
+        //姓名
+        "sex": "女",
+        //性别
+        "householderRelation": "父女关系",
+        //与户主关系
+        "phone": "15712209876",
+        //联系电话
+        "workAbility": "普通劳动能力"
+      }
+    ]
+  },
+  "baoshanzhen": {
+    "poorPersons": 5511, //贫困人口数
+    "pieChart":{
+      "count": 2030, //总数
+      "dataList":[{value: 300, name: "一般贫困户"},{value: 400, name: "低保贫困户"},{value: 500, name: "五保贫困户"}],
+      "documentCount": 5511
+    },
+    "list":[
+      {
+        "name": "李天骄", //姓名
+        "sex": "女", //性别
+        "householderRelation": "父女关系", //与户主关系
+        "phone": "15712209876", //联系电话
+        "workAbility": "普通劳动能力"
+      },
+      {
+        "name": "李天骄", //姓名
+        "sex": "女", //性别
+        "householderRelation": "父女关系", //与户主关系
+        "phone": "15712209876", //联系电话
+        "workAbility": "普通劳动能力"
+      }
+    ]
+  },
+  "nierjizhen": {
+    "poorPersons": 5511, //贫困人口数
+    "pieChart": {
+      "count": 2030, //总数
+      "dataList":[{"value": 300, "name": "一般贫困户"},{"value": 400, "name": "低保贫困户"},{"value": 500, "name": "五保贫困户"}],
+      "documentCount": 5511
+    },
+    "list":[
+      {
+        "name": "李天骄", //姓名
+        "sex": "女", //性别
+        "householderRelation": "父女关系", //与户主关系
+        "phone": "15712209876", //联系电话
+        "workAbility": "普通劳动能力"
+      },
+      {
+        "name": "李天骄", //姓名
+        "sex": "女", //性别
+        "householderRelation": "父女关系", //与户主关系
+        "phone": "15712209876", //联系电话
+        "workAbility": "普通劳动能力"
+      }
+    ]
+  },
+  "hanguerhezhen": {
+    "poorPersons": 5511, //贫困人口数
+    "pieChart": {
+      "count": 2030, //总数
+      "dataList":[{"value": 300, "name": "一般贫困户"},{"value": 400, "name": "低保贫困户"},{"value": 500, "name": "五保贫困户"}],
+      "documentCount": 5511
+    },
+    "list":[
+      {
+        "name": "李天骄", //姓名
+        "sex": "女", //性别
+        "householderRelation": "父女关系", //与户主关系
+        "phone": "15712209876", //联系电话
+        "workAbility": "普通劳动能力"
+      },
+      {
+        "name": "李天骄", //姓名
+        "sex": "女", //性别
+        "householderRelation": "父女关系", //与户主关系
+        "phone": "15712209876", //联系电话
+        "workAbility": "普通劳动能力"
+      }
+    ]
+  }
+}

@@ -221,15 +221,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //弹窗部分代码
             //建档情况
             $("#openDoc").on("click", function () {
-                $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.4});
+                var $pop = $.jBox('', {title: "建档情况", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 //改变title宽度
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
-                var html = template('docCreateTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]}
-                charts.pieChart('docChart',true,docData)
+                $.getJSON("../js/json/fiveGroup/recordJbox.json",function(res){
+                    if(res&&res[area]){
+                        var data = res[area]
+                        $pop.find('.jbox-content').html(template('docCreateTemp',data));
+                        var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:data.pieChart.rate,center:["50%","50%"],data:data.pieChart.dataList}
+                        charts.pieChart('docChart',true,docData)
+                    }
+                });
                 // chart.poorChart("poorChart");
                 /*var box=document.getElementById("jbox");
                  box.style.top = "3vw";*/
@@ -248,23 +252,29 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             })
             //劳动力情况
             $("#laborCondition").on("click", function () {
-                $.jBox('', {title: "劳动力情况", buttons: {}, border: 0, opacity: 0.4});
+                var $pop = $.jBox('', {title: "劳动力情况", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
-                var html = template('laborTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-
-                charts.labelPie("laborWindowChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"普通劳动力"},{value:"252",name:"丧失劳动力"},{value:"223",name:"无劳动力"},{value:"255",name:"技能劳动力"}]});
+                $.getJSON("../js/json/fiveGroup/labor.json",function(res){
+                    if(res&&res[area]){
+                        var data = res[area];
+                        data.type=1;
+                        $pop.find('.jbox-content').html(template('laborTemp',data));
+                        var docData = {color:["#f84c24","#fde101","#83d130","#0786ef"],data:data.dataList}
+                        charts.labelPie('laborWindowChart',docData)
+                    }
+                });
                 /*var box=document.getElementById("jbox");
                  box.style.top = "3vw";*/
             })
             //诊断情况 与建档情况公用一个模板
             $("#diagnoseCondition").on("click", function () {
-                $.jBox('', {title: "诊断情况", buttons: {}, border: 0, opacity: 0.4});
+                var $pop=$.jBox('', {title: "诊断情况", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
+
                 var html = template('docCreateTemp',{});
                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
                 var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:"2030",center:["50%","50%"],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]}
@@ -274,14 +284,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             })
             //身体健康状况 与劳动力情况公用一个模板
             $("#healthCondition").on("click", function () {
-                $.jBox('', {title: "身体健康情况", buttons: {}, border: 0, opacity: 0.4});
+                var $pop = $.jBox('', {title: "身体健康情况", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 var title = document.getElementsByClassName("jbox-title")[0];
                 title.style.width ="96%";
-                var html = template('laborTemp',{});
-                document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-
-                charts.labelPie("laborWindowChart",{color:["#f84c24","#fde101","#83d130","#0786ef"],data:[{value:"123",name:"普通劳动力"},{value:"252",name:"丧失劳动力"},{value:"223",name:"无劳动力"},{value:"255",name:"技能劳动力"}]});
+                $.getJSON("../js/json/fiveGroup/health.json",function(res){
+                    if(res&&res[area]){
+                        var data = res[area];
+                        data.type=2
+                        $pop.find('.jbox-content').html(template('laborTemp',data));
+                        var docData = {color:["#f84c24","#fde101","#83d130","#0786ef"],data:data.dataList}
+                        charts.labelPie('laborWindowChart',docData)
+                    }
+                });
                 /*var box=document.getElementById("jbox");
                  box.style.top = "3vw";*/
             })
@@ -456,12 +471,12 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 legend:['学龄前儿童', '小学', '初中', '高中', '大专及以上', '文盲及半文盲'],
                 color:['#fde101', '#1ff4be', '#c4572e', '#387b14', '#cb4345', '#a96969', '#40bfec', '#c73983', '#0786ef'],
                 data:[
-                    {value: 335, name: '学龄前儿童'},
-                    {value: 310, name: '小学'},
-                    {value: 234, name: '初中'},
-                    {value: 135, name: '高中'},
-                    {value: 1548, name: '大专及以上'},
-                    {value: 123, name: '文盲及半文盲'}
+                    {value: data[area].numberOfPreschoolChildren, name: '学龄前儿童'},
+                    {value: data[area].numberOfPrimarySchool, name: '小学'},
+                    {value: data[area].numberOfJuniorMiddleSchool, name: '初中'},
+                    {value: data[area].numberOfHighSchool, name: '高中'},
+                    {value: data[area].numberOfCollegeDegreeOrAbove, name: '大专及以上'},
+                    {value: data[area].numberOfIlliteracy, name: '文盲及半文盲'}
                 ]
             }
             charts.fullPieChart("educationStructureChart",eduData)
@@ -529,17 +544,20 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             })
         },
-        'getPoverty':function(){
-            $('#rightSide').html(template('povertyRightSideTemp_poverty', {}));
-            charts.labelPie("povertyStructureChart",{color:['#fde101', '#1ff4be', '#c4572e'],data:[{value:111,name:"一般贫困户"},{value:222,name:"低保贫困户"},{value:321,name:"五保贫困户"}]});
-            $(".sectionTab").on("click","span",function(){
-                if(!$(this).hasClass("active")&&$(this).text()=="人"){
-                    $(this).addClass("active").siblings().removeClass("active");
-                    $("#povertyTypeRank").find("thead th:eq(1)").text("人数")
-                    //ajax
-                }else if(!$(this).hasClass("active")&&$(this).text()=="户"){
-                    $(this).addClass("active").siblings().removeClass("active");
-                    $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
+        'getPoverty':function(type){
+            $.getJSON("../js/json/povertyFamily/poorFamilyFrame.json",function(data){
+                if(data&&data.povertyStructure) {
+                    var poverty = data.povertyStructure;
+                    poverty[area].type = type;
+                    $('#rightSide').html(template('povertyRightSideTemp_poverty', poverty[area]));
+                    charts.labelPie("povertyStructureChart",{
+                        color:['#fde101', '#1ff4be', '#c4572e'],
+                        data:[
+                            {value:type==1?poverty[area].generalPovertyHouseholds:poverty[area].generalPovertyPopulation,name:"一般贫困户"},
+                            {value:type==1?poverty[area].DBPovertyHouseholds:poverty[area].DBPovertyPopulation,name:"低保贫困户"},
+                            {value:type==1?poverty[area].WBPovertyHouseholds:poverty[area].WBPovertyPopulation,name:"五保贫困户"}
+                        ]
+                    });
                 }
             });
         },
@@ -599,13 +617,26 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             }else if($(this).hasClass("sex")){//性别结构
                 api.getSex()
             }else if($(this).hasClass("poverty")){//贫困结构
-                api.getPoverty();
+                api.getPoverty(2);
             }
         });
 
+        $("#rightSide").on("click","#povertyStructure span",function(){
+            if(!$(this).hasClass("active")&&$(this).text()=="人"){
+                $(this).addClass("active").siblings().removeClass("active");
+                api.getPoverty(2)
+                //ajax
+            }else if(!$(this).hasClass("active")&&$(this).text()=="户"){
+                $(this).addClass("active").siblings().removeClass("active");
+                $("#povertyTypeRank").find("thead th:eq(1)").text("户数")
+                api.getPoverty(1)
+            }
+        });
+
+
         //督导组成员弹窗
 
-        /*$("#rightSide").on("click",".goToDetail",function(){
+        /*$("#mapBox").on("click",".goToDetail",function(){
             var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
             membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
             var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});

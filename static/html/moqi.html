@@ -2459,19 +2459,10 @@
 </div>
 <div id="sevenStepsTab" class="hide"></div><!--五人小组左侧tab-->
 <div id="leftOperation"></div><!--首页左侧收起-->
-<div id="rightSide">
-</div>
-
+<div id="rightSide"></div>
 <!--right end-->
 <div class="left-btn"></div>
-<div id="leftSide">
-    <!--五人小组左侧html-->
-
-    <!--贫困家庭左侧html-->
-
-    <!--首页左侧html-->
-
-</div>
+<div id="leftSide"></div>
 <!--left end-->
 <div class="bottom"></div>
 <!--家医签约-->
@@ -2692,9 +2683,15 @@
         </div>
         <div class="content">
             <div id="povertyStructureChart"></div>
-            <div class="sectionTab">
+            <div class="sectionTab" id="povertyTab">
+                {{if type==2}}
                 <span class="active">人</span>
                 <span>户</span>
+                {{/if}}
+                {{if type==1}}
+                <span>人</span>
+                <span class="active">户</span>
+                {{/if}}
             </div>
         </div>
     </div>
@@ -2706,24 +2703,24 @@
             <table>
                 <thead>
                 <th>类型</th>
-                <th>人数</th>
+                <th>{{if type==1}}户数{{else}}人数{{/if}}</th>
                 <th>占比</th>
                 </thead>
                 <tbody>
                 <tr>
                     <td>一般贫困户</td>
-                    <td>33333</td>
-                    <td>5%</td>
+                    <td>{{type==1?generalPovertyHouseholds:generalPovertyPopulation}}</td>
+                    <td>{{type==1?generalHouseholdsPercentage:generalPopulationPercentage}}</td>
                 </tr>
                 <tr>
                     <td>低保贫困户</td>
-                    <td>33333</td>
-                    <td>4%</td>
+                    <td>{{type==1?DBPovertyHouseholds:DBPovertyPopulation}}</td>
+                    <td>{{type==1?DBHouseholdsPercentage:DBPopulationPercentage}}</td>
                 </tr>
                 <tr>
                     <td>五保贫困户</td>
-                    <td>33333</td>
-                    <td>30%</td>
+                    <td>{{type==1?WBPovertyHouseholds:WBPovertyPopulation}}</td>
+                    <td>{{type==1?WBHouseholdsPercentage:WBPopulationPercentage}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -3455,84 +3452,23 @@
             <table>
                 <thead>
                 <tr>
-                    <th>姓名</th>
-                    <th>性别</th>
-                    <th>与户主关系</th>
-                    <th>联系电话</th>
-                    <th>劳动能力</th>
+                    <th>序号</th>
+                    <th>乡村（办事处）</th>
+                    <th>建档立卡总数</th>
+                    <th>贫困人口数</th>
+                    <th>完成率</th>
                 </tr>
                 </thead>
                 <tbody>
+                {{each list as data}}
                 <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
+                    <td>{{$index+1}}</td>
+                    <td>{{data.townName}}</td>
+                    <td>{{data.townName}}</td>
+                    <td>{{data.poorPersons}}</td>
+                    <td>{{data.completionRate}}</td>
                 </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
+                {{/each}}
                 </tbody>
             </table>
             <ul>
@@ -3552,12 +3488,12 @@
         </div>
     </div>
     <div class="tuopin-right doc-right">
-        <h5>贫困人口数：<span>25337</span>人</h5>
+        <h5>建档立卡总数：<span>{{pieChart.documentCount}}</span>人</h5>
         <div id="docChart"></div>
-        <p>建档立卡总数：<span>25337</span>人</p>
+        <p>贫困人口数：<span>{{poorPersons}}</span>人</p>
     </div>
 </script>
-<!--劳动力情况模板-->
+<!--身体健康情况、劳动力情况模板-->
 <script id = "laborTemp" type="text/html">
     <div class="select-switch">
         <select name="">
@@ -3571,84 +3507,42 @@
             <table>
                 <thead>
                 <tr>
-                    <th>姓名</th>
-                    <th>性别</th>
-                    <th>与户主关系</th>
-                    <th>联系电话</th>
-                    <th>劳动能力</th>
+                    <th>序号</th>
+                    <th>乡镇（办事处）</th>
+                    <th>贫困人口</th>
+                    {{if type==1}}
+                    <th>普通劳动力</th>
+                    <th>丧失劳动力</th>
+                    <th>技能劳动力</th>
+                    <th>无劳动力</th>
+                    {{else}}
+                    <th>健康人数</th>
+                    <th>长期慢病人数</th>
+                    <th>大病人数</th>
+                    <th>残疾人人数</th>
+                    {{/if}}
                 </tr>
                 </thead>
                 <tbody>
+                {{each list as data}}
                 <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
+                    <td>{{$index}}</td>
+                    <td>{{data.townName}}</td>
+                    <td>{{data.poorPersons}}</td>
+                    {{if type==1}}
+                    <td>{{data.ordinaryWork}}</td>
+                    <td>{{data.loseWork}}</td>
+                    <td>{{data.technologyWork}}</td>
+                    <td>{{data.noWork}}</td>
+                    {{else}}
+                    <td>{{data.healthPersons}}</td>
+                    <td>{{data.longInllness}}</td>
+                    <td>{{data.bigInllness}}</td>
+                    <td>{{data.laborPersons}}</td>
+
+                    {{/if}}
                 </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
-                <tr>
-                    <td>李天娇</td>
-                    <td>女</td>
-                    <td>父女关系</td>
-                    <td>15465689657</td>
-                    <td>普通劳动能力</td>
-                </tr>
+                {{/each}}
                 </tbody>
             </table>
             <ul>
@@ -3668,7 +3562,7 @@
         </div>
     </div>
     <div class="tuopin-right doc-right">
-        <h5>贫困人口数：<span>25337</span>人</h5>
+        <h5>贫困人口数：<span>{{poorPersons}}</span>人</h5>
         <div id="laborWindowChart"></div>
     </div>
 </script>
