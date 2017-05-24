@@ -672,6 +672,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "dis_w": 90, //鼠标坐标偏移量
             "dis_h": 200, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
+            "outColor":'#919689',
+            "inColor":'#5c5f57',
 
 
             "init": function() {
@@ -683,7 +685,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     if (mapApi.curr_svg) {
                         mapApi.oSvgBox.on("click", function(event) {
                             event.preventDefault();
-                            oSvg.find(".validMap").css("fill", "#919689");
+                            oSvg.find(".validMap").css("fill", mapApi.outColor);
                             $(".map-links").removeClass("show");
                             $(".map-tips").removeClass("show");
                             mapApi.hoverLock = true;
@@ -695,8 +697,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     oSvg.on("mouseover", ".validMap", function(event) {
                         if (mapApi.hoverLock) {
 
-                            oSvg.find(".validMap").css("fill", "#919689");
-                            this.style.fill = "#5c5f57";
+                            oSvg.find(".validMap").css("fill", mapApi.outColor);
+                            this.style.fill = mapApi.inColor;
 
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
@@ -715,7 +717,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         if (mapApi.curr_path_id) {
                             //如果有当前id 已选中某镇
                             if (mapApi.curr_path_id != this.id) {
-                                oSvg.find(".validMap").css("fill", "#919689");
+                                oSvg.find(".validMap").css("fill", mapApi.outColor);
                                 mapApi.curr_path_id = false;
                                 area = "moqi";
                                 mapApi.getData();
@@ -726,9 +728,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         } else {
                             //如果没有当前id;未选中镇
                             mapApi.hoverLock = false;
-                            oSvg.find(".validMap").css("fill", "#919689");
+                            oSvg.find(".validMap").css("fill", mapApi.outColor);
 
-                            this.style.fill = "#5c5f57";
+                            this.style.fill = mapApi.inColor;
                             var x = event.pageX || event.clientX + mapApi.scrollX;
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             mapApi.curr_path_id = this.id;
@@ -790,7 +792,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     if (mapApi.curr_svg) {
                         mapApi.oSvgBox.on("click", function(event) {
                             event.preventDefault();
-                            oSvg.find(".validMap").css("fill", "#919689");
+                            oSvg.find(".validMap").css("fill", mapApi.outColor);
                             $(".map-links").removeClass("show");
                             $(".map-tips").removeClass("show");
                             mapApi.hoverLock = true;
