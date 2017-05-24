@@ -298,7 +298,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                  box.style.top = "3vw";*/
             })
             //个人中心
-            $("#openPerinfo").on("click", function () {
+            /*$("#openPerinfo").on("click", function () {
                 $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.4});
                 document.getElementsByTagName('body')[0].style.padding="0";
                 // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
@@ -309,7 +309,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 title.style.textAlign ="left";
                 var html = template('personalTemp',{});
                 document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-            })
+            })*/
             //村贫困家庭表单
             $("#openPoorInfo").on("click", function () {
                 $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
@@ -562,15 +562,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         countDown.countDown("2017/05/25")
         //刷新时触发首页点击事件
         api.getHomePage(area);
-        //村贫困家庭表单
-        $(".logout").on("click", function () {
-            $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
-            document.getElementsByTagName('body')[0].style.padding="0";
-            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-            //设置弹窗top值
-            var html = template('villageTemp',{});
-            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-        })
         //绑定
         //切换头部标签
         $("#tab").on("click","div", function(){
@@ -650,6 +641,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         var dis_h = 180; //
         var $cheangeMap=$('#changeMap');//进入地图按钮
 
+        //旗地图
         function getMap(oSvg) {
             oSvg.on('mouseover', 'path', function(event) {
                 if (hoverLock) {
@@ -718,7 +710,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         }
 
-
+        //镇地图
         function getSubMap(oSvg) {
             oSvg.on('mouseover', 'path', function(event) {
                 if (hoverLock) {
@@ -755,7 +747,30 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     curr_path_id=this.id;
 
                     console.log(this.id);
-
+                    //村贫困家庭表单
+                    $.jBox('', {title: "", buttons: {}, border: 0, opacity: 0.4});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                    //设置弹窗top值
+                    var html = template('villageTemp',{});
+                    document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                    //家庭列表绑定点击事件
+                    $(".village tr").on("click",function(event){
+                        event.stopPropagation();
+                        var $pop = $.jBox('', {title: "李茜茜", buttons: {}, border: 0, opacity: 0.4});
+                        document.getElementsByTagName('body')[0].style.padding="0";
+                        // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                        //设置弹窗top值
+                        $pop.eq(0).css("top","2.6vw");
+                        $pop.eq(0).find("jbox-title").css("textAlign","left");
+                        console.log($pop);
+                        // var box = document.getElementById("jbox");
+                        // var title = document.getElementsByClassName("jbox-title")[1];
+                        // box.style.top = "2.6vw";
+                        // title.style.textAlign ="left";
+                        var html = template('personalTemp',{});
+                        document.getElementsByClassName('jbox-content')[1].innerHTML = html;
+                    });
                     alert('弹出列表');
 
 
