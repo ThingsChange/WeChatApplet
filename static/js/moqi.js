@@ -132,7 +132,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     {"value":_data.poorHouseholds.actualPoorHouseholds,"name":'已完成'},{"value":_data.poorHouseholds.notPoorHouseholds,"name":'未完成'}
                 ];
                 populationArr = [
-                    {"value":_data.poorPersons.actualPoorPersons,"name":'已完成'},{"value":_data.poorHouseholds.notPoorPersons,"name":'未完成'}
+                    {"value":_data.poorPersons.actualPoorPersons,"name":'已完成'},{"value":_data.poorPersons.notPoorPersons,"name":'未完成'}
                 ];
                 rateArr = [
                     {"value":_data.poorProbability.poorPersons,"name":'贫困人口'},{"value":_data.poorProbability.countryHousePersons,"name":'农村户籍人口'}
@@ -645,8 +645,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         //var Next_map_name=null;
         var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
         var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-        var dis_w = 70; //鼠标坐标偏移量
-        var dis_h = 150; //
+        var dis_w = 90; //鼠标坐标偏移量
+        var dis_h = 180; //
         var $cheangeMap=$('#changeMap');//进入地图按钮
 
         function getMap(oSvg) {
@@ -669,7 +669,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
 
             oSvg.on('click', 'path', function(event) {
-
                 if (curr_path_id){
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
@@ -691,7 +690,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     curr_path_id=this.id;
 
                     console.log(this.id);
-
                     $(".map-tips").removeClass('show');
 
                     $(".map-links").css({
