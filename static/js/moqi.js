@@ -754,6 +754,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         //改变当前选择区域
                         area = mapApi.curr_path_id;
                         // var txt = $("#tab div.active").text();
+                        $("#areaSelectInHeader").val(area);
                         mapApi.getData();
                         //打开督导组成员弹窗
                         $(".links-list li").eq(1).unbind("click").on("click", function() {
