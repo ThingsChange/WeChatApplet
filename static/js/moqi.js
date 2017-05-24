@@ -638,7 +638,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
         var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
         var dis_w = 90; //鼠标坐标偏移量
-        var dis_h = 180; //
+        var dis_h = 200; //
         var $cheangeMap=$('#changeMap');//进入地图按钮
 
         //旗地图
@@ -666,7 +666,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
                         oSvg.find('.validMap').css('fill','#919689');
-                        curr_path_id='';
+                        curr_path_id=false;
                         $(".map-links").removeClass('show');
                         hoverLock=true;
                         return false;
@@ -712,10 +712,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
         //镇地图
         function getSubMap(oSvg) {
-            oSvg.on('mouseover', 'path', function(event) {
+            oSvg.on('mouseover', '.validMap', function(event) {
                 if (hoverLock) {
                     //$(this).addClass('map-hover');
-                    oSvg.find('path').css('fill','#919689');
+                    oSvg.find('.validMap').css('fill','#919689');
                     this.style.fill = '#5c5f57';
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
@@ -728,19 +728,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 }
             });
 
-            oSvg.on('click', 'path', function(event) {
+            oSvg.on('click', '.validMap', function(event) {
                 if (curr_path_id){
                     //如果有当前id 已选中某镇
                     if (curr_path_id!=this.id) {
-                        oSvg.find('path').css('fill','#919689');
-                        curr_path_id='';
+                        oSvg.find('.validMap').css('fill','#919689');
+                        curr_path_id=false;
                         alert('饮茶美好列表');
                     }
                 }
                 if (!curr_path_id){
                     //如果没有当前id;未选中镇
                     hoverLock = false;
-                    oSvg.find('path').css('fill','#919689');
+                    oSvg.find('.validMap').css('fill','#919689');
                     this.style.fill = '#5c5f57';
                     var x = event.pageX || event.clientX + scrollX;
                     var y = event.pageY || event.clientY + scrollY;
