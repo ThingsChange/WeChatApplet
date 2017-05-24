@@ -78,7 +78,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
     // 数据加载
     var api = {
-        'getHomePage': function(town){
+        'getHomePage': function(){
             $("#leftTabs").addClass("hide");
             $("#leftOperation").removeClass("hide");
             $("#sevenStepsTab").addClass("hide");
@@ -87,7 +87,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             $.getJSON("../js/json/homePage/dutyHost.json",function(data){
                 if(data) {
-                    $('#rightSide').html(template('homepageRightSideTemp', data[town]));
+                    $('#rightSide').html(template('homepageRightSideTemp', data[area]));
                     //进度条生成
                     $("#cause").find(".progressBar").each(function(){
                         var value = $(this).prev().text();
@@ -97,7 +97,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     var causePieChartData = {
                         color:['#abfb06','#1ff4be','#c4572e','#387b14','#cb4345','#a96969','#40bfec','#c73983','#0786ef','#fde101'],
                         legend:['因病致贫','因学致贫','因灾致贫','缺土地','缺水','缺劳力','缺资金','交通条件落后','自身动力不足'],
-                        data:data[town].causePieChartData
+                        data:data[area].causePieChartData
                     };
                     charts.pieChart("chartForCause",false,causePieChartData);
                     //责任主体绑定点击事件
@@ -127,7 +127,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             $.ajaxSettings.async = false;
             $.getJSON("../js/json/homePage/2017poorTarget.json",function(res){
                 // console.log(res)
-                var _data = res[town];
+                var _data = res[area];
                 houseHoldArr = [
                     {"value":_data.poorHouseholds.actualPoorHouseholds,"name":'已完成'},{"value":_data.poorHouseholds.notPoorHouseholds,"name":'未完成'}
                 ];
@@ -168,13 +168,13 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             });
             //底部--------------------end
         },
-        'getFiveGroup': function(town){
+        'getFiveGroup': function(){
             $("#leftTabs").addClass("hide");
             $("#leftOperation").addClass("hide");
             $("#sevenStepsTab").removeClass("hide");
             //右侧--------------------start
             $.getJSON("../js/json/fiveGroup/fivegroup_right.json",function(res){
-                var data = res[town];
+                var data = res[area];
                 $('#rightSide').html(template('sevenStepsRightSideTemp', data));
 
                 charts.gauge("putOnRecordChart",{value:data.healthPoint,color:'#83ea43'});
@@ -190,7 +190,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             //左侧--------------------start
             $.getJSON("../js/json/fiveGroup/fivegroup_left.json",function(res){
-                var data = res[town];
+                var data = res[area];
                 $('#leftSide').html(template('fiveLeftSideTemp', data));
                 //进度条生成
                 $(".section-body.second-sec").find(".progressBar").each(function () {
@@ -541,10 +541,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 }
             });
         },
-        'getDoctorSign':function(town){
+        'getDoctorSign':function(type){
             $.getJSON("../js/json/homePage/doctorSign.json",function(data){
                 if(data) {
-                    var dataObj = data[town];
+                    var dataObj = data[type];
                     var townArr = [];
                     var dataArr = [];
                     for(p in dataObj) {
@@ -571,6 +571,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             var html = template('villageTemp',{});
             document.getElementsByClassName('jbox-content')[0].innerHTML = html;
         })
+        //绑定
         //切换头部标签
         $("#tab").on("click","div", function(){
             var activeBool = $(this).hasClass("active");
@@ -697,7 +698,21 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         "top": y - dis_h,
                     }).addClass('show');
                 }
+                //打开督导组成员弹窗
+                $(".links-list li").eq(1).unbind("click").on("click",function(){
+                    var membersTemp = template('selectTown',{town:[{'id':'123','name':'张家口村'},{'id':'234','name':'别的什么村'}]});
+                    membersTemp += template('members',{data:[{'duty':'组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
+                    var $pop = $.jBox(membersTemp, {title: "督导组成员", buttons: {}, border: 0, opacity: 0.4});
+                    document.getElementsByTagName('body')[0].style.padding="0";
+                    var title = document.getElementsByClassName("jbox-title")[0];
+                    title.style.width ="96%";
+                    $(".select-switch").on("change",'select',function(){
+                        var selected=$(this).children('option:selected').val();
+                        var membersTemp = template('members',{data:[{'duty':'组长','name':'李骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'},{'duty':'副组长','name':'李天骄','sex':'女','nation':'汉族','politic':'党员','office':'北京','contect':'13711111111','remarks':'没有备注'}]});
+                        $("#jbox-content").find("table").remove().append(membersTemp);
 
+                    })
+                })
             });
 
 
