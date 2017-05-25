@@ -178,7 +178,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                 var $this = $(this).siblings(".bottom-content");
                 $this.slideToggle(function(){
                     var showBool = $this.is(":visible");
-                    if(!showBool){
+                    if(!showBool&&window.timeOut){
                         clearTimeout(timeOut);
                     }else{
                         api.slide("slideBox");
@@ -696,6 +696,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                             $(".map-links").removeClass("show");
                             $(".map-tips").removeClass("show");
                             mapApi.hoverLock = true;
+                            if(mapApi.curr_path_id){
+                                area = "moqi";
+                                mapApi.getData();
+                            }
                             mapApi.curr_path_id = false;
 
                             /* Act on the event */
@@ -719,7 +723,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                                         "top": y - mapApi.dis_h,
                                     });
                             })
-
                             //console.log($(this).attr("id"));
                         }
                     });
