@@ -136,8 +136,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         },
         'getFiveGroup': function(){
             $("#leftTabs").addClass("hide");
-            $("#leftOperation").addClass("hide");
-            $("#sevenStepsTab").removeClass("hide");
+            // $("#leftOperation").addClass("hide");
+            // $("#sevenStepsTab").removeClass("hide");
             //右侧--------------------start
             $.getJSON("../js/json/fiveGroup/fivegroup_right.json",function(res){
                 var data = res[area];
@@ -350,8 +350,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         },
         'getDisease': function(){
             $("#leftTabs").removeClass("hide");
-            $("#leftOperation").addClass("hide");
-            $("#sevenStepsTab").addClass("hide");
+            // $("#leftOperation").addClass("hide");
+            // $("#sevenStepsTab").addClass("hide");
             $("#leftTabs").find("span.disease").addClass("active").siblings().removeClass("active")
 
             //右侧--------------------start
@@ -636,6 +636,9 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
             }else if($(this).hasClass("fivePeople")){//---------------点击五人小组按钮----------------
                 api.getFiveGroup(area);
+            }else{
+                $("#leftTabs").addClass("hide");
+
             }
         });
         //贫困家庭右侧栏tab切换
@@ -890,7 +893,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
                             //村贫困家庭表单
                             // $.jBox('', { title: "", buttons: {}, border: 0, opacity: 0.4 });
-                            $.getJSON("../js/json/map_peopleList.json",function(res){
+                            // $.getJSON("../js/json/map_peopleList.json",function(res){
+                                $.getJSON("../js/json/mapPeopleDetail.json",function(res){
                                 var data={};
                                 data.data = res[area][mapApi.curr_path_id];
                                 var membersTemp = template("villageTemp", data);
@@ -898,27 +902,21 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                                 document.getElementsByTagName('body')[0].style.padding = "0";
                                 // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
                                 //设置弹窗top值
-                            })
-                            // var html = template('villageTemp', {});
-                            // document.getElementsByClassName('jbox-content')[0].innerHTML = html;
-                            //家庭列表绑定点击事件
-                            $(".village tr").on("click", function() {
-                                var $pop = $.jBox('', { title: "李茜茜", buttons: {}, border: 0, opacity: 0.4 });
-                                document.getElementsByTagName('body')[0].style.padding = "0";
-                                // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-                                //设置弹窗top值
-                                $pop.find("#jbox").css("top", "2.6vw");
-                                // $pop.eq(0).find("jbox-title").css("textAlign","left");
-                                console.log($pop);
-                                // var box = document.getElementById("jbox");
-                                // var title = document.getElementsByClassName("jbox-title")[1];
-                                // box.style.top = "2.6vw";
-                                // title.style.textAlign ="left";
-                                var html = template('personalTemp', {});
-                                document.getElementsByClassName('jbox-content')[1].innerHTML = html;
-                            });
-                            //alert('弹出列表');
 
+                                    //家庭列表绑定点击事件
+                                    $(".village").on("click","tr",function() {
+                                        var name = $(this).find("td:eq(1)").text();
+                                        var family = data.data.filter(function(a) {
+                                            return a.name == name;
+                                        });
+
+                                        var $pop = $.jBox('', { title: name, buttons: {}, border: 0, opacity: 0.4 });
+                                        document.getElementsByTagName('body')[0].style.padding = "0";
+                                        $pop.find("#jbox").css("top", "2.6vw");
+                                        var html = template('personalTemp',family[0] );
+                                        document.getElementsByClassName('jbox-content')[1].innerHTML = html;
+                                    });
+                            })
 
                         }
 

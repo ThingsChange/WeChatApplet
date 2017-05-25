@@ -3132,26 +3132,26 @@
                 <div class="per-img">
                     <img src="../images/default_head_img.png">
                 </div>
-                <p>李茜茜</p>
+                <p>{{name}}</p>
             </div>
             <div class="per-leftmid">
                 <ul>
-                    <li>性别：<span>女</span></li>
-                    <li>电话：<span>23545854586</span></li>
-                    <li>所属村：<span>瓦岗村</span></li>
-                    <li>民族：<span>汉</span></li>
-                    <li>健康情况：<span>大病</span></li>
-                    <li>劳动能力：<span>普通劳动力</span></li>
+                    <li>性别：<span>{{sex}}</span></li>
+                    <li>电话：<span>{{mobile}}</span></li>
+                    <li>所属村：<span>{{ssc}}</span></li>
+                    <li>民族：<span>{{mz}}</span></li>
+                    <li>健康情况：<span>{{jkqk}}</span></li>
+                    <li>劳动能力：<span>{{ldnl}}</span></li>
                 </ul>
             </div>
             <div class="per-leftbtm">
                 <ul>
-                    <li>身份证号：<span>145252566326547895</span></li>
-                    <li>银行卡号：<span>6333252542152356458</span></li>
-                    <li>贫困属性：<span>一般贫困户</span></li>
+                    <li>身份证号：<span>{{sfz}}</span></li>
+                    <li>银行卡号：<span>{{bankNo}}</span></li>
+                    <li>贫困属性：<span>{{}}</span></li>
                     <li>
                         <p>年收入（元）</p>
-                        <p class="annual-money">25336.00</p>
+                        <p class="annual-money">{{}}</p>
                     </li>
                 </ul>
             </div>
@@ -3171,34 +3171,16 @@
                     </tr>
                     </thead>
                     <tbody>
+                    {{each otherFamily as family}}
                     <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
+                        <td>{{family.name}}</td>
+                        <td>{{family.sex}}</td>
+                        <td>{{family.yhzgx}}</td>
+                        <td>{{}}</td>
+                        <td>{{family.ldnl}}</td>
                     </tr>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
-                    <tr>
-                        <td>李天娇</td>
-                        <td>女</td>
-                        <td>父女关系</td>
-                        <td>15465689657</td>
-                        <td>普通劳动能力</td>
-                    </tr>
+                    {{/each}}
+
                     </tbody>
                 </table>
             </div>
@@ -3207,16 +3189,17 @@
             <p>帮扶记录</p>
             <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
             <article>
-                <h6>第一次帮扶</h6>
-                <p><span>姚向渠</span>&nbsp;&nbsp;&nbsp;&nbsp;<em>精准扶贫户主会</em></p>
-                <p>
-                    2017年5月10日，天气晴朗，我们开始了第一次精准扶贫的救援工作，工作进展的很顺利，我们一进村就看见姚向渠家的几件破旧不堪的衣服，他洋洋洒洒的躺在院子的破椅子上晒着太阳，看见我们就立马起了身，欢迎我们的到来。姚向渠，患有先天性残疾，右脚比左脚小了特别多。走起路来特别不方便。看见她的屋子，让我想起来一句话叫做“家徒四壁”，这句话放在她的身上，丝毫都没有夸张……</p>
-                <div class="artical-img">
-                    <div><img src="../images/default_head_img.png"></div>
-                    <div><img src="../images/default_head_img.png"></div>
-                    <div><img src="../images/default_head_img.png"></div>
-                    <div><img src="../images/default_head_img.png"></div>
-                </div>
+                <!--<h6>第一次帮扶</h6>-->
+                <!--<p><span>姚向渠</span>&nbsp;&nbsp;&nbsp;&nbsp;<em>精准扶贫户主会</em></p>-->
+                <!--<p>-->
+                    <!--2017年5月10日，天气晴朗，我们开始了第一次精准扶贫的救援工作，工作进展的很顺利，我们一进村就看见姚向渠家的几件破旧不堪的衣服，他洋洋洒洒的躺在院子的破椅子上晒着太阳，看见我们就立马起了身，欢迎我们的到来。姚向渠，患有先天性残疾，右脚比左脚小了特别多。走起路来特别不方便。看见她的屋子，让我想起来一句话叫做“家徒四壁”，这句话放在她的身上，丝毫都没有夸张……</p>-->
+                <!--<div class="artical-img">-->
+                    <!--<div><img src="../images/default_head_img.png"></div>-->
+                    <!--<div><img src="../images/default_head_img.png"></div>-->
+                    <!--<div><img src="../images/default_head_img.png"></div>-->
+                    <!--<div><img src="../images/default_head_img.png"></div>-->
+                <!--</div>-->
+                <p>{{bfjl}}</p>
             </article>
         </div>
     </div>
