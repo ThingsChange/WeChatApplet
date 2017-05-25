@@ -154,7 +154,7 @@ header{
     height: auto;/*待改*/
     background: #313b43;
     float: left;
-    margin-top: -5.3vw;
+    margin-top: -5.8vw;
     z-index: 100;
     position: relative;
     overflow-y:auto;
@@ -370,3 +370,14 @@ div.jbox .jbox-container {
  option{
     color: #000;
 }
+
+ .page li{
+     display: inline-block;
+     margin: 0 .3vw;
+     cursor: pointer;
+     font-size: 1vw;
+ }
+
+ .page .curPage{
+     color: #26adff;
+ }

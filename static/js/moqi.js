@@ -11,7 +11,8 @@ require.config({
         "chart": "../js/leftChart",
         "charts": "../js/charts",
         "progressBar":"../js/progressBar",
-        "countDown" : "../js/countDown"
+        "countDown" : "../js/countDown",
+        "page":"../js/page"
     },
     shim:{
         'jbox':{
@@ -202,7 +203,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                         data.type=1;
                         $pop.find('.jbox-content').html(template('docCreateTemp',data));
                         var docData = {color:['#fde101', '#1ff4be', '#c4572e'],total:data.pieChart.rate,center:["50%","50%"],data:data.pieChart.dataList}
-                        charts.pieChart('docChart',true,docData)
+                        charts.pieChart('docChart',true,docData);
                     }
                 });
             })
@@ -895,13 +896,14 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                             // $.jBox('', { title: "", buttons: {}, border: 0, opacity: 0.4 });
                             // $.getJSON("../js/json/map_peopleList.json",function(res){
                                 $.getJSON("../js/json/mapPeopleDetail.json",function(res){
-                                var data={};
-                                data.data = res[area][mapApi.curr_path_id];
-                                var membersTemp = template("villageTemp", data);
-                                $.jBox(membersTemp, { title: "", buttons: {}, border: 0, opacity: 0.4 });
-                                document.getElementsByTagName('body')[0].style.padding = "0";
-                                // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-                                //设置弹窗top值
+                                    var data={};
+                                    data.data = res[area][mapApi.curr_path_id];
+                                    var totalList = data.list;
+                                    var membersTemp = template("villageTemp", data);
+                                    $.jBox(membersTemp, { title: "", buttons: {}, border: 0, opacity: 0.4 });
+                                    document.getElementsByTagName('body')[0].style.padding = "0";
+                                    // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                                    //设置弹窗top值
 
                                     //家庭列表绑定点击事件
                                     $(".village").on("click","tr",function() {

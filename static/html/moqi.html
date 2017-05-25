@@ -2458,11 +2458,11 @@
 <!--地图模板 start-->
 <script id = "mapHoverTemp" type="text/html">
     <ul class="tips-list">
-        <li>贫困户 : <span>{{poorHouseCount}}</span></li>
-        <li>贫困人口 : <span>{{poorPeoCount}}</span></li>
-        <li>因病致贫 : <span>{{poorSick}}</span></li>
+        <li>贫困户:<span>{{poorHouseCount}}</span></li>
+        <li>贫困人口:<span>{{poorPeoCount}}</span></li>
+        <li>因病致贫:<span>{{poorSick}}</span></li>
         <!--  <li>产业扶贫:<span>23</span></li> -->
-        <li>签约数量 : <span>{{signJYCount}}</span></li>
+        <li>签约数量:<span>{{signJYCount}}</span></li>
     </ul>
     <div class="map-sanjiao"></div>
 </script>
@@ -2598,30 +2598,30 @@
         </div>
         <div class="content">
             <div class="step">
-                <div class="stepTitle" id="openDoc"><span></span>一、建档情况</div>
+                <div class="stepTitle" id="openDoc"><span></span>建档情况</div>
                 <div id="putOnRecordChart"></div>
                 <p>健康档案数：{{healthDocument}}人</p>
             </div>
             <div class="step">
-                <div class="stepTitle" id="diagnoseCondition"><span></span>二、诊断情况</div>
+                <div class="stepTitle" id="diagnoseCondition"><span></span>诊断情况</div>
                 <div id="diagnosisChart"></div>
                 <p>因病致贫数：{{diagnosisCount}}人</p>
             </div>
             <div class="step long">
-                <div class="stepTitle" id="healthCondition"><span></span>三、身体健康情况</div>
+                <div class="stepTitle" id="healthCondition"><span></span>身体健康情况</div>
                 <div id="healthChart"></div>
             </div>
             <div class="step long">
-                <div class="stepTitle" id="laborCondition"><span></span>四、劳动力情况</div>
+                <div class="stepTitle" id="laborCondition"><span></span>劳动力情况</div>
                 <div id="laborChart"></div>
             </div>
             <div class="step">
-                <div class="stepTitle" id="signCondition"><span></span>五、签约情况</div>
+                <div class="stepTitle" id="signCondition"><span></span>签约情况</div>
                 <div id="signChart"></div>
                 <p>签约居民数：{{signCount}}人</p>
             </div>
             <div class="step">
-                <div class="stepTitle" id="openTuopin"><span></span>六、脱贫情况</div>
+                <div class="stepTitle" id="openTuopin"><span></span>脱贫情况</div>
                 <div id="overcomePovertyChart"></div>
                 <p>脱贫人数：{{poorCount}}人</p>
             </div>
@@ -3189,6 +3189,7 @@
             <p class="per-title">帮扶记录</p>
             <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
             <article>
+                {{if bfjl!==""}}
                 <h6 class="bfjl">第一次帮扶</h6>
                 <p><span>{{bfzrr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<em>{{}}</em></p>
                 <!--<p>-->
@@ -3207,6 +3208,7 @@
                     {{/each}}
                 </div>
                 {{/if}}
+                {{/if}}
             </article>
         </div>
     </div>
@@ -3215,15 +3217,15 @@
         <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
         <section>
             <div class="per-top">
-                <span class="per-top-head">贫困户</span>
+                <span class="per-top-head">村支书（第一支书）</span>
                 <div class="per-lefttop">
                     <div class="per-img"><img src="../images/default_head_img.png"></div>
                 </div>
                 <div class="per-leftmid">
                     <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
+                        <li>姓名：<span>{{fiveTeam[3].name}}</span></li>
+                        <li>性别：<span>{{fiveTeam[3].sex}}</span></li>
+                        <li>电话：<span>{{fiveTeam[3].mobile}}</span></li>
                     </ul>
                 </div>
                 <div class="per-leftbtm">
@@ -3238,15 +3240,15 @@
                 </div>
             </div>
             <div class="per-top">
-                <span class="per-top-head">贫困户</span>
+                <span class="per-top-head">帮扶干部</span>
                 <div class="per-lefttop">
                     <div class="per-img"><img src="../images/default_head_img.png"></div>
                 </div>
                 <div class="per-leftmid">
                     <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
+                        <li>姓名：<span>{{fiveTeam[4].name}}</span></li>
+                        <li>性别：<span>{{fiveTeam[4].sex}}</span></li>
+                        <li>电话：<span>{{fiveTeam[4].mobile}}</span></li>
                     </ul>
                 </div>
                 <div class="per-leftbtm">
@@ -3261,15 +3263,15 @@
                 </div>
             </div>
             <div class="per-top">
-                <span class="per-top-head">贫困户</span>
+                <span class="per-top-head">家庭医生</span>
                 <div class="per-lefttop">
                     <div class="per-img"><img src="../images/default_head_img.png"></div>
                 </div>
                 <div class="per-leftmid">
                     <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
+                        <li>姓名：<span>{{fiveTeam[2].name}}</span></li>
+                        <li>性别：<span>{{fiveTeam[2].sex}}</span></li>
+                        <li>电话：<span>{{fiveTeam[2].mobile}}</span></li>
                     </ul>
                 </div>
                 <div class="per-leftbtm">
@@ -3284,38 +3286,15 @@
                 </div>
             </div>
             <div class="per-top">
-                <span class="per-top-head">贫困户</span>
+                <span class="per-top-head">专科医生</span>
                 <div class="per-lefttop">
                     <div class="per-img"><img src="../images/default_head_img.png"></div>
                 </div>
                 <div class="per-leftmid">
                     <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
-                    </ul>
-                </div>
-                <div class="per-leftbtm">
-                    <ul>
-                        <li>
-                            <div></div>
-                        </li>
-                        <li>
-                            <div></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="per-top">
-                <span class="per-top-head">贫困户</span>
-                <div class="per-lefttop">
-                    <div class="per-img"><img src="../images/default_head_img.png"></div>
-                </div>
-                <div class="per-leftmid">
-                    <ul>
-                        <li>姓名：<span>哈哈哈</span></li>
-                        <li>性别：<span>女</span></li>
-                        <li>电话：<span>23545854586</span></li>
+                        <li>姓名：<span>{{fiveTeam[3].name}}</span></li>
+                        <li>性别：<span>{{fiveTeam[3].sex}}</span></li>
+                        <li>电话：<span>{{fiveTeam[3].mobile}}</span></li>
                     </ul>
                 </div>
                 <div class="per-leftbtm">
@@ -3378,22 +3357,6 @@
                 {{/each}}
                 </tbody>
             </table>
-            {{if list.length>10}}
-            <ul>
-                <li><</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>...</li>
-                <li>111</li>
-                <li>></li>
-            </ul>
-            {{/if}}
         </div>
     </div>
     <div class="tuopin-right doc-right">
@@ -3459,22 +3422,6 @@
                 {{/each}}
                 </tbody>
             </table>
-            {{if list.length>10}}
-            <ul>
-                <li><</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>...</li>
-                <li>111</li>
-                <li>></li>
-            </ul>
-            {{/if}}
         </div>
     </div>
     <div class="tuopin-right doc-right">
@@ -3529,22 +3476,8 @@
                 {{/each}}
                 </tbody>
             </table>
-            {{if data.length>10}}
-            <ul>
-                <li><</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>...</li>
-                <li>111</li>
-                <li>></li>
-            </ul>
-            {{/if}}
+
+
         </div>
     </div>
 </script>

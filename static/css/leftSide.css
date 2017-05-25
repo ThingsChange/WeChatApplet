@@ -402,6 +402,7 @@ table tr:nth-child(even) td{
 .doc-left {
     width: 58%;
     padding: 0 2.2vw;
+    overflow: auto;
 }
 .doc-right {
     width: 34%;
