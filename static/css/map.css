@@ -70,8 +70,8 @@
 
 .tips-list li,
 .links-list li{
-	line-height:2vw;
-	font-size:1vw;
+	line-height:2.5vw;
+	font-size:1.3vw;
 }
 .links-list li{
 	background-color: rgba(145, 150, 137,0.8);
