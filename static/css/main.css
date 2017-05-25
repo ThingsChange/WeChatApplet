@@ -128,10 +128,11 @@ header{
 }
 #countDown span{
     position: absolute;
-    top: .5vw;
+    /*top: .5vw;*/
     left: 1vw;
     width: 6vw;
     text-align: center;
+    line-height: 2.2vw;
 }
 #countDown .hour{
     left: 7.3vw;
