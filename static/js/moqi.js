@@ -696,13 +696,15 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
 
                     mapApi.curr_svg = oSvg;
                     if (mapApi.curr_svg) {
+                        // console.log(mapType)
                         mapApi.oSvgBox.on("click", function(event) {
                             event.preventDefault();
                             oSvg.find(".validMap").css("fill", mapApi.outColor);
                             $(".map-links").removeClass("show");
                             $(".map-tips").removeClass("show");
                             mapApi.hoverLock = true;
-                            if(mapApi.curr_path_id){
+                            var mapType = mapApi.curr_svg.attr("id");
+                            if(mapApi.curr_path_id&&mapType=="moqi"){
                                 area = "moqi";
                                 mapApi.getData();
                             }
@@ -830,6 +832,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "getSubMap" :function(oSvg) {
                     mapApi.curr_svg = oSvg;
                     if (mapApi.curr_svg) {
+                        console.log(mapApi.curr_svg.attr("id"))
                         mapApi.oSvgBox.on("click", function(event) {
                             event.preventDefault();
                             oSvg.find(".validMap").css("fill", mapApi.outColor);
