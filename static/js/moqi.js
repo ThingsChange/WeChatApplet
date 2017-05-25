@@ -616,6 +616,12 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         })
         //切换头部标签
         $("#tab").on("click","div", function(){
+
+            //--- 暂时代码 完成后删除 作用：禁止点击 "五个一批"和「六个精准」 by- xld
+                if ($(this).hasClass('fiveInOne')||$(this).hasClass('sixExactness')) {
+                    return;
+                }
+            //---暂时代码 
             var activeBool = $(this).hasClass("active");
             if(!activeBool){
                 $("#rightSide").empty();
