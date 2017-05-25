@@ -433,17 +433,23 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //左侧--------------------end
 
             //底部--------------------start
-            $('.bottom').html(template('doctorSignTemp', data));
-            bottomBind();
-            // api.getDoctorSign('illnessCasuses');
-            //家医签约切换标题
-            $(".bottom-header ul").on("click","li", function(){
-                var activeBool = $(this).hasClass("click-active");
-                if(!activeBool){
-                    $(this).addClass("click-active");
-                    $(this).siblings("li").removeClass("click-active");
-                    api.getDoctorSign('documentPersons');
-                }
+            $.getJSON("../js/json/fiveGroup/helpDynamic.json",function(res){
+                var data={};
+                data.list = res.povertyNews[area];
+                $('.bottom').html(template('helpDynamicTemp', data));
+            });
+            //家医签约按钮点击事件
+            $(".bottom-head").on("click",function(){
+                var $this = $(this).siblings(".bottom-content");
+                $this.slideToggle(function(){
+                    var showBool = $this.is(":visible");
+                    if(!showBool&&window.timeOut){
+                        clearTimeout(timeOut);
+                    }else{
+                        api.slide("slideBox");
+                        // chart.barChart("doctorSign");
+                    }
+                });
             });
             //底部--------------------end
 
