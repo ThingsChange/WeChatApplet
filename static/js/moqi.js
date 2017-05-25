@@ -598,7 +598,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     };
     $(function(){
         //加载倒计时
-        countDown.countDown("2017/12/31");
+        countDown.countDown("2018/1/1");
         //刷新时触发首页点击事件
         api.getHomePage(area);
         //绑定右上角区域切换事件
