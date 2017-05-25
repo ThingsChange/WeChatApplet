@@ -184,7 +184,7 @@
             "poorerName": "",
             "good": "5",
             "info": "",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }],
         "bayanxiang": [{
             "townName": "巴彦鄂温克民族乡",
@@ -193,7 +193,7 @@
             "poorerName": "",
             "good": "5",
             "info": "",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }],
         "baoshanzhen": [{
             "townName": "宝山镇",
@@ -210,7 +210,7 @@
             "poorerName": "冯庆东",
             "good": "1",
             "info": "深入帮扶农户，了解实际情况，认真调查研究，制定帮扶计划;进行思想帮扶，不定期的对其家庭成员进行心理疏导，帮助其重塑信心，使帮扶对象能以积极的心态面对生活;针对冯庆东家特殊情况，只能给予帮助发展养殖业利用自身的技术优势发展养猪3口，根据“四种四养”补助标准，他家能享受补助标准1500元。经常入户了解家庭的变化及发展情况，做到及时排除家庭中遇到的困难和问题。",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }, {
             "townName": "宝山镇",
             "avatar": "/images/avatar/default.jpg",
@@ -226,7 +226,7 @@
             "poorerName": "吴玉梅",
             "good": "2",
             "info": "深入帮扶农户了解实际情况认真调查研究制定扶持计划。进行思想帮扶，不定期的对其家庭成员进行心里疏导帮助其重塑信心，使帮扶对象能民积极的心态面对生活。经常入户了解家庭的变化及发展情况做到及时排除家庭中遇到的困难和问题。针对吴玉梅家情况，只能给予帮助发展养殖业利用自身的技术优势发展养羊50只，根据“四种四养”补助标准，他家能享受补助标准6000元，经常入户了解家庭的变化及发展情况，做到及时排除家庭中遇到的困难和问题。",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }, {
             "townName": "宝山镇",
             "avatar": "/images/avatar/default.jpg",
@@ -234,7 +234,7 @@
             "poorerName": "张勤",
             "good": "5",
             "info": "深入帮扶农户，了解实际情况，认真调查研究，制定帮扶计划;进行思想帮扶，不定期的对其家庭成员进行心理疏导，帮助其重塑信心，使帮扶对象能以积极的心态面对生活;针对张勤家情况，给予帮助发展养殖业利用自身的技术优势发展养鸡600只，根据“四种四养”补助标准，他家能享受补助标准6000元。经常入户了解家庭的变化及发展情况，做到及时排除家庭中遇到的困难和问题。",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }, {
             "townName": "宝山镇",
             "avatar": "/images/avatar/default.jpg",
@@ -283,7 +283,7 @@
             "poorerName": "",
             "good": "5",
             "info": "",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }],
         "dulaerxiang": [{
             "townName": "杜拉尔鄂温克民族乡",
@@ -292,7 +292,7 @@
             "poorerName": "",
             "good": "5",
             "info": "",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }],
         "hadayangzhen": [{
             "townName": "哈达阳镇",
@@ -301,7 +301,7 @@
             "poorerName": "",
             "good": "5",
             "info": "",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }],
         "hanguerhezhen": [{
             "townName": "汉古尔河镇",
@@ -335,7 +335,7 @@
             "poorerName": "",
             "good": "5",
             "info": "",
-            "pic": []
+            "pic": ["/images/poverty/miaoxigui_1.jpg", "/images/poverty/miaoxigui_2.jpg", "/images/poverty/miaoxigui_3.jpg"]
         }],
         "kuquqixiang": [{
             "townName": "库如奇乡",
