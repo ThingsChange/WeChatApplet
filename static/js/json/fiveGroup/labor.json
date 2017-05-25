@@ -1,26 +1,42 @@
 {
-"moqi":{
-"poorPersons":5511,
-"dataList":[{"value":2500,"name":"丧失劳动力"},{"value":2500,"name":"无劳动力"},{"value":2500,"name":"技能劳动力"},{"value":2500,"name":"普通劳动力"}],
-"list":[
-{
-"townName":"丰收村",
-"poorPersons":200,
-"ordinaryWork":180,
-"loseWork":10,
-"technologyWork":10,
-"noWork":5
-},
-{
-"townName":"丰收村",
-"poorPersons":200,
-"ordinaryWork":180,
-"loseWork":10,
-"technologyWork":10,
-"noWork":5
-}
-]
-},
+  "moqi":{
+    "poorPersons":12134,
+    "dataList":[{"value":331,"name":"丧失劳动力"},{"value":4553,"name":"无劳动力"},{"value":12,"name":"技能劳动力"},{"value":7238,"name":"普通劳动力"}],
+    "list":[
+      {
+        "townName":"尼尔基镇",
+        "poorPersons":2222,
+        "ordinaryWork":1421,
+        "loseWork":12,
+        "technologyWork":3,
+        "noWork":786
+      },
+      {
+        "townName":"宝山镇",
+        "poorPersons":706,
+        "ordinaryWork":329,
+        "loseWork":14,
+        "technologyWork":0,
+        "noWork":363
+      },
+      {
+        "townName":"汉古尔河镇",
+        "poorPersons":1021,
+        "ordinaryWork":707,
+        "loseWork":17,
+        "technologyWork":1,
+        "noWork":296
+      },
+      {
+        "townName":"西瓦尔图镇",
+        "poorPersons":454,
+        "ordinaryWork":274,
+        "loseWork":15,
+        "technologyWork":0,
+        "noWork":165
+      }
+    ]
+  },
 "baoshanzhen":{
 "poorPersons":5511,
 "dataList":[{"value":2500,"name":"丧失劳动力"},{"value":2500,"name":"无劳动力"},{"value":2500,"name":"技能劳动力"},{"value":2500,"name":"普通劳动力"}],

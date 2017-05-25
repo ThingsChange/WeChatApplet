@@ -1,23 +1,35 @@
 {
   "moqi":{
-    "signPersons":5511,
+    "signPersons":10371,
     "pieChart":{
-      "rate":"37%",
-      "dataList":[{"value":300,"name":"已签约"},{"value":400,"name":"未签约"}],
-      "allPersons":5511
+      "rate":"4.07%",
+      "dataList":[{"value":10371,"name":"已签约"},{"value":244162,"name":"未签约"}],
+      "allPersons":254533
     },
     "list":[
       {
-        "townName":"丰收村",
-        "allPersons":17000,
-        "signPersons":200,
+        "townName":"尼尔基镇",
+        "allPersons":36872,
+        "signPersons":2223,
         "completionRate":"50%"
       },
       {
-        "townName":"丰收村",
-        "allPersons":17000,
-        "signPersons":200,
-        "completionRate":"50%"
+        "townName":"宝山镇",
+        "allPersons":21300,
+        "signPersons":54,
+        "completionRate":"0.25%"
+      },
+      {
+        "townName":"西瓦尔图镇",
+        "allPersons":19830,
+        "signPersons":482,
+        "completionRate":"2.43%"
+      },
+      {
+        "townName":"汉古尔河镇",
+        "allPersons":19221,
+        "signPersons":355,
+        "completionRate":"1.85%"
       }
     ]
   },

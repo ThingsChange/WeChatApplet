@@ -1,23 +1,35 @@
 {
   "moqi":{
-    "poorPersons":5511,
+    "poorPersons":12134,
     "pieChart":{
-      "rate":"37%",
-      "dataList":[{"value":300,"name":"已建档"},{"value":400,"name":"未建档"}],
-      "documentCount":5511
+      "rate":"4.77%",
+      "dataList":[{"value":12134,"name":"已建档"},{"value":242399,"name":"未建档"}],
+      "documentCount":12134
     },
     "list":[
       {
-        "townName":"丰收村",
-        "documentCount":17000,
-        "poorPersons":200,
-        "completionRate":"50%"
+        "townName":"尼尔基镇",
+        "documentCount":2222,
+        "poorPersons":2222,
+        "completionRate":"6.03%"
       },
       {
-        "townName":"丰收村",
-        "documentCount":17000,
-        "poorPersons":200,
-        "completionRate":"50%"
+        "townName":"汉古尔河镇",
+        "documentCount":1021,
+        "poorPersons":1021,
+        "completionRate":"5.31%"
+      },
+      {
+        "townName":"西瓦尔图镇",
+        "documentCount":454,
+        "poorPersons":454,
+        "completionRate":"2.29%"
+      },
+      {
+        "townName":"宝山镇",
+        "documentCount":706,
+        "poorPersons":706,
+        "completionRate":"3.31%"
       }
     ]
   },
