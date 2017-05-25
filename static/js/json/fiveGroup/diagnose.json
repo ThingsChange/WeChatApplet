@@ -100,60 +100,6 @@
         "poorPersons":4,
         "inllnessCasuses":0,
         "completionRate":"0.00%"
-      },
-      {
-        "townName":"太平川",
-        "poorPersons":6,
-        "inllnessCasuses":1,
-        "completionRate":"16.67%"
-      },
-      {
-        "townName":"太裕春",
-        "poorPersons":14,
-        "inllnessCasuses":1,
-        "completionRate":"7.14%"
-      },
-      {
-        "townName":"福德",
-        "poorPersons":8,
-        "inllnessCasuses":1,
-        "completionRate":"12.50%"
-      },
-      {
-        "townName":"巨泉山",
-        "poorPersons":13,
-        "inllnessCasuses":1,
-        "completionRate":"7.69%"
-      },
-      {
-        "townName":"宝龙泉",
-        "poorPersons":10,
-        "inllnessCasuses":4,
-        "completionRate":"40.00%"
-      },
-      {
-        "townName":"太平桥",
-        "poorPersons":14,
-        "inllnessCasuses":5,
-        "completionRate":"35.71%"
-      },
-      {
-        "townName":"后福民",
-        "poorPersons":72,
-        "inllnessCasuses":2,
-        "completionRate":"2.78%"
-      },
-      {
-        "townName":"福民",
-        "poorPersons":10,
-        "inllnessCasuses":2,
-        "completionRate":"20.00%"
-      },
-      {
-        "townName":"万发",
-        "poorPersons":14,
-        "inllnessCasuses":4,
-        "completionRate":"28.57%"
       }
     ]
   },
@@ -165,12 +111,6 @@
       "poorPersons":1189
     },
     "list":[
-      {
-        "townName":"龙兴村",
-        "poorPersons":38,
-        "inllnessCasuses":15,
-        "completionRate":"39.47%"
-      },
       {
         "townName":"博荣村",
         "poorPersons":0,
@@ -230,72 +170,6 @@
         "poorPersons":23,
         "inllnessCasuses":15,
         "completionRate":"65.22%"
-      },
-      {
-        "townName":"前兴农村",
-        "poorPersons":11,
-        "inllnessCasuses":11,
-        "completionRate":"100.00%"
-      },
-      {
-        "townName":"西博荣村",
-        "poorPersons":11,
-        "inllnessCasuses":2,
-        "completionRate":"18.18%"
-      },
-      {
-        "townName":"红星村",
-        "poorPersons":38,
-        "inllnessCasuses":8,
-        "completionRate":"21.05%"
-      },
-      {
-        "townName":"哈力浅村",
-        "poorPersons":28,
-        "inllnessCasuses":3,
-        "completionRate":"10.71%"
-      },
-      {
-        "townName":"博克图村",
-        "poorPersons":82,
-        "inllnessCasuses":9,
-        "completionRate":"11.11%"
-      },
-      {
-        "townName":"毕台村",
-        "poorPersons":37,
-        "inllnessCasuses":13,
-        "completionRate":"35.14%"
-      },
-      {
-        "townName":"兴隆泉村",
-        "poorPersons":90,
-        "inllnessCasuses":17,
-        "completionRate":"50%"
-      },
-      {
-        "townName":"双龙泉村",
-        "poorPersons":16,
-        "inllnessCasuses":5,
-        "completionRate":"18.89%"
-      },
-      {
-        "townName":"七家子村",
-        "poorPersons":15,
-        "inllnessCasuses":2,
-        "completionRate":"13.33%"
-      },
-      {
-        "townName":"绘图莫丁村",
-        "poorPersons":115,
-        "inllnessCasuses":37,
-        "completionRate":"32.17%"
-      },
-      {
-        "townName":"万宝山村",
-        "poorPersons":47,
-        "inllnessCasuses":37,
-        "completionRate":"78.72%"
       }
     ]
   },
@@ -366,12 +240,6 @@
         "poorPersons":4,
         "inllnessCasuses":0,
         "completionRate":"0.00%"
-      },
-      {
-        "townName":"西瓦尔图村",
-        "poorPersons":6,
-        "inllnessCasuses":1,
-        "completionRate":"16.67%"
       }
     ]
   },
@@ -442,24 +310,6 @@
         "poorPersons":49,
         "inllnessCasuses":6,
         "completionRate":"12.24%"
-      },
-      {
-        "townName":"汉古尔河村",
-        "poorPersons":88,
-        "inllnessCasuses":27,
-        "completionRate":"20.15%"
-      },
-      {
-        "townName":"东诺敏村",
-        "poorPersons":134,
-        "inllnessCasuses":25,
-        "completionRate":"18.66%"
-      },
-      {
-        "townName":"西诺敏村",
-        "poorPersons":149,
-        "inllnessCasuses":16,
-        "completionRate":"10.74%"
       }
     ]
   }

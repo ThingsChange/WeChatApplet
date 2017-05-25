@@ -138,11 +138,27 @@
         "hanguerhezhen": [{
             "townName": "汉古尔河镇",
             "avatar": "/images/avatar/default.jpg",
-            "helperName": "",
-            "poorerName": "",
-            "good": "5",
-            "info": "",
-            "pic": []
+            "helperName": "李宝宇",
+            "poorerName": "庞俊学",
+            "good": "8",
+            "info": "引导贫困户发展养羊产业。以前养过羊，有一定的经验。社会保障兜底。通过不定期走访探视等形式，强化对其家庭成员的政策灌输及法制宣传力度，使其及时了解掌握党和政府的富民惠民政策。",
+            "pic": ["/images/poverty/pangjunxue_1.jpg", "/images/poverty/pangjunxue_2.jpg", "/images/poverty/pangjunxue_3.jpg"]
+        }, {
+            "townName": "汉古尔河镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "英哲",
+            "poorerName": "汝学义",
+            "good": "2",
+            "info": "自我脱贫能力基本没有，从外部因素改变其贫困状态。社会保障兜底。通过不定期走访探视等形式，强化对其家庭成员的政策灌输及法制宣传力度，使其及时了解掌握党和政府的富民惠民政策。协调指导其发展特色养殖业。农闲时节帮助协调工业园区相关企业做临时工，赚取生活费用，改善生活条件。",
+            "pic": ["/images/poverty/ruxueyi_1.jpg"]
+        }, {
+            "townName": "汉古尔河镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "张雷",
+            "poorerName": "张玉贵",
+            "good": "6",
+            "info": "根据本人的实际情况，为其安排一些力所能及的活，增加一些收入，尽早实现脱贫。",
+            "pic": ["/images/poverty/zhangyugui_1.jpg", "/images/poverty/zhangyugui_2.jpg"]
         }],
         "hongyanzhen": [{
             "townName": "红彦镇",
@@ -175,10 +191,50 @@
             "townName": "尼尔基镇",
             "avatar": "/images/avatar/default.jpg",
             "helperName": "",
-            "poorerName": "",
+            "poorerName": "陈龙",
             "good": "5",
-            "info": "",
-            "pic": []
+            "info": "帮助申请贷款，扶持发展肉牛或肉羊养殖。培训养殖方面技能。报四种四养项目，种植菇娘15亩。",
+            "pic": ["/images/poverty/chenlong_1.jpg", "/images/poverty/chenlong_2.jpg"]
+        }, {
+            "townName": "尼尔基镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "",
+            "poorerName": "宫本东",
+            "good": "2",
+            "info": "产业扶持方面；根据家庭实际情况，可开小卖店贴补家用。基础设施方面；帮助解决住房问题，申请小异地搬迁。报四种四养项目；养羊20只。",
+            "pic": ["/images/poverty/gongbendong_1.jpg", "/images/poverty/gongbendong_2.jpg"]
+        }, {
+            "townName": "尼尔基镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "",
+            "poorerName": "李春生",
+            "good": "3",
+            "info": "产业扶持方面；根据家庭实际情况，想发展养殖业。基础设施方面；帮助解决住房问题，申请小异地搬迁。",
+            "pic": ["/images/poverty/lichunsheng_1.jpg", "/images/poverty/lichunsheng_2.jpg"]
+        }, {
+            "townName": "尼尔基镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "",
+            "poorerName": "刘兴",
+            "good": "6",
+            "info": "根据家庭实际情况和本人意愿，帮助申请贷款，养殖肉鸡等家禽。报四种四养项目；养仔猪20口。",
+            "pic": ["/images/poverty/liuxing_1.jpg", "/images/poverty/liuxing_2.jpg"]
+        }, {
+            "townName": "尼尔基镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "",
+            "poorerName": "赵金贵",
+            "good": "5",
+            "info": "产业扶持方面；根据家庭实际情况，想发展养殖业。报四种四养项目，养羊20只。2016年因保护生态环境需要，特给他申请为护林员以助于脱贫。（生态脱贫一批）",
+            "pic": ["/images/poverty/zhaojingui_1.jpg", "/images/poverty/zhaojingui_2.jpg"]
+        }, {
+            "townName": "尼尔基镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "",
+            "poorerName": "赵云祥",
+            "good": "7",
+            "info": "产业扶持方面；根据本人意愿，帮助申请扶贫贷款，养殖大鹅等家畜。基础建设方面；改户无房户，不能列入小异地搬迁项目范围之内，在政策允许范围内帮助解决住房问题。其他方面；帮助宋艳艳申请最低生活保障，为赵山办理残疾证。",
+            "pic": ["/images/poverty/zhaoyunxiang_1.jpg"]
         }],
         "tawenaobaozhen": [{
             "townName": "塔温敖宝镇",
@@ -201,11 +257,27 @@
         "xiwaertuzhen": [{
             "townName": "西瓦尔图镇",
             "avatar": "/images/avatar/default.jpg",
-            "helperName": "",
-            "poorerName": "",
-            "good": "5",
-            "info": "",
-            "pic": []
+            "helperName": "李宝宇",
+            "poorerName": "庞俊学",
+            "good": "8",
+            "info": "引导贫困户发展养羊产业。以前养过羊，有一定的经验。社会保障兜底。通过不定期走访探视等形式，强化对其家庭成员的政策灌输及法制宣传力度，使其及时了解掌握党和政府的富民惠民政策。",
+            "pic": ["/images/poverty/pangjunxue_1.jpg", "/images/poverty/pangjunxue_2.jpg", "/images/poverty/pangjunxue_3.jpg"]
+        }, {
+            "townName": "西瓦尔图镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "英哲",
+            "poorerName": "汝学义",
+            "good": "2",
+            "info": "自我脱贫能力基本没有，从外部因素改变其贫困状态。社会保障兜底。通过不定期走访探视等形式，强化对其家庭成员的政策灌输及法制宣传力度，使其及时了解掌握党和政府的富民惠民政策。协调指导其发展特色养殖业。农闲时节帮助协调工业园区相关企业做临时工，赚取生活费用，改善生活条件。",
+            "pic": ["/images/poverty/ruxueyi_1.jpg"]
+        }, {
+            "townName": "西瓦尔图镇",
+            "avatar": "/images/avatar/default.jpg",
+            "helperName": "张雷",
+            "poorerName": "张玉贵",
+            "good": "6",
+            "info": "根据本人的实际情况，为其安排一些力所能及的活，增加一些收入，尽早实现脱贫。",
+            "pic": ["/images/poverty/zhangyugui_1.jpg", "/images/poverty/zhangyugui_2.jpg"]
         }]
     }
 }

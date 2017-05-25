@@ -747,13 +747,31 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             mapApi.curr_path_id = this.id;
 
-                            console.log(this.id);
+                            // console.log(this.id);
                             $(".map-tips").removeClass("show");
+                            $.getJSON("../js/json/map_hover.json", function(res){
+                                var target = event.target.id;
+                                var data = res.povertyStructure[target];
+                                $(".map-links").html(template("mapClickTemp",data)).css({
+                                    "left": x - mapApi.dis_w,
+                                    "top": y - mapApi.dis_h,
+                                }).addClass("show");
 
-                            $(".map-links").css({
-                                "left": x - mapApi.dis_w,
-                                "top": y - mapApi.dis_h,
-                            }).addClass("show");
+                                //帮进入下一级地图
+                                $("#changeMap").on('click', function(event) {
+                                    event.stopPropagation();
+                                    event.preventDefault();
+                                    mapApi.curr_svg.removeClass('show');
+                                    $(".map-links").removeClass('show');
+                                    var _id = '#' + mapApi.curr_path_id+'Svg';
+                                    $(_id).addClass('show');
+                                    mapApi.getSubMap($(_id));
+                                    mapApi.hoverLock = true;
+                                    mapApi.curr_path_id=false;
+
+                                });
+                            })
+
                         }
                         //改变当前选择区域
                         area = mapApi.curr_path_id;
@@ -914,20 +932,6 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
         }; //mapApi
         //初始化地图方法；
         mapApi.init();
-
-        //进入下一级地图
-        mapApi.$cheangeMap.on('click', function(event) {
-                event.stopPropagation();
-                event.preventDefault();
-                mapApi.curr_svg.removeClass('show');
-                $(".map-links").removeClass('show');
-                var _id = '#' + mapApi.curr_path_id+'Svg';               
-                $(_id).addClass('show');               
-                mapApi.getSubMap($(_id));
-                mapApi.hoverLock = true;
-                mapApi.curr_path_id=false;
-
-            });
     // $(function() {
 
 

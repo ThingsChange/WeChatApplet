@@ -106,6 +106,9 @@
     background: #fff;
     overflow: hidden;
 }
+.user-img img {
+    width: 6vw;
+}
 .box-middle {
     width: 13.8vw;
 }

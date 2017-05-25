@@ -14,13 +14,7 @@
 <body class ="body-bg">
 <div class="mapBox">
     <div class="map-tips hide"></div>
-    <div class='map-links'>
-        <ul class="links-list">
-            <li><a id="changeMap" class="" href="javascript:;">进入该区域地图</a></li>
-            <li><a href="javascript:;">查看督导组成员</span></a></li>
-        </ul>
-        <div class="map-sanjiao"></div>
-    </div>
+    <div class='map-links'></div>
     <div id='svgBox' class="svgBox ">
         <!-- 县图 moqixian -->
         <svg id='moqi' class='show' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-400 250 3400 3600" style="enable-background:new 0 0 2453.8 3322.6;" xml:space="preserve">
@@ -2495,6 +2489,14 @@
     </ul>
     <div class="map-sanjiao"></div>
 </script>
+<script id = "mapClickTemp" type="text/html">
+    <ul class="links-list">
+        <li><a id="changeMap" class="" href="javascript:;">进入{{townName}}</a></li>
+        <li><a href="javascript:;">查看督导组成员</span></a></li>
+    </ul>
+    <div class="map-sanjiao"></div>
+</script>
+
 <!--地图模板 end-->
 <!-- 右侧-模板 start-->
 <!--首页模板-->
@@ -3712,7 +3714,7 @@
         </div>
     </div>
 </script>
-<!--村贫困家庭弹窗模板-->
+<!--指挥体系弹窗模板-->
 <script id = "organizationTemp" type="text/html">
     <div class="organization"><img src="../images/organization.png" alt=""></div>
 </script>
