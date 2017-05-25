@@ -1,23 +1,39 @@
 {
   "moqi":{
-    "poorPersons":5511,
-    "dataList":[{"value":2500,"name":"大病人数"},{"value":2500,"name":"残疾人人数"},{"value":2500,"name":"长期慢性病人数"},{"value":2500,"name":"健康人数"}],
+    "poorPersons":12134,
+    "dataList":[{"value":369,"name":"大病人数"},{"value":921,"name":"残疾人人数"},{"value":2584,"name":"长期慢性病人数"},{"value":8260,"name":"健康人数"}],
     "list":[
       {
-        "townName":"丰收村",
-        "poorPersons":200,
-        "healthPersons":180,
-        "longInllness":10,
-        "bigInllness":10,
-        "laborPersons":5
+        "townName":"尼尔基镇",
+        "poorPersons":2222,
+        "healthPersons":1627,
+        "longInllness":450,
+        "bigInllness":35,
+        "laborPersons":110
       },
       {
-        "townName":"丰收村",
-        "poorPersons":200,
-        "healthPersons":180,
-        "longInllness":10,
-        "bigInllness":10,
-        "laborPersons":5
+        "townName":"宝山镇",
+        "poorPersons":706,
+        "healthPersons":403,
+        "longInllness":155,
+        "bigInllness":22,
+        "laborPersons":126
+      },
+      {
+        "townName":"汉古尔河镇",
+        "poorPersons":1021,
+        "healthPersons":707,
+        "longInllness":263,
+        "bigInllness":27,
+        "laborPersons":24
+      },
+      {
+        "townName":"汉古尔河镇",
+        "poorPersons":454,
+        "healthPersons":275,
+        "longInllness":97,
+        "bigInllness":29,
+        "laborPersons":53
       }
     ]
   },

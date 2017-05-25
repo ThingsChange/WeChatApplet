@@ -45,8 +45,8 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
     var api = {
         'getHomePage': function(){
             $("#leftTabs").addClass("hide");
-            $("#leftOperation").removeClass("hide");
-            $("#sevenStepsTab").addClass("hide");
+            //$("#leftOperation").removeClass("hide");
+            //$("#sevenStepsTab").addClass("hide");
 
             //右侧--------------------start
 
@@ -873,14 +873,19 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                             var y = event.pageY || event.clientY + mapApi.scrollY;
                             mapApi.curr_path_id = this.id;
 
-                            // console.log(this.id);
                             //村贫困家庭表单
-                            $.jBox('', { title: "", buttons: {}, border: 0, opacity: 0.4 });
-                            document.getElementsByTagName('body')[0].style.padding = "0";
-                            // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
-                            //设置弹窗top值
-                            var html = template('villageTemp', {});
-                            document.getElementsByClassName('jbox-content')[0].innerHTML = html;
+                            // $.jBox('', { title: "", buttons: {}, border: 0, opacity: 0.4 });
+                            $.getJSON("../js/json/map_peopleList.json",function(res){
+                                var data={};
+                                data.data = res[area][mapApi.curr_path_id];
+                                var membersTemp = template("villageTemp", data);
+                                $.jBox(membersTemp, { title: "", buttons: {}, border: 0, opacity: 0.4 });
+                                document.getElementsByTagName('body')[0].style.padding = "0";
+                                // $.jBox("iframe:../html/perContent.html", {title: "李茜茜", buttons: {}, border: 0, opacity: 0.2})
+                                //设置弹窗top值
+                            })
+                            // var html = template('villageTemp', {});
+                            // document.getElementsByClassName('jbox-content')[0].innerHTML = html;
                             //家庭列表绑定点击事件
                             $(".village tr").on("click", function() {
                                 var $pop = $.jBox('', { title: "李茜茜", buttons: {}, border: 0, opacity: 0.4 });
