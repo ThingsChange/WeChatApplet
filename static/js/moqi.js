@@ -597,7 +597,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
                     innerBoxArr.push(arr);
                     leftFlag = 0;
                 }
-            }
+            } 
             window.timeOut = setInterval(setLeft.bind(null, innerBoxArr), 10);
         }
 
@@ -696,7 +696,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "dis_h": 200, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
             "inColor":"#1d4b99",  //地图选中区域颜色
-            "outColor":"#1c2d49",  //地图默认颜色 
+            "outColor":"#1b2769",  //地图默认颜色 
             
             "init": function() {
                 mapApi.getMap($("#moqi"));

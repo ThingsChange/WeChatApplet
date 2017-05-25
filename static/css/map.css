@@ -115,6 +115,9 @@ font-size:20px;
 .moqiSvg .st4{
 	font-size: 45px;
 }
+svg .validMap{
+	fill:#1b2769;
+}
 .hide{
 	display: none;
 }
