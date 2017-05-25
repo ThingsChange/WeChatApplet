@@ -2594,7 +2594,7 @@
 <script id="sevenStepsRightSideTemp" type="text/html">
     <div class="section" id="sevenSteps">
         <div class="header">
-            <h2>七步工作法</h2>
+            <h2>扶贫工作方法</h2>
         </div>
         <div class="content">
             <div class="step">
@@ -3157,7 +3157,7 @@
             </div>
         </div>
         <div class="per-mid">
-            <p>家庭成员</p>
+            <p class="per-title">家庭成员</p>
             <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
             <div class="family-list">
                 <table>
@@ -3186,11 +3186,11 @@
             </div>
         </div>
         <div class="per-btm">
-            <p>帮扶记录</p>
+            <p class="per-title">帮扶记录</p>
             <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
             <article>
-                <!--<h6>第一次帮扶</h6>-->
-                <!--<p><span>姚向渠</span>&nbsp;&nbsp;&nbsp;&nbsp;<em>精准扶贫户主会</em></p>-->
+                <h6 class="bfjl">第一次帮扶</h6>
+                <p><span>{{bfzrr}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<em>{{}}</em></p>
                 <!--<p>-->
                     <!--2017年5月10日，天气晴朗，我们开始了第一次精准扶贫的救援工作，工作进展的很顺利，我们一进村就看见姚向渠家的几件破旧不堪的衣服，他洋洋洒洒的躺在院子的破椅子上晒着太阳，看见我们就立马起了身，欢迎我们的到来。姚向渠，患有先天性残疾，右脚比左脚小了特别多。走起路来特别不方便。看见她的屋子，让我想起来一句话叫做“家徒四壁”，这句话放在她的身上，丝毫都没有夸张……</p>-->
                 <!--<div class="artical-img">-->
@@ -3200,11 +3200,18 @@
                     <!--<div><img src="../images/default_head_img.png"></div>-->
                 <!--</div>-->
                 <p>{{bfjl}}</p>
+                {{if img!==""}}
+                <div class="artical-img">
+                    {{each img as img}}
+                <div><img width="100%" src="{{img}}"></div>
+                    {{/each}}
+                </div>
+                {{/if}}
             </article>
         </div>
     </div>
     <div class="per-right">
-        <p>五人小组</p>
+        <p class="per-title">五人小组</p>
         <div style="width: 100%; background: -webkit-linear-gradient(top,#5d6874,#333f4c); height:3px;"></div>
         <section>
             <div class="per-top">
@@ -3491,7 +3498,7 @@
                     <td>{{}}</td>
                     <td>{{}}</td>
                     <td>{{data.doctor}}</td>
-                    <td>{{}}</td>
+                    <td>{{data.bfzrr}}</td>
                     <td>{{}}</td>
                     <td>{{}}</td>
                     <td>{{}}</td>

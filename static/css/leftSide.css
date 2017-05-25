@@ -442,3 +442,16 @@ table tr:nth-child(even) td{
     width: 72vw;
     padding-left: 2.4vw;
 }
+
+
+.per-title{
+    font-size: 1.2vw;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    color: #e5ecec;
+}
+
+.bfjl{
+    font-size: 1vw;
+    text-shadow: 1px 1px 1px #000;
+}

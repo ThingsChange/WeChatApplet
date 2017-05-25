@@ -170,7 +170,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //底部--------------------start
             $.getJSON("../js/json/fiveGroup/helpDynamic.json",function(res){
                 var data={};
-                data.list = res.povertyNews[area];
+                data.list = res.povertyNews["moqi"];
                 $('.bottom').html(template('helpDynamicTemp', data));
             });
             //家医签约按钮点击事件
@@ -435,7 +435,7 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             //底部--------------------start
             $.getJSON("../js/json/fiveGroup/helpDynamic.json",function(res){
                 var data={};
-                data.list = res.povertyNews[area];
+                data.list = res.povertyNews["moqi"];
                 $('.bottom').html(template('helpDynamicTemp', data));
             });
             //家医签约按钮点击事件

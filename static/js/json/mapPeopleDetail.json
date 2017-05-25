@@ -16,6 +16,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "王秀芝",
@@ -42,6 +45,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -62,6 +68,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "敬丽娟",
@@ -88,6 +97,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "宋昌花",
@@ -114,6 +126,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "王秀琴",
@@ -140,6 +155,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "兰英",
@@ -166,6 +184,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "代宝柱",
@@ -192,6 +213,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动能力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -212,12 +236,16 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "邹素珍",
             "sex": "女",
             "yhzgx": "配偶",
-            "ldnl":"丧失劳动力"
+            "ldnl":
+            "丧失劳动力"
           }
         ],
         "bfjl": ""
@@ -237,6 +265,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "丧失劳动力",
         "ssc": "东坤浅村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "王海清",
@@ -265,6 +296,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "安桂娟",
@@ -298,6 +332,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "张桂霞",
@@ -324,6 +361,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -344,6 +384,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "陈亚玲",
@@ -363,7 +406,7 @@
         "bfjl": ""
       },
       {
-        "id": "4",
+        "id": "5",
         "name": "朱玉珍",
         "isHz": "是",
         "jtCount": "2",
@@ -377,6 +420,9 @@
         "jkqk": "残疾",
         "ldnl": "无劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "安传龙",
@@ -389,7 +435,7 @@
         "bfjl": ""
       },
       {
-        "id": "5",
+        "id": "6",
         "name": "王占军",
         "isHz": "是",
         "jtCount": "2",
@@ -403,6 +449,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "王强",
@@ -415,7 +464,7 @@
         "bfjl": ""
       },
       {
-        "id": "6",
+        "id": "7",
         "name": "张凤",
         "isHz": "是",
         "jtCount": "2",
@@ -429,6 +478,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "陶淑娟",
@@ -441,7 +493,7 @@
         "bfjl": ""
       },
       {
-        "id": "7",
+        "id": "8",
         "name": "于振全",
         "isHz": "是",
         "jtCount": "1",
@@ -455,13 +507,16 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
         "bfjl": ""
       },
       {
-        "id": "8",
+        "id": "9",
         "name": "邹青武",
         "isHz": "是",
         "jtCount": "1",
@@ -475,6 +530,32 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "胜利村",
+        "img": [
+
+        ],
+        "otherFamily": [
+
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "10",
+        "name": "汪学清",
+        "isHz": "是",
+        "jtCount": "1",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********1517",
+        "mobile": "15547031629",
+        "doctor": "邹会明",
+        "bfzrr": "王兴发",
+        "bankNo": "1702**********0670",
+        "jkqk": "长期慢性病",
+        "ldnl": "无劳动力",
+        "ssc": "胜利村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -499,6 +580,9 @@
         "jkqk": "残疾",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "蒋立凤",
@@ -525,6 +609,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "蒋恩臣",
@@ -572,6 +659,11 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+          "../helpImg/baoshan_fuxing_baidehong/1.png",
+          "../helpImg/baoshan_fuxing_baidehong/2.png",
+          "../helpImg/baoshan_fuxing_baidehong/3.png"
+        ],
         "otherFamily": [
           {
             "name": "谢英",
@@ -612,6 +704,9 @@
         "jkqk": "残疾",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "朱井范",
@@ -638,6 +733,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "滕文华",
@@ -671,6 +769,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -691,6 +792,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "高新安",
@@ -717,6 +821,9 @@
         "jkqk": "残疾",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "沙凤霞",
@@ -750,6 +857,9 @@
         "jkqk": "残疾",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "陈喜琴",
@@ -776,6 +886,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "王成林",
@@ -811,6 +924,11 @@
         "jkqk": "残疾",
         "ldnl": "无劳动能力",
         "ssc": "小泉子村",
+        "img": [
+          "../helpImg/baoshan_xiaoquanzi_pangjunxue/1.png",
+          "../helpImg/baoshan_xiaoquanzi_pangjunxue/2.png",
+          "../helpImg/baoshan_xiaoquanzi_pangjunxue/3.png"
+        ],
         "otherFamily": [
           {
             "name": "蒋洪妃",
@@ -837,6 +955,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+          "../helpImg/baoshan_xiaoquanzi_ruxueyi/1.png"
+        ],
         "otherFamily": [
           {
             "name": "李广珍",
@@ -863,6 +984,10 @@
         "jkqk": "患有大病",
         "ldnl": "丧失劳动力",
         "ssc": "小泉子村",
+        "img": [
+          "../helpImg/baoshan_xiaoquanzi_duhaidong/1.png",
+          "../helpImg/baoshan_xiaoquanzi_duhaidong/2.png"
+        ],
         "otherFamily": [
           {
             "name": "朱海玲",
@@ -896,6 +1021,10 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+          "../helpImg/baoshan_xiaoquanzi_zhangyugui/1.png",
+          "../helpImg/baoshan_xiaoquanzi_zhangyugui/2.png"
+        ],
         "otherFamily": [
           {
             "name": "张玉泉",
@@ -929,6 +1058,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -949,6 +1081,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
 
         ],
@@ -969,6 +1104,9 @@
         "jkqk": "长期慢性病",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "陈桂霞",
@@ -1009,6 +1147,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "王鑫蕊",
@@ -1042,6 +1183,9 @@
         "jkqk": "健康",
         "ldnl": "普通劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "徐玉良",
@@ -1075,6 +1219,9 @@
         "jkqk": "残疾",
         "ldnl": "无劳动力",
         "ssc": "小泉子村",
+        "img": [
+
+        ],
         "otherFamily": [
           {
             "name": "孙洪霞",
@@ -1092,6 +1239,328 @@
           }
         ],
         "bfjl": "1、为该村精准扶贫经济林（榛子林）种植提供扶持资金3000元。2、积极协调帮助，准备为贫困户提供鹅雏40只，发展养殖业。"
+      }
+    ]
+  },
+  "xiwaertuzhen": {
+    "xinfacun": [
+      {
+        "id": "1",
+        "name": "柳运城",
+        "isHz": "是",
+        "jtCount": "3",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4519",
+        "mobile": "13848709755",
+        "doctor": "杨柏福",
+        "bfzrr": "徐鹏",
+        "bankNo": "1702**********4653",
+        "jkqk": "健康",
+        "ldnl": "无劳动力",
+        "ssc": "新发村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "门玉英",
+            "sex": "女",
+            "yhzgx": "配偶",
+            "ldnl":
+            "普通劳动力"
+          },
+          {
+            "name": "柳春东",
+            "sex": "女",
+            "yhzgx": "之孙女",
+            "ldnl":
+            "普通劳动力"
+          }
+        ],
+        "bfjl": "先解决其住房问题，通过四种四养项目鼓励其发展产业提高收入，新发采摘园收益分红并纳入低保户。"
+      },
+      {
+        "id": "2",
+        "name": "许秀金",
+        "isHz": "是",
+        "jtCount": "1",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4517",
+        "mobile": "13848047715",
+        "doctor": "杨柏福",
+        "bfzrr": "李清照",
+        "bankNo": "1702**********9578",
+        "jkqk": "健康",
+        "ldnl": "普通劳动力",
+        "ssc": "新发村",
+        "img": [
+
+        ],
+        "otherFamily": [
+
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "3",
+        "name": "季连生",
+        "isHz": "是",
+        "jtCount": "1",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4516",
+        "mobile": "13848047715",
+        "doctor": "杨柏福",
+        "bfzrr": "杜银光",
+        "bankNo": "1702**********176",
+        "jkqk": "健康",
+        "ldnl": "普通劳动力",
+        "ssc": "新发村",
+        "img": [
+
+        ],
+        "otherFamily": [
+
+        ],
+        "bfjl": "对其危房进行改造，鼓励参与四种四养项目，新发村采摘园收益分红。"
+      }
+    ],
+    "xinglongcun": [
+      {
+        "id": "1",
+        "name": "秦波",
+        "isHz": "是",
+        "jtCount": "1",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4511",
+        "mobile": "15847036150",
+        "doctor": "杨柏福",
+        "bfzrr": "易振江",
+        "bankNo": "1702**********1985",
+        "jkqk": "长期慢性病",
+        "ldnl": "无劳动力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "2",
+        "name": "林海权",
+        "isHz": "是",
+        "jtCount": "2",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4517",
+        "mobile": "15847036150",
+        "doctor": "杨柏福",
+        "bfzrr": "王晗",
+        "bankNo": "1702**********6011",
+        "jkqk": "长期慢性病",
+        "ldnl": "普通劳动力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "郭翠芳",
+            "sex": "女",
+            "yhzgx": "配偶",
+            "ldnl":
+            "普通劳动力"
+          }
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "3",
+        "name": "孙凤英",
+        "isHz": "是",
+        "jtCount": "2",
+        "sex": "女",
+        "mz": "汉族",
+        "sfz": "152123********452X",
+        "mobile": "15849049197",
+        "doctor": "杨柏福",
+        "bfzrr": "柳润东",
+        "bankNo": "1702**********9263",
+        "jkqk": "健康",
+        "ldnl": "普通劳动力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "杨俊心",
+            "sex": "女",
+            "yhzgx": "之外孙女",
+            "ldnl":
+            "无劳动力"
+          }
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "4",
+        "name": "褚坤",
+        "isHz": "是",
+        "jtCount": "3",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4513",
+        "mobile": "15704707337",
+        "doctor": "杨柏福",
+        "bfzrr": "王振平",
+        "bankNo": "1702**********9263",
+        "jkqk": "健康",
+        "ldnl": "长期慢性病",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "敖健健",
+            "sex": "男",
+            "yhzgx": "之子",
+            "ldnl":
+            "普通劳动力"
+          },
+          {
+            "name": "禇泳晶",
+            "sex": "女",
+            "yhzgx": "之孙女",
+            "ldnl":
+            "无劳动力"
+          }
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "5",
+        "name": "康立江",
+        "isHz": "是",
+        "jtCount": "3",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********1236",
+        "mobile": "15947759947",
+        "doctor": "杨柏福",
+        "bfzrr": "徐国江",
+        "bankNo": "1701**********1556",
+        "jkqk": "健康",
+        "ldnl": "普通劳动力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "卢春梅",
+            "sex": "女",
+            "yhzgx": "配偶",
+            "ldnl":
+            "普通劳动力"
+          },
+          {
+            "name": "康闯",
+            "sex": "男",
+            "yhzgx": "之子",
+            "ldnl":
+            "无劳动能力"
+          }
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "6",
+        "name": "曹喜权",
+        "isHz": "是",
+        "jtCount": "2",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********4514",
+        "mobile": "15847036150",
+        "doctor": "杨柏福",
+        "bfzrr": "易振江",
+        "bankNo": "1701**********1556",
+        "jkqk": "残疾",
+        "ldnl": "无劳动能力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "曹国志",
+            "sex": "男",
+            "yhzgx": "之子",
+            "ldnl":
+            "普通劳动力"
+          }
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "7",
+        "name": "辛国权",
+        "isHz": "是",
+        "jtCount": "2",
+        "sex": "男",
+        "mz": "汉族",
+        "sfz": "152123********451X",
+        "mobile": "15847036150",
+        "doctor": "杨柏福",
+        "bfzrr": "李长青",
+        "bankNo": "1701**********6011",
+        "jkqk": "长期慢性病",
+        "ldnl": "无劳动能力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+          {
+            "name": "李玉梅",
+            "sex": "女",
+            "yhzgx": "配偶",
+            "ldnl":
+            "无劳动能力"
+          }
+        ],
+        "bfjl": ""
+      },
+      {
+        "id": "8",
+        "name": "孙正芳",
+        "isHz": "是",
+        "jtCount": "1",
+        "sex": "女",
+        "mz": "汉族",
+        "sfz": "152123********4528",
+        "mobile": "15847036150",
+        "doctor": "杨柏福",
+        "bfzrr": "孟刚",
+        "bankNo": "1701**********9582",
+        "jkqk": "健康",
+        "ldnl": "普通劳动力",
+        "ssc": "兴隆村",
+        "img": [
+
+        ],
+        "otherFamily": [
+
+        ],
+        "bfjl": "计划让其参加四种四养项目，通过种植或者养殖来提高收入。"
       }
     ]
   }
