@@ -46,7 +46,7 @@
 	width: 30px;
 	height: 20px;
 	bottom:-20px;
-	right: 30px;
+	right: 68px;
 	border-bottom:none;
 	border-top:20px solid rgba(221, 230, 230, 0.6);
 	border-top:20px solid rgba(115, 113, 132, 0.9);
@@ -70,8 +70,8 @@
 
 .tips-list li,
 .links-list li{
-	line-height:2vw;
-	font-size:1vw;
+	line-height:2.5vw;
+	font-size:1.3vw;
 }
 .links-list li{
 	background-color: rgba(145, 150, 137,0.8);

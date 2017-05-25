@@ -693,10 +693,10 @@ require(['jquery','migrate','template','chart','charts','jbox','progressBar','co
             "scrollX": document.documentElement.scrollLeft || document.body.scrollLeft,
             "scrollY": document.documentElement.scrollTop || document.body.scrollTop,
             "dis_w": 90, //鼠标坐标偏移量
-            "dis_h": 200, //
+            "dis_h": 185, //
             "$cheangeMap": $("#changeMap"), //进入地图按钮
             "inColor":"#1d4b99",  //地图选中区域颜色
-            "outColor":"#1b2769",  //地图默认颜色 
+            "outColor":"#1b2769",  //地图可点击区域默认颜色 
             
             "init": function() {
                 mapApi.getMap($("#moqi"));
