@@ -210,7 +210,7 @@ span.span-active {
     height: 1.2vw;
     line-height: 1.2vw;
     margin-top: .8vw;
-    width: 7vw;
+    max-width: 8vw;
     text-align: center;
     background: #092544;
     border-radius: 0.6vw;
