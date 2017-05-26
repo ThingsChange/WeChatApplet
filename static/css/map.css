@@ -59,6 +59,9 @@
 	background-color: rgba(115, 113, 132, 0.9);
 	border-radius: 10px;
 }
+.map-tips{
+
+}
 .map-links .links-list{
 	padding:10px;
 	padding-top: 1px;
@@ -70,8 +73,8 @@
 
 .tips-list li,
 .links-list li{
-	line-height:2.5vw;
-	font-size:1.3vw;
+	line-height:2.1vw;
+	font-size:1.2vw;
 }
 .links-list li{
 	background-color: rgba(145, 150, 137,0.8);
@@ -117,6 +120,14 @@ font-size:20px;
 }
 svg .validMap{
 	fill:#1b2769;
+}
+svg .validMap:hover{
+	fill:#1d4b99;
+	cursor: pointer;
+}
+svg .validMap:active{
+	fill:blue;
+	cursor: pointer;
 }
 .hide{
 	display: none;
