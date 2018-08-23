@@ -9,8 +9,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    newDiv: "userInfo",
-    postList:[]
+    newDiv: "userInfo"
   },
   //事件处理函数
   bindViewTap: function() {
@@ -19,6 +18,7 @@ Page({
     })
   },
   onLoad: function () {
+    console.log(app.globalData.userInfo);
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -31,7 +31,8 @@ Page({
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          hasUserInfo: true,
+          postList: postsData.postList
         })
       }
     } else {
@@ -41,7 +42,8 @@ Page({
           app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
-            hasUserInfo: true
+            hasUserInfo: true,
+            postList: postsData.postList
           })
         }
       })
