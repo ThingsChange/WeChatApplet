@@ -1,24 +1,44 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/oldTalk/index",
+    "pages/popular/index",
+    "pages/mySelf/index"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "前端知识分享",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "前端知识分享"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "selectedColor": "#43D480",
+        "backgroundColor": "#43D480",
+        "iconPath": "/path/to/home.png",
+        "selectedIconPath": "/path/to/home_bc.png"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "pagePath": "pages/oldTalk/index",
+        "text": "老生常谈"
+      },
+      {
+        "pagePath": "pages/popular/index",
+        "text": "知识前沿"
+      },
+      {
+        "pagePath": "pages/mySelf/index",
+        "text": "我的",
+        "borderStyle":"black",
+        "selectedColor": "#43D480",
+        "backgroundColor": "#43D480",
+        "iconPath":"/path/to/mySelfIcon.png",
+        "selectedIconPath":"/path/to/mySelfIcon-bc.png"
       }
+
     ]
   }
 }

@@ -1,0 +1,2 @@
+<view>这是我的空间站</view>
+<view>{{userInfo.name}}</view>

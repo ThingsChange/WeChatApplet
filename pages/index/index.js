@@ -1,14 +1,16 @@
 //index.js
 //获取应用实例
+var postsData = require('../../data/posts-data.js')
+console.log(postsData);
 const app = getApp()
-
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    newDiv: "userInfo"
+    newDiv: "userInfo",
+    postList:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -20,7 +22,8 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo: true,
+        postList: postsData.postList
       })
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -50,6 +53,12 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  onPostTap: function (options) {
+    var postId = options.currentTarget.dataset.postid;
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id=' + postId
     })
   }
 })

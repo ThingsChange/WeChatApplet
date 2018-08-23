@@ -1,0 +1,3 @@
+<template name="newItem">
+   <view>1234</view>
+</template>
